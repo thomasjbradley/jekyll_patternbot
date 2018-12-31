@@ -5,5 +5,13 @@ module JekyllPatternbot
       [File.join(context.registers[:site].config['source'], '_patterns')].freeze
     end
 
+    def locate_include_file(context, file, safe)
+      if file.end_with? '.html'
+        super context, file, safe
+      else
+        super context, "#{file}.html", safe
+      end
+    end
+
   end
 end
