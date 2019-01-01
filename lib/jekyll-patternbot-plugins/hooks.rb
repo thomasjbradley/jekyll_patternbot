@@ -1,5 +1,4 @@
 module JekyllPatternbot
-  require 'jekyll-patternbot/settings'
 
   Jekyll::Hooks.register :site, :post_read do |site|
     # site.documents.each do |doc|
