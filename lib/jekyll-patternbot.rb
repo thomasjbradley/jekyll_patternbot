@@ -1,10 +1,13 @@
 # frozen_string_literal: true
 
 require 'jekyll'
-require 'jekyll-patternbot/version'
 
 module JekyllPatternbot
-  autoload :PatternTag, 'jekyll-patternbot/pattern-tag.rb'
+  require 'jekyll-patternbot/version'
+  require 'jekyll-patternbot/settings'
+  require 'jekyll-patternbot/hooks'
+  require 'jekyll-patternbot/generators'
+  require 'jekyll-patternbot/tags'
 end
 
 Liquid::Template.register_tag('pattern', JekyllPatternbot::PatternTag)
