@@ -32,7 +32,7 @@ module JekyllPatternbot
       dir = Config['patternbot']['settings']['destination'] + '/patterns/' + pattern
       html = Jekyll::PageWithoutAFile.new(@site, @site.source, dir, "#{subpattern}.html")
       html.content = JekyllHelpers.pattern_tag(pattern, subpattern, data.is_a?(Hash) ? data['fields'] : nil)
-      html.data['layout'] = 'pattern-single'
+      html.data['layout'] = 'pattern-include-output'
       html.data['title'] = Patterns.title pattern, subpattern, pattern_data, data
       html
     end
