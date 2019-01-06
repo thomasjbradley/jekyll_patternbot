@@ -11,7 +11,17 @@ module JekyllPatternbot
     end
 
     def data
-      @data = File.read(@filepath) if @data.nil?
+      if @data.nil?
+        raw_data = File.read(@filepath)
+        parser = CssParser::Parser.new
+        parser.load_string!(raw_data)
+        css = parser.to_h
+
+        if css.key?('all') and css['all'].key?(':root')
+          @data = css['all'][':root']
+        end
+      end
+
       @data
     end
 
@@ -19,7 +29,7 @@ module JekyllPatternbot
       {
         :filename => @filename,
         :filepath => @filepath,
-        :colors => CSSVariableParser.parse(data),
+        :colors => CSSColorParser.parse(data),
         :fonts => CSSFontParser.parse(Config['patternbot']['font_url'], data),
       }
     end

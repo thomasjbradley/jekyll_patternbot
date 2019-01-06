@@ -3,6 +3,7 @@
 require 'jekyll'
 require 'yaml'
 require 'unicode_titlecase'
+require 'css_parser'
 
 module JekyllPatternbot
   require 'jekyll_patternbot_plugins/config'
@@ -15,7 +16,7 @@ module JekyllPatternbot
   require 'jekyll_patternbot_plugins/parsers/modulifier'
   require 'jekyll_patternbot_plugins/parsers/gridifier'
   require 'jekyll_patternbot_plugins/parsers/typografier'
-  require 'jekyll_patternbot_plugins/parsers/css_variable'
+  require 'jekyll_patternbot_plugins/parsers/css_color'
   require 'jekyll_patternbot_plugins/parsers/css_font'
   require 'jekyll_patternbot_plugins/parsers/theme'
   # require 'jekyll_patternbot_plugins/parsers/icons'

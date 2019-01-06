@@ -21,6 +21,8 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'jekyll', '~> 3.8'
   spec.add_runtime_dependency 'unicode_titlecase'
+  spec.add_runtime_dependency 'css_parser'
+  spec.add_runtime_dependency 'rgb'
   spec.add_runtime_dependency 'jekyll_patternbot_plugins'
 
   spec.add_development_dependency 'bundler', '~> 1.17'
