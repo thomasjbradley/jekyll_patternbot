@@ -1,14 +1,9 @@
 module JekyllPatternbot
   class WebDevToolParser
 
-    attr_accessor :filename, :filepath, :url
-
-    @url_matches
-
     def initialize(filename)
       @filename = filename
       @filepath = File.expand_path filename, Config['patternbot']['settings']['css']['source']
-      @data = nil
     end
 
     def exists?

@@ -21,16 +21,16 @@
     "build-css-grid": "npm run postcss-patterns -- -o _patterns/grid/grid.min.css _patterns/grid/grid.css",
     "build-css-modules": "npm run postcss-patterns -- -o _patterns/modules/modules.min.css _patterns/modules/modules.css",
     "build-css-icons": "npm run postcss-patterns -- -o _patterns/icons/icons.min.css _patterns/icons/icons.css",
-    "build-css-pattern-lib": "npm run postcss -- -o assets/_patternbot/ui/pattern-lib.min.css assets/_patternbot/ui/pattern-lib.css",
+    "build-css-pattern_lib": "npm run postcss -- -o assets/_patternbot/ui/pattern_lib.min.css assets/_patternbot/ui/pattern_lib.css",
     "build-css": "npm-run-all --parallel build-css-*",
-    "build-js-pattern-lib": "uglifyjs assets/_patternbot/ui/main.js -c -m --lint -o assets/_patternbot/ui/pattern-lib.min.js",
-    "build-js": "npm run build-js-pattern-lib",
+    "build-js-pattern_lib": "uglifyjs assets/_patternbot/ui/main.js -c -m --lint -o assets/_patternbot/ui/pattern_lib.min.js",
+    "build-js": "npm run build-js-pattern_lib",
     "watch-css": "onchange '**/*.css' -e '**/*.min.css' -- npm run build-css",
     "watch-js": "onchange 'assets/_patternbot/ui/main.js' -- npm run build-js",
     "build": "npm run build-css && npm run build-js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/thomasjbradley/jekyll-patternbot.git"
+    "url": "https://github.com/thomasjbradley/jekyll_patternbot.git"
   }
 }

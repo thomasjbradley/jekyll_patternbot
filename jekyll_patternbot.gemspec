@@ -3,14 +3,14 @@ require 'yaml'
 config = YAML.load_file(File.expand_path('_config.yml', __dir__))
 
 Gem::Specification.new do |spec|
-  spec.name          = 'jekyll-patternbot'
+  spec.name          = 'jekyll_patternbot'
   spec.version       = config['patternbot']['version']
   spec.authors       = ['Thomas J Bradley']
   spec.email         = ['hey@thomasjbradley.ca']
 
   spec.summary       = 'Your pompous and persnickety patterning robot.'
   spec.description   = 'A Jekyll plugin for developing pattern libraries & style guides that can be used to generate a Jekyll website.'
-  spec.homepage      = 'https://github.com/thomasjbradley/jekyll-patternbot/'
+  spec.homepage      = 'https://github.com/thomasjbradley/jekyll_patternbot/'
   spec.license       = 'MIT'
 
   # Specify which files should be added to the gem when it is released.
@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'jekyll', '~> 3.8'
   spec.add_runtime_dependency 'unicode_titlecase'
-  spec.add_runtime_dependency 'jekyll-patternbot-plugins'
+  spec.add_runtime_dependency 'jekyll_patternbot_plugins'
 
   spec.add_development_dependency 'bundler', '~> 1.17'
   spec.add_development_dependency 'rake', '~> 10.0'

@@ -9,7 +9,7 @@ TODO: Delete this and the text above, and describe your gem
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'jekyll-patternbot'
+gem 'jekyll_patternbot'
 ```
 
 And then execute:
@@ -18,7 +18,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install jekyll-patternbot
+    $ gem install jekyll_patternbot
 
 ## Usage
 
@@ -32,7 +32,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/jekyll-patternbot.
+Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/jekyll_patternbot.
 
 ## License
 

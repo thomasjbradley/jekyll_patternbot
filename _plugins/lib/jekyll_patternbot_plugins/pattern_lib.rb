@@ -14,6 +14,9 @@ module JekyllPatternbot
     typografier = TypografierParser.new(Config['patternbot']['settings']['css']['typografier'])
     PatternbotData[:css][:typografier] = typografier.info if typografier.exists?
 
+    theme = ThemeParser.new(Config['patternbot']['settings']['css']['theme'])
+    PatternbotData[:css][:theme] = theme.info if theme.exists?
+
     # Parse theme CSS
 
     # Find logos
