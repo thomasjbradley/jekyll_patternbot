@@ -1,0 +1,11 @@
+.patternbot-vertical-spacing-classes {
+  display: none;
+}
+
+@media only screen and (min-width: 38em) {
+
+  .patternbot-vertical-spacing-classes {
+    display: block;
+  }
+
+}

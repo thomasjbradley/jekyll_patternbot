@@ -1,0 +1,725 @@
+/*
+ * Modulifier || Code released under the UNLICENSE
+ * Code under other copyrights & licenses listed below.
+ * https://modulifier.web-dev.tools/#responsive;images;list-group;icons;hidden;positioning;nice-lists;buttons;accessibility
+ */
+
+@-moz-viewport { width: device-width; scale: 1; }
+@-ms-viewport { width: device-width; scale: 1; }
+@-o-viewport { width: device-width; scale: 1; }
+@-webkit-viewport { width: device-width; scale: 1; }
+@viewport { width: device-width; scale: 1; }
+
+html {
+  box-sizing: border-box;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+template {
+  display: none;
+}
+
+details {
+  cursor: pointer;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+a,
+area,
+button,
+input,
+label,
+select,
+textarea,
+[tabindex] {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+img {
+  border: 0;
+}
+
+.img-flex,
+.img-flex img {
+  display: block;
+  width: 100%;
+}
+
+svg {
+  fill: currentColor;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+svg.img-flex {
+  width: 100%;
+  height: 100%;
+}
+
+.image-replacement, .ir {
+  overflow: hidden;
+  direction: ltr;
+  text-align: left;
+  text-indent: 100%;
+  white-space: nowrap;
+}
+
+.list-group, .list-group-inline, .list-group--inline {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.list-group > dd {
+  margin-left: 0;
+}
+
+.list-group-inline::before,
+.list-group-inline::after,
+.list-group--inline::before,
+.list-group--inline::after {
+  content: "";
+  display: table;
+}
+
+.list-group-inline::after,
+.list-group--inline::after {
+  clear: both;
+}
+
+.list-group-inline > li,
+.list-group--inline > li {
+  display: inline-block;
+}
+
+.list-group-inline > dt,
+.list-group--inline > dt {
+  clear: left;
+  float: left;
+  width: 11em;
+}
+
+.list-group-inline > dd,
+.list-group--inline > dd {
+  float: left;
+  min-width: 12em;
+}
+
+.icon {
+  display: inline-block;
+  position: relative;
+  background: transparent none no-repeat center center;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+.i-16, .i--16 {
+  height: 16px;
+  width: 16px;
+}
+
+.i-18, .i--18 {
+  height: 18px;
+  width: 18px;
+}
+
+.i-20, .i--20 {
+  height: 20px;
+  width: 20px;
+}
+
+.i-24, .i--24 {
+  height: 24px;
+  width: 24px;
+}
+
+.i-32, .i--32 {
+  height: 32px;
+  width: 32px;
+}
+
+.i-48, .i--48 {
+  height: 48px;
+  width: 48px;
+}
+
+.i-64, .i--64 {
+  height: 64px;
+  width: 64px;
+}
+
+.i-96, .i--96 {
+  height: 96px;
+  width: 96px;
+}
+
+.i-128, .i--128 {
+  height: 128px;
+  width: 128px;
+}
+
+.i-192, .i--192 {
+  height: 192px;
+  width: 192px;
+}
+
+.i-256, .i--256 {
+  height: 256px;
+  width: 256px;
+}
+
+.icon img,
+.icon svg {
+  left: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  fill: currentColor;
+}
+
+.icon-label {
+  vertical-align: middle;
+}
+
+.icon-link,
+.icon-link:focus,
+.icon-link:hover {
+  text-decoration: none;
+}
+
+[hidden], .hidden {
+  /* stylelint-disable declaration-no-important */
+  display: none !important;
+  visibility: hidden !important;
+  /* stylelint-enable */
+}
+
+.visually-hidden {
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+}
+
+.visually-hidden.focusable:active, .visually-hidden.focusable:focus {
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+  clip: auto;
+  clip-path: none;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.chop,
+.crop {
+  overflow: hidden;
+}
+
+.truncate {
+  max-width: 100%;
+  overflow: hidden;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.scrollable {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.clearfix::after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.center-text,
+.center-flow {
+  text-align: center;
+}
+
+.center-block {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.no-auto-margins,
+.not-centered {
+  /* stylelint-disable declaration-no-important */
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  /* stylelint-enable */
+}
+
+.center-content,
+.center-content-vertical,
+.center-contents,
+.center-contents-vertical {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-flex-direction: column wrap;
+  -ms-flex-direction: column wrap;
+  flex-flow: column wrap;
+}
+
+.center-content-start,
+.center-content-vertical-start,
+.center-contents-start,
+.center-contents-vertical-start {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: column wrap;
+  -ms-flex-direction: column wrap;
+  flex-flow: column wrap;
+}
+
+.center-content-horizontal,
+.center-contents-horizontal {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-flex-direction: row wrap;
+  -ms-flex-direction: row wrap;
+  flex-flow: row wrap;
+}
+
+.inline {
+  display: inline;
+}
+
+.block {
+  display: block;
+}
+
+.inline-block, .ib {
+  display: inline-block;
+}
+
+.valign-top {
+  vertical-align: top;
+}
+
+.valign-bottom {
+  vertical-align: bottom;
+}
+
+.valign-middle {
+  vertical-align: middle;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.relative {
+  position: relative;
+}
+
+[class*="pin-"],
+.absolute {
+  position: absolute;
+}
+
+.static {
+  position: static;
+}
+
+.zindex-1 {
+  z-index: 1;
+}
+
+.zindex-2 {
+  z-index: 2;
+}
+
+.zindex-3 {
+  z-index: 3;
+}
+
+.zindex-1000 {
+  z-index: 1000;
+}
+
+.pin-top-left,
+.pin-left-top,
+.pin-tl,
+.pin-lt {
+  top: 0;
+  left: 0;
+}
+
+.pin-top-right,
+.pin-right-top,
+.pin-tr,
+.pin-rt {
+  top: 0;
+  right: 0;
+}
+
+.pin-bottom-left,
+.pin-left-bottom,
+.pin-bl,
+.pin-lb {
+  bottom: 0;
+  left: 0;
+}
+
+.pin-bottom-right,
+.pin-right-bottom,
+.pin-br,
+.pin-rb {
+  bottom: 0;
+  right: 0;
+}
+
+.pin-top-center,
+.pin-center-top,
+.pin-tc,
+.pin-ct {
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.pin-bottom-center,
+.pin-center-bottom,
+.pin-bc,
+.pin-cb {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pin-center-left,
+.pin-left-center,
+.pin-cl,
+.pin-lc {
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.pin-center-right,
+.pin-right-center,
+.pin-cr,
+.pin-rc {
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.pin-center, .pin-c {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.width-quarter, .w-1-4 {
+  width: 25%;
+}
+
+.width-half, .w-1-2 {
+  width: 50%;
+}
+
+.width-full, .w-1 {
+  width: 100%;
+}
+
+.height-quarter, .h-1-4 {
+  height: 25%;
+}
+
+.height-half, .h-1-2 {
+  height: 50%;
+}
+
+.height-full, .h-1 {
+  height: 100%;
+}
+
+.height-win-quarter, .h-w-1-4 {
+  height: 25vh;
+  max-height: 46em;
+}
+
+.height-win-half, .h-w-1-2 {
+  height: 50vh;
+  max-height: 46em;
+}
+
+.height-win-full, .h-w-1 {
+  height: 100vh;
+  max-height: 46em;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul > li::before {
+  content: "·";
+  float: left;
+  margin-left: -1.6em;
+  width: 1.3em;
+  text-align: right;
+}
+
+ol {
+  counter-reset: ol-simple-numbers;
+  list-style-type: none;
+}
+
+ol > li::before {
+  float: left;
+  margin-left: -1.6em;
+  width: 1.3em;
+  counter-increment: ol-simple-numbers;
+  content: counter(ol-simple-numbers);
+  text-align: right;
+}
+
+.list-group > li::before,
+.list-group-inline > li::before,
+.list-group--inline > li::before {
+  content: none;
+}
+
+.link-box {
+  display: block;
+  text-decoration: none;
+}
+
+/* stylelint-disable no-descending-specificity */
+
+button,
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  margin: 0;
+  overflow: visible;
+  padding: .375em .75em .42em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #333;
+  border-radius: 4px;
+  border: 3px solid #333;
+  color: #fff;
+  font: inherit;
+  text-decoration: none;
+  text-transform: none;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/* stylelint-enable */
+
+button:focus,
+button:hover,
+.btn:focus,
+.btn:hover {
+  background-color: #000;
+  border-color: #000;
+  color: #fff;
+}
+
+button[disabled] {
+  cursor: default;
+}
+
+.btn-light, .btn--light {
+  background-color: #e2e2e2;
+  border-color: #e2e2e2;
+  color: #000;
+}
+
+.btn-light:focus,
+.btn-light:hover,
+.btn--light:focus,
+.btn--light:hover {
+  background-color: #666;
+  border-color: #666;
+  color: #fff;
+}
+
+.btn-ghost,
+.btn--ghost {
+  background-color: transparent;
+  border-color: #333;
+  color: #000;
+}
+
+.btn-ghost:focus,
+.btn-ghost:hover,
+.btn--ghost:focus,
+.btn--ghost:hover {
+  background-color: #e2e2e2;
+  border-color: #000;
+  color: #000;
+}
+
+.btn-link {
+  display: inline;
+  padding: 0;
+  background-color: transparent;
+  border-radius: 0;
+  border: 0;
+  color: inherit;
+}
+
+.btn-link:focus,
+.btn-link:hover {
+  background-color: transparent;
+  color: inherit;
+}
+
+a:hover, a:active {
+  outline: none;
+}
+
+a:focus,
+[tabindex="0"]:focus,
+details:focus,
+summary:focus,
+input:focus,
+textarea:focus,
+button:focus,
+select:focus {
+  outline: 3px solid #000;
+  outline-offset: 0;
+}
+
+a:focus, [tabindex="0"]:focus {
+  outline-offset: 3px;
+}
+
+.skip-links {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.skip-links > li::before {
+  content: none; /* Remove the bullets if nice lists is selected */
+}
+
+.skip-links a,
+.skip-links button {
+  padding: .5em .75em;
+  position: absolute;
+  top: -10em;
+  z-index: 10000; /* To make sure they're always on top */
+  background-color: #000;
+  border: 0;
+  color: #fff;
+  font-size: 1.125rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.skip-links a:focus,
+.skip-links button:focus {
+  outline-offset: 3px;
+  top: 0;
+}
+
+[aria-busy="true"] {
+  cursor: progress;
+}
+
+[aria-controls] {
+  cursor: pointer;
+}
+
+[aria-disabled] {
+  cursor: default;
+}

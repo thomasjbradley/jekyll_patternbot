@@ -1,0 +1,20 @@
+<div class="text-left">
+  <div class="patternbot-mq-display-wrap push patternbot-font-primary patternbot-color-body">
+    <ol class="patternbot-mq-display list-group push-0 pad-b" style="{{# each commonInfo.typografier}}width: calc({{mq}}em + 40em); {{/each}}">
+      {{# each commonInfo.typografier}}
+        <li style="padding-left: {{mq}}em">
+          <div class="patternbot-mq-inner relative" {{#if ../commonInfo.readme.attributes.accentColour}}style="background-color: {{../commonInfo.readme.attributes.accentColour}}"{{/if}}>
+            <dl class="patternbot-mq-list list-group-inline push-0 gutter-1-2 absolute micro" {{#if ../commonInfo.readme.attributes.accentColour}}style="border-color: {{../commonInfo.readme.attributes.accentColour}}"{{/if}}>
+              <dt class="push-0">Media query</dt>
+              <dd class="push-0">{{#if mq}}{{mq}}em{{else}}∞{{/if}}</dd>
+              <dt class="push-0">Sizes</dt>
+              <dd class="push-0">{{fontSize}}% / {{lineHeight}}rem</dd>
+              <dt class="push-0">Type scale</dt>
+              <dd class="push-0">{{scale}}</dd>
+            </dl>
+          </div>
+        </li>
+      {{/each}}
+    </ol>
+  </div>
+</div>

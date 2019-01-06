@@ -1,0 +1,43 @@
+<section class="text-left">
+  <div class="grid">
+    <div class="unit [ xs-1 m-1-2 ]">
+      <h1 class="patternbot-color-body patternbot-color-user-or-body yotta text-left" style="color: {{#if commonInfo.readme.attributes.accentColour}}{{commonInfo.readme.attributes.accentColour}}{{else}}var(--color-primary){{/if}}; {{#if commonInfo.theme.fonts.secondary}}font-family: {{commonInfo.theme.fonts.secondary.raw}};{{/if}}">
+        {{#if commonInfo.readme.attributes.name}}
+          {{commonInfo.readme.attributes.name}}
+          <span class="patternbot-sub-heading block giga">Pattern Library</span>
+        {{else}}
+          Pattern Library
+        {{/if}}
+      </h1>
+      <div class="patternbot-brand-desc peta">
+        {{#if commonInfo.readme.body}}
+          {{{commonInfo.readme.body}}}
+        {{else}}
+          <p>This pattern library is the source for all the colours, fonts &amp; styles available for our website.</p>
+        {{/if}}
+      </div>
+    </div>
+    <div class="unit [ xs-1 m-1-2 ] text-center gutter">
+      {{#if commonFiles.logos.sizeLarge}}
+        <i class="icon i-192 block center-block push-1-2">
+          <img class="img-flex" src="../../images/{{commonFiles.logos.sizeLargeLocal}}" alt="">
+        </i>
+      {{/if}}
+      {{#if commonFiles.logos.size64}}
+        <i class="icon i-64 push-r-1-4">
+          <img class="img-flex" src="../../images/{{commonFiles.logos.size64Local}}" alt="">
+        </i>
+      {{/if}}
+      {{#if commonFiles.logos.size32}}
+        <i class="icon i-32 push-r-1-4">
+          <img class="img-flex" src="../../images/{{commonFiles.logos.size32Local}}" alt="">
+        </i>
+      {{/if}}
+      {{#if commonFiles.logos.size16}}
+        <i class="icon i-16">
+          <img class="img-flex" src="../../images/{{commonFiles.logos.size16Local}}" alt="">
+        </i>
+      {{/if}}
+    </div>
+  </div>
+</section>

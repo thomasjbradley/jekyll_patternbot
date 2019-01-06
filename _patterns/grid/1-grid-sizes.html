@@ -1,0 +1,47 @@
+<div class="patternbot-mq-display-wrap push patternbot-font-primary patternbot-color-body">
+  <ol class="patternbot-mq-display patternbot-list-group list-group push-0 pad-b" style="{{# each commonInfo.gridifier}}width: calc({{mq}}em + 40em); {{/each}}">
+    {{# each commonInfo.gridifier}}
+      <li style="padding-left: {{mq}}em">
+        <div class="patternbot-mq-inner relative" {{#if ../commonInfo.readme.attributes.accentColour}}style="background-color: {{../commonInfo.readme.attributes.accentColour}}"{{/if}}>
+          <dl class="patternbot-mq-list patternbot-list-group list-group-inline push-0 gutter-1-2 absolute micro" {{#if ../commonInfo.readme.attributes.accentColour}}style="border-color: {{../commonInfo.readme.attributes.accentColour}}"{{/if}}>
+            <dt class="push-0">Media query</dt>
+            <dd class="push-0">{{#if mq}}{{mq}}em{{else}}∞{{/if}}</dd>
+            <dt class="push-0">Class prefix</dt>
+            <dd class="push-0">{{prefix}}</dd>
+            <dt class="push-0">№ columns</dt>
+            <dd class="push-0">{{columns}}</dd>
+          </dl>
+        </div>
+      </li>
+    {{/each}}
+  </ol>
+</div>
+
+<hr class="patternbot-hr">
+
+<div class="patternbot-grid-wrap pad-b">
+  {{#each commonInfo.gridifier}}
+    <h2 class="patternbot-font-primary patternbot-color-body giga normal">Sizes available at “{{prefix}}”</h2>
+    {{#times columns}}
+      <ol class="patternbot-grid-display {{#if @last}}push{{/if}}" style="min-width: 320px; {{#if mq}}width: {{mq}}em{{else}}width: 320px{{/if}}">
+        {{#if @first}}
+          <li style="width: 100%">
+            <div class="patternbot-grid-display-inner island-1-4" {{#if ../commonInfo.readme.attributes.accentColour}}style="border-color: {{../commonInfo.readme.attributes.accentColour}}"{{/if}}>
+              <code class="micro">.{{prefix}}-1</code>
+            </div>
+          </li>
+        {{else}}
+          {{#loop @index}}
+            <li style="width: calc(100% / {{@index}})">
+              <div class="patternbot-grid-display-inner island-1-4" {{#if ../../commonInfo.readme.attributes.accentColour}}style="border-color: {{../../commonInfo.readme.attributes.accentColour}}"{{/if}}>
+                <code class="micro">.{{../prefix}}-1-{{@index}}</code>
+              </div>
+            </li>
+          {{/loop}}
+        {{/if}}
+      </ol>
+    {{/times}}
+
+    <hr class="patternbot-hr">
+  {{/each}}
+</div>

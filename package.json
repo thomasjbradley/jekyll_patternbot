@@ -1,0 +1,36 @@
+{
+  "private": true,
+  "devDependencies": {
+    "css": "^2.2.1",
+    "cssnano": "^3.10.0",
+    "npm-run-all": "^4.1.2",
+    "postcss-assets": "^5.0.0",
+    "postcss-cli": "^5.0.0",
+    "postcss-import": "^11.1.0",
+    "uglify-js": "^3.3.10"
+  },
+  "scripts": {
+    "postcss": "postcss --no-map -u postcss-import -u postcss-assets -u cssnano --cssnano.safe",
+    "postcss-patterns": "postcss --no-map -u postcss-import -u postcss-assets -u cssnano --cssnano.safe",
+    "build-css-patterns-common-delete": "rm -rf assets/_patternbot/common/*.min.css",
+    "build-css-patterns-common-copy": "for i in assets/_patternbot/common/*.css; do cp \"$i\" \"${i/.css/.min.css}\"; done",
+    "build-css-patterns-common-minify": "npm run postcss-patterns -- -d assets/_patternbot/common/ assets/_patternbot/common/*.min.css",
+    "build-css-patterns-common": "npm run build-css-patterns-common-delete && npm run build-css-patterns-common-copy && npm run build-css-patterns-common-minify",
+    "build-css-brand": "npm run postcss-patterns -- -o _patterns/brand/brand.min.css _patterns/brand/brand.css",
+    "build-css-type": "npm run postcss-patterns -- -o _patterns/typography/typography.min.css _patterns/typography/typography.css",
+    "build-css-grid": "npm run postcss-patterns -- -o _patterns/grid/grid.min.css _patterns/grid/grid.css",
+    "build-css-modules": "npm run postcss-patterns -- -o _patterns/modules/modules.min.css _patterns/modules/modules.css",
+    "build-css-icons": "npm run postcss-patterns -- -o _patterns/icons/icons.min.css _patterns/icons/icons.css",
+    "build-css-pattern-lib": "npm run postcss -- -o assets/_patternbot/ui/pattern-lib.min.css assets/_patternbot/ui/pattern-lib.css",
+    "build-css": "npm-run-all --parallel build-css-*",
+    "build-js-pattern-lib": "uglifyjs assets/_patternbot/ui/main.js -c -m --lint -o assets/_patternbot/ui/pattern-lib.min.js",
+    "build-js": "npm run build-js-pattern-lib",
+    "watch-css": "onchange '**/*.css' -e '**/*.min.css' -- npm run build-css",
+    "watch-js": "onchange 'assets/_patternbot/ui/main.js' -- npm run build-js",
+    "build": "npm run build-css && npm run build-js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thomasjbradley/jekyll-patternbot.git"
+  }
+}
