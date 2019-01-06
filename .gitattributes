@@ -1,0 +1,13 @@
+# Force Unix LF to make code consistent across platforms
+# Helps Markbot cheat detection to work properly
+
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.txt text eol=lf
+*.svg text eol=lf
+*.lock text eol=lf
+
+.editorconfig text eol=lf
