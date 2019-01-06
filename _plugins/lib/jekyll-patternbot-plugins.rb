@@ -11,6 +11,13 @@ module JekyllPatternbot
   require 'jekyll-patternbot-plugins/helpers/jekyll'
   require 'jekyll-patternbot-plugins/helpers/pattern'
 
+  require 'jekyll-patternbot-plugins/parsers/web_dev_tool'
+  require 'jekyll-patternbot-plugins/parsers/modulifier'
+  require 'jekyll-patternbot-plugins/parsers/gridifier'
+  require 'jekyll-patternbot-plugins/parsers/typografier'
+  # require 'jekyll-patternbot-plugins/parsers/theme'
+  # require 'jekyll-patternbot-plugins/parsers/icons'
+
   require 'jekyll-patternbot-plugins/pattern-lib'
 
   require 'jekyll-patternbot-plugins/user-patterns/patterns'
