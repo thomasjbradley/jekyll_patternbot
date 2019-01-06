@@ -1,5 +1,4 @@
 module JekyllPatternbot
-
   class PatternTag < Jekyll::Tags::IncludeTag
 
     def tag_includes_dirs(context)
@@ -15,7 +14,6 @@ module JekyllPatternbot
     end
 
   end
-
 end
 
 Liquid::Template.register_tag('pattern', JekyllPatternbot::PatternTag)

@@ -1,8 +1,5 @@
 permalink: pretty
 
-exclude:
-  - assets
-
 patternbot:
   version: "0.1.0"
   settings:
