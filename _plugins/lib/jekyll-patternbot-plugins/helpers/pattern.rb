@@ -1,12 +1,8 @@
 module JekyllPatternbot
-  module Patterns
+  module PatternHelper
 
     def self.slug_to_words(slug)
       slug.gsub(/[\-_]/, ' ').gsub(/\s+/, ' ')
-    end
-
-    def self.patterns
-      FileHelpers.list_dirs Config['patternbot']['settings']['source']
     end
 
     def self.config_valid?(config)

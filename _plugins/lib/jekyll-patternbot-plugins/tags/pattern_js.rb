@@ -1,4 +1,5 @@
 module JekyllPatternbot
+
   module PatternJS
 
     def self.js
@@ -14,4 +15,13 @@ module JekyllPatternbot
     end
 
   end
+
+  class PatternJSTag < Liquid::Tag
+    def render(context)
+      PatternJS.js.map { |k, v| v } .join("\n")
+    end
+  end
+
 end
+
+Liquid::Template.register_tag('pattern_js', JekyllPatternbot::PatternJSTag)

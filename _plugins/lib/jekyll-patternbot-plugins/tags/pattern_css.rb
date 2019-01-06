@@ -1,4 +1,5 @@
 module JekyllPatternbot
+
   module PatternCSS
 
     def self.css
@@ -14,4 +15,13 @@ module JekyllPatternbot
     end
 
   end
+
+  class PatternCSSTag < Liquid::Tag
+    def render(context)
+      PatternCSS.css.map { |k, v| v } .join("\n")
+    end
+  end
+
 end
+
+Liquid::Template.register_tag('pattern_css', JekyllPatternbot::PatternCSSTag)
