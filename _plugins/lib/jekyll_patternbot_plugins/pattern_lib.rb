@@ -1,6 +1,7 @@
 module JekyllPatternbot
 
   Jekyll::Hooks.register :site, :post_read do |site|
+    PatternbotCache = {}
     PatternbotData = {
       :css => {}
     }
@@ -16,8 +17,6 @@ module JekyllPatternbot
 
     theme = ThemeParser.new(Config['patternbot']['settings']['css']['theme'])
     PatternbotData[:css][:theme] = theme.info if theme.exists?
-
-    # Parse theme CSS
 
     # Find logos
 

@@ -9,7 +9,7 @@ module JekyllPatternbot
 
     def generate(site)
       @site = site
-      @site.pages.concat(patterns)
+      @site.pages.concat patterns
     end
 
     def patterns

@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
+require 'open-uri'
 require 'jekyll'
+require 'babosa'
+require 'deep_merge'
 require 'yaml'
 require 'unicode_titlecase'
 require 'css_parser'
