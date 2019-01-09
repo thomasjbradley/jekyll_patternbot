@@ -22,7 +22,11 @@ module JekyllPatternbot
   require 'jekyll_patternbot_plugins/parsers/css_color'
   require 'jekyll_patternbot_plugins/parsers/css_font'
   require 'jekyll_patternbot_plugins/parsers/theme'
-  # require 'jekyll_patternbot_plugins/parsers/icons'
+
+  require 'jekyll_patternbot_plugins/finders/finder'
+  require 'jekyll_patternbot_plugins/finders/logos'
+  require 'jekyll_patternbot_plugins/finders/icons'
+  require 'jekyll_patternbot_plugins/parsers/icons'
 
   require 'jekyll_patternbot_plugins/pattern_lib'
 

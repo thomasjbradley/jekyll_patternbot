@@ -1,6 +1,7 @@
 patternbot:
   source: "_patterns"
   destination: "pattern-library"
+  font_url: false
   css:
     source: "css"
     modulifier: "modules.css"
@@ -8,4 +9,19 @@ patternbot:
     typografier: "type.css"
     theme: "theme.css"
   icons:
-    source: "images/icons.svg"
+    source: "images"
+    filenames:
+      - "icons"
+    extensions:
+      - ".svg"
+  logos:
+    source: "images"
+    filenames:
+      - "logo"
+      - "logo-256"
+      - "logo-64"
+      - "logo-32"
+      - "logo-16"
+    extensions:
+      - ".svg"
+      - ".png"
