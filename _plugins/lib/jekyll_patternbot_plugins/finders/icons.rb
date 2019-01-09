@@ -15,7 +15,6 @@ module JekyllPatternbot
         icon_file[:filename] = file
         icons.push(icon_file)
       end
-      puts icons.inspect
       icons
     end
 
