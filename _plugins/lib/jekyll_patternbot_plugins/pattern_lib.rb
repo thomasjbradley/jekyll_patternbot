@@ -6,16 +6,16 @@ module JekyllPatternbot
       :css => {}
     }
 
-    modulifier = ModulifierParser.new(Config['patternbot']['settings']['css']['modulifier'])
+    modulifier = ModulifierParser.new(Config['patternbot']['css']['modulifier'])
     PatternbotData[:css][:modulifier] = modulifier.info if modulifier.exists?
 
-    gridifier = GridifierParser.new(Config['patternbot']['settings']['css']['gridifier'])
+    gridifier = GridifierParser.new(Config['patternbot']['css']['gridifier'])
     PatternbotData[:css][:gridifier] = gridifier.info if gridifier.exists?
 
-    typografier = TypografierParser.new(Config['patternbot']['settings']['css']['typografier'])
+    typografier = TypografierParser.new(Config['patternbot']['css']['typografier'])
     PatternbotData[:css][:typografier] = typografier.info if typografier.exists?
 
-    theme = ThemeParser.new(Config['patternbot']['settings']['css']['theme'])
+    theme = ThemeParser.new(Config['patternbot']['css']['theme'])
     PatternbotData[:css][:theme] = theme.info if theme.exists?
 
     # Find logos

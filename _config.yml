@@ -1,13 +1,11 @@
 patternbot:
-  version: "0.1.0"
-  settings:
-    source: "_patterns"
-    destination: "pattern-library"
-    css:
-      source: "css"
-      modulifier: "modules.css"
-      gridifier: "grid.css"
-      typografier: "type.css"
-      theme: "theme.css"
-    icons:
-      source: "images/icons.svg"
+  source: "_patterns"
+  destination: "pattern-library"
+  css:
+    source: "css"
+    modulifier: "modules.css"
+    gridifier: "grid.css"
+    typografier: "type.css"
+    theme: "theme.css"
+  icons:
+    source: "images/icons.svg"

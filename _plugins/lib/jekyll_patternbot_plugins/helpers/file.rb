@@ -2,7 +2,7 @@ module JekyllPatternbot
   module FileHelpers
 
     def self.strip(path)
-      path.sub "#{Config['patternbot']['settings']['source']}/", ''
+      path.sub "#{Config['patternbot']['source']}/", ''
     end
 
     def self.list_dirs(dir)

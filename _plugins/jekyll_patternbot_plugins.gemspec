@@ -1,10 +1,8 @@
-require 'yaml'
-
-config = YAML.load_file(File.expand_path('../_config.yml', __dir__))
+require '../version.rb'
 
 Gem::Specification.new do |spec|
   spec.name          = 'jekyll_patternbot_plugins'
-  spec.version       = config['patternbot']['version']
+  spec.version       = JekyllPatternbot::VERSION
   spec.authors       = ['Thomas J Bradley']
   spec.email         = ['hey@thomasjbradley.ca']
 

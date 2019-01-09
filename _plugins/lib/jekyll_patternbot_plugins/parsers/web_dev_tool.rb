@@ -3,7 +3,7 @@ module JekyllPatternbot
 
     def initialize(filename)
       @filename = filename
-      @filepath = File.expand_path filename, Config['patternbot']['settings']['css']['source']
+      @filepath = File.expand_path filename, Config['patternbot']['css']['source']
     end
 
     def exists?

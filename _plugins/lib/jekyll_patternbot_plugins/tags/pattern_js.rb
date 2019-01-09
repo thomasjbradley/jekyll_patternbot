@@ -11,7 +11,7 @@ module JekyllPatternbot
     end
 
     def self.js_files
-      FileHelpers.list_files_with_ext Config['patternbot']['settings']['source'], 'js'
+      FileHelpers.list_files_with_ext Config['patternbot']['source'], 'js'
     end
 
   end

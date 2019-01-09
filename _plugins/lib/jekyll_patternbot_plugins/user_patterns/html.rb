@@ -21,7 +21,7 @@ module JekyllPatternbot
     end
 
     def pattern_pages(pattern)
-      dir = Config['patternbot']['settings']['source'] + '/' + pattern
+      dir = Config['patternbot']['source'] + '/' + pattern
       config_path = File.expand_path('config.yml', dir)
       return [] unless File.file?(config_path)
       pattern_config = PatternHelper.config_valid? YAML.load_file(config_path)
@@ -29,7 +29,7 @@ module JekyllPatternbot
     end
 
     def to_page(pattern, subpattern, pattern_data, data)
-      dir = Config['patternbot']['settings']['destination'] + '/patterns/' + pattern
+      dir = Config['patternbot']['destination'] + '/patterns/' + pattern
       html = Jekyll::PageWithoutAFile.new(@site, @site.source, dir, "#{subpattern}.html")
       html.content = JekyllHelpers.pattern_tag(pattern, subpattern, data.is_a?(Hash) ? data['fields'] : nil)
       html.data['layout'] = 'patternbot_pattern_include_output'
