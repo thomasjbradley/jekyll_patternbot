@@ -30,13 +30,12 @@ module JekyllPatternbot
       PatternbotData[:icons] = icons.info
     end
 
-    # Parse brand pattern
-    # Parse typography pattern
-    # Parse grid pattern
-    # Parse modules pattern
-    # Parse icons pattern
+    pattern_files = PatternsFinder.new
+    PatternbotData[:patterns] = {
+      :internal => pattern_files.internal_patterns_info,
+      :user => pattern_files.user_patterns_info,
+    }
 
-    # Parse all user patterns (Handled by user pattern generator)
     puts PatternbotData.inspect
   end
 

@@ -1,0 +1,27 @@
+title: "Modules"
+description: |
+  [Modulifier](https://modulifier.web-dev.tools/++modulifier-settings-url++) generates a series of simple, default CSS components that can be used throughout the site, or as basic building blocks for more complex patterns. [See the documentation for all available classes.](https://learn-the-web.algonquindesign.ca/topics/modulifier-cheat-sheet/)
+
+patterns:
+  list-group:
+    title: "List groups"
+    description: |
+      The list group system provides two classes: one for a vertical, stacking group of list items; and another for a horizontal, side-by-side group of list items.
+    popout_button: false
+    code: false
+    width: 650
+  embed:
+    title: "Embed containers"
+    description: |
+      Embed containers should be used for all content images, enforcing aspect ratios but also giving browsers a placeholder for the graphic before it loads to prevent unnecessary text reflows.
+    popout_button: false
+    code: false
+    width: 650
+  media-object:
+    title: "Media objects"
+    description: |
+      A simple pattern that provides and image beside some text—good for comments with avatars and many other situations. Will usually be combined into larger patterns.
+    popout_button: false
+    code: false
+    width: 650
+

@@ -1,0 +1,18 @@
+patterns:
+  logos:
+    title: "Logos"
+    popout_button: false
+    resizable: false
+    code: false
+
+  colours:
+    title: "Colours"
+    popout_button: false
+    resizable: false
+    code: false
+
+  typefaces:
+    title: "Typefaces"
+    popout_button: false
+    resizable: false
+    code: false
