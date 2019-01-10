@@ -37,6 +37,7 @@ module JekyllPatternbot
   require 'jekyll_patternbot_plugins/tags/pattern_css'
   require 'jekyll_patternbot_plugins/tags/pattern_js'
 
+  require 'jekyll_patternbot_plugins/filters/text'
   require 'jekyll_patternbot_plugins/filters/color'
   require 'jekyll_patternbot_plugins/filters/number'
 

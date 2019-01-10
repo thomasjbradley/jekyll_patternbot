@@ -130,7 +130,7 @@
               <li role="presentation">
                 <a class="gutter pad-t-1-4 pad-b-1-4 block" role="tab" aria-controls="{{pattern_data.name}}" href="#{{pattern_data.name}}">
                   <div class="relative">
-                    <span>{{pattern_data.config.title}}</span>
+                    <span>{% if pattern_data.config.title %}{{pattern_data.config.title}}{% else %}{{pattern[0] | as_title}}{% endif %}</span>
                     <i class="icon i-18 absolute pin-cr">
                       <svg><use xlink:href="#icon-active"></use></svg>
                     </i>
