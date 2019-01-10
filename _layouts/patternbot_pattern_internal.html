@@ -51,7 +51,11 @@
 
   {% include patternbot_icons.html %}
 
-  {{content}}
+  <div id="patternbot-pattern-include">
+    {{content}}
+  </div>
+
+  {% include patternbot_pattern_scripts.html %}
 
 </body>
 </html>
