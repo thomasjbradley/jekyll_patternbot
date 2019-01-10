@@ -5,5 +5,6 @@ module JekyllPatternbot
 
   Jekyll::Hooks.register :site, :after_init do |site|
     Config.deep_merge! site.config
+    Config['patternbot'][:version] = JekyllPatternbot::VERSION
   end
 end
