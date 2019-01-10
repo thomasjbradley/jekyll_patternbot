@@ -1,0 +1,159 @@
+{% assign show_sub_headings = false %}
+{% assign total_patterns = include.pattern.config.patterns | size %}
+{% if total_patterns > 1 %}
+  {% assign show_sub_headings = true %}
+{% endif %}
+
+{% assign first_pattern_name = false %}
+{% assign first_pattern = false %}
+{% for pattern in include.pattern.config.patterns %}
+  {% assign first_pattern_name = pattern[0] %}
+  {% assign first_pattern = pattern[1] %}
+  {% break %}
+{% endfor %}
+
+{% assign first_pattern_has_bg = false %}
+{% if first_pattern_name %}
+  {% assign first_pattern_has_bg = first_pattern_name | has_pattern_background_color: pattern.name %}
+{% endif %}
+
+<section class="pattern" id="{{include.pattern.name}}" role="tabpanel" hidden aria-hidden="true" {% unless show_sub_headings %}style="{% if first_pattern_has_bg %}background-color:{{first_pattern_name | get_pattern_background_color}}; color:{{first_pattern_name | get_pattern_interface_color | as_rgba:'.9'}};{% endif %}"{% endunless %}>
+  <div class="pattern-toolbar gutter pad-t-1-4 pad-b-1-8 relative" {% unless show_sub_headings %}style="{% if first_pattern_has_bg %}border-color:{{first_pattern_name | get_pattern_interface_color | as_rgba:'.1'}}; color:{{first_pattern_name | get_pattern_interface_color | as_rgba:'.9'}};{% endif %}"{% endunless %}>
+    <h2 class="pattern-name exa push-1-4" style="color:{% if page._PatternbotConfig.patternbot.colors.accent_color %}{{page._PatternbotConfig.patternbot.colors.accent_color}}{% else %}{{page._PatternbotData.css.theme.colors.primary[0].hex}}{% endif %}; {% if page._PatternbotData.css.theme.fonts.secondary %}font-family:{{page._PatternbotData.css.theme.fonts.secondary.raw | replace:'"',"'"}};{% endif %}">{{include.pattern.config.title}}</h2>
+    {% if show_sub_headings %}
+      <nav class="pattern-nav">
+        <ol class="list-group-inline push-1-4 pad-b-1-4">
+          {% for pattern in include.pattern.config.patterns %}
+            <li><a href="#{{include.pattern.name}}--{{pattern[0]}}">{{pattern[1].title}}</a></li>
+          {% endfor %}
+        </ol>
+      </nav>
+    {% endif %}
+    {% unless show_sub_headings %}
+      <ul class="list-group-inline gutter absolute pin-cr">
+        {% if first_pattern.code != false %}
+          <li>
+            <button class="center-contents-vertical pattern-tool-btn pattern-code-btn" title="Show code" aria-label="Show code" aria-pressed="false" aria-controls="{{include.pattern.name}}-{{first_pattern_name}}-code-sample">
+              <i class="icon i-18">
+                <svg><use xlink:href="#icon-code"></use></svg>
+              </i>
+            </button>
+          </li>
+          <!--
+          <li>
+            <button class="center-contents-vertical pattern-tool-btn pattern-include-btn" title="Copy include" aria-label="Copy include" data-copy-include-pattern="{{include.pattern.name}}/{{first_pattern_name}}" hidden>
+              <i class="icon i-18">
+                <svg><use xlink:href="#icon-copy"></use></svg>
+              </i>
+            </button>
+          </li>
+          -->
+        {% endif %}
+        {% if first_pattern.popout_button != false %}
+          <li>
+            <a class="center-contents-vertical pattern-tool-btn pattern-pop-btn" href="/{{page._PatternbotConfig.patternbot.destination}}/patterns/{{include.pattern.name}}/{{first_pattern_name}}.html" target="_blank" title="Open pattern in a new tab" aria-label="Open pattern in a new tab">
+              <i class="icon i-18">
+                <svg><use xlink:href="#icon-pop-out"></use></svg>
+              </i>
+            </a>
+          </li>
+        {% endif %}
+      </ul>
+    {% endunless %}
+  </div>
+
+  {% if include.pattern.config.description %}
+    <div class="pattern-desc milli island" {% unless show_sub_headings %}style="{% if first_pattern_has_bg %}border-color:{{first_pattern_name | get_pattern_interface_color | as_rgba:'.5'}}; color:{{first_pattern_name | get_pattern_interface_color | as_rgba:'.9'}};{% endif %}"{% endunless %}>
+      <div class="max-length">{{include.pattern.config.description | markdownify}}</div>
+    </div>
+  {% else %}
+    {% if first_pattern.description %}
+      <div class="pattern-desc milli island" {% unless show_sub_headings %}style="{% if first_pattern_has_bg %}border-color:{{first_pattern_name | get_pattern_interface_color | as_rgba:'.5'}}; color:{{first_pattern_name | get_pattern_interface_color | as_rgba:'.9'}};{% endif %}"{% endunless %}>
+        <div class="max-length">{{first_pattern.description | markdownify}}</div>
+      </div>
+    {% endif %}
+  {% endif %}
+
+  {% for pattern in include.pattern.config.patterns %}
+    {% assign pattern_name = pattern[0] %}
+    {% assign pattern_data = pattern[1] %}
+    <div class="pattern-details {% if pattern_data.background_color %}pattern-details-has-bg{% endif %}" id="{{include.pattern.name}}--{{pattern_name}}" style="{% if pattern_data.background_color %}background-color:{{pattern_data.background_color | as_hex}};{% endif %}">
+      {% if show_sub_headings %}
+        <div class="pattern-toolbar pattern-toolbar-inner relative gutter pad-t-1-4 pad-b-1-4" style="{% if pattern_data.background_color %}border-color:{{pattern_data.background_color | get_interface_color | as_rgba:'.1'}}; color:{{pattern_data.background_color | get_interface_color | as_rgba:'.9'}};{% endif %}">
+          <h3 class="pattern-name tera push-1-8">{{pattern_data.title}}</h3>
+            <ul class="list-group-inline gutter absolute pin-cr">
+              {% if pattern_data.code != false %}
+                <li>
+                  <button class="center-contents-vertical pattern-tool-btn pattern-code-btn" title="Show code" aria-label="Show code" aria-pressed="false" aria-controls="{{include.pattern.name}}-{{pattern_name}}-code-sample">
+                    <i class="icon i-18">
+                      <svg><use xlink:href="#icon-code"></use></svg>
+                    </i>
+                  </button>
+                </li>
+                <!--
+                <li>
+                  <button class="center-contents-vertical pattern-tool-btn pattern-include-btn" title="Copy include" aria-label="Copy include" data-copy-include-pattern="{{../name}}/{{filename}}" hidden>
+                    <i class="icon i-18">
+                      <svg><use xlink:href="#icon-copy"></use></svg>
+                    </i>
+                  </button>
+                </li>
+                -->
+              {% endif %}
+              {% if pattern_data.popout_button != false %}
+                <li>
+                  <a class="btn center-contents-vertical pattern-tool-btn pattern-pop-btn" href="/{{page._PatternbotConfig.patternbot.destination}}/patterns/{{include.pattern.name}}/{{first_pattern_name}}.html" target="_blank" title="Open pattern in a new tab" aria-label="Open pattern in a new tab">
+                    <i class="icon i-18">
+                      <svg><use xlink:href="#icon-pop-out"></use></svg>
+                    </i>
+                  </a>
+                </li>
+              {% endif %}
+            </ul>
+        </div>
+        {% if pattern_data.description %}
+          <div class="pattern-desc milli island" style="{% if pattern_data.background_color %}border-color:{{pattern_data.background_color | get_interface_color | as_rgba:'.05'}}; color:{{pattern_data.background_color | get_interface_color | as_rgba:'.9'}};{% endif %}">
+            <div class="max-length">{{pattern_data.description | markdownify}}</div>
+          </div>
+        {% endif %}
+      {% endif %}
+
+      <div class="pattern-examples pad-t-1-2 pad-b-1-2" style="{% if pattern_data.background_color %}color:{{pattern_data.background_color | get_interface_color | as_hex}};{% endif %}">
+        <div class="gutter{% if pattern_data.resizable != false %}-2{% endif %} pad-t-1-2 pad-b-1-2">
+          <div class="resizeable-pattern relative" style="{% if pattern_data.width %}width:{{pattern_data.width}}px{% endif %}">
+            <i class="icon i-32 patternbot-iframe-loading-gears absolute pin-c"><svg><use xlink:href="#patternbot-iframe-loading-gears"></use></svg></i>
+            <iframe data-src="/{{page._PatternbotConfig.patternbot.destination}}/patterns/{{include.pattern.name}}/{{pattern_name}}.html" scrolling="no" data-inject-css="{% if pattern_data.padding %}body { padding:{{pattern_data.padding}}; }{% endif %}" {% if pattern_data.height %}data-min-height="{{pattern_data.height}}"{% endif %}></iframe>
+            {% if pattern_data.resizable != false %}
+              <div class="resizeable-pattern-length">
+                <div class="resize-handle resize-handle-left" style="{% if pattern_data.background_color %}border-color:{{pattern_data.background_color | get_interface_color | as_rgba:'.1'}}; color:{{pattern_data.background_color | get_interface_color | as_rgba:'.3'}};{% endif %}">
+                  <i class="icon i-18">
+                    <svg><use xlink:href="#icon-resize-handle"></use></svg>
+                  </i>
+                </div>
+                <div class="resize-handle resize-handle-right" style="{% if pattern_data.background_color %}border-color:{{pattern_data.background_color | get_interface_color | as_rgba:'.1'}}; color:{{pattern_data.background_color | get_interface_color | as_rgba:'.3'}};{% endif %}">
+                  <i class="icon i-18">
+                    <svg><use xlink:href="#icon-resize-handle"></use></svg>
+                  </i>
+                </div>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+
+        {% if pattern_data.code != false %}
+          <div class="pattern-code-wrap gutter pad-t-1-2 pad-b-1-2" hidden aria-hidden="true" id="{{include.pattern.name}}-{{pattern_name}}-code-sample" tabindex="-1">
+            <div class="pattern-code relative milli island-1-2" style="{% if pattern_data.background_color %}border-color:{{pattern_data.background_color | get_interface_color | as_rgba:'.5'}}; color:{{pattern_data.background_color | get_interface_color | as_rgba:'.9'}};{% endif %}">
+              <button class="center-contents-vertical pattern-tool-btn pattern-copy-btn absolute pin-tr" title="Copy code" aria-label="Copy code" data-clipboard-target="#{{../name}}-{{name}}-code-sample-copy-chunk" hidden>
+                <i class="icon i-18">
+                  <svg><use xlink:href="#icon-copy"></use></svg>
+                </i>
+              </button>
+              <code><pre id="{{include.pattern.name}}-{{pattern_name}}-code-sample-copy-chunk">{{pattern_data.include_code | escape}}</pre></code>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+
+</section>

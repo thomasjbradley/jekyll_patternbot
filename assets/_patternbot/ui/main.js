@@ -5,21 +5,22 @@ var patternbot = {};
   IFRAME CSS & JS INJECTION
   ================================================
 */
+
 (function () {
-  var jsToInject = document.querySelectorAll('.injectable-js');
-  var defaultCssToInject = document.getElementById('inject-css').innerHTML;
+  // var jsToInject = document.querySelectorAll('.injectable-js');
+  // var defaultCssToInject = document.getElementById('inject-css').innerHTML;
 
-  var injectJs = function (iframe) {
-    var script;
+  // var injectJs = function (iframe) {
+  //   var script;
 
-    if (!jsToInject) return;
+  //   if (!jsToInject) return;
 
-    [].forEach.call(jsToInject, function (js) {
-      script = document.createElement('script');
-      script.innerHTML = js.innerHTML;
-      iframe.contentWindow.document.body.appendChild(script);
-    });
-  };
+  //   [].forEach.call(jsToInject, function (js) {
+  //     script = document.createElement('script');
+  //     script.innerHTML = js.innerHTML;
+  //     iframe.contentWindow.document.body.appendChild(script);
+  //   });
+  // };
 
   var injectCss = function (iframe) {
     var style = document.createElement('style');
@@ -27,15 +28,15 @@ var patternbot = {};
     if (iframe.dataset.injectCss.trim().length > 0) {
       style.innerHTML = iframe.dataset.injectCss.trim();
       iframe.contentWindow.document.body.classList.add('custom-bg-colors-used');
-    } else {
+    }/* else {
       style.innerHTML = defaultCssToInject;
     }
-
+    */
     iframe.contentWindow.document.head.appendChild(style);
   };
 
   var injectAssetsIntoIframe = function (iframe) {
-    injectJs(iframe);
+    // injectJs(iframe);
     injectCss(iframe);
   };
 
@@ -324,6 +325,7 @@ var patternbot = {};
   COPY INCLUDE BUTTONS
   ================================================
 */
+/*
 (function () {
   'use strict';
 
@@ -343,3 +345,4 @@ var patternbot = {};
     });
   }
 }());
+*/

@@ -42,5 +42,5 @@ module JekyllPatternbot
 
   require 'jekyll_patternbot_plugins/generators/internal_patterns'
   require 'jekyll_patternbot_plugins/generators/user_patterns'
-  # require 'jekyll_patternbot_plugins/generators/pattern_lib'
+  require 'jekyll_patternbot_plugins/generators/pattern_lib'
 end

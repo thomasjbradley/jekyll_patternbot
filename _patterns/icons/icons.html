@@ -1,9 +1,9 @@
 {% for spritesheet in page._PatternbotData.icons %}
-  {% assign spritesheet_has_bg = spritesheet.name | has_background_color: 'icons' %}
+  {% assign spritesheet_has_bg = spritesheet.name | has_pattern_background_color: 'icons' %}
   <ul class="patternbot-icon-display patternbot-list-group list-group-inline {% if spritesheet_has_bg %}patternbot-icon-display-has-bg{% endif %}">
     {% for icon in spritesheet.icons %}
-      {% assign icon_has_bg = icon | has_background_color: 'icons', spritesheet.name %}
-      <li class="pad-b-1-2 gutter-1-4 push" style="{% if icon_has_bg %}background-color:{{icon | get_background_color: 'icons', spritesheet.name | as_hex }}; color:{{icon | get_interface_color: 'icons', spritesheet.name | as_hex}}{% endif %}">
+      {% assign icon_has_bg = icon | has_pattern_background_color: 'icons', spritesheet.name %}
+      <li class="pad-b-1-2 gutter-1-4 push" style="{% if icon_has_bg %}background-color:{{icon | get_pattern_background_color: 'icons', spritesheet.name | as_hex }}; color:{{icon | get_pattern_interface_color: 'icons', spritesheet.name | as_hex}}{% endif %}">
         <div class="text-center">
           <div class="patternbot-icon-display-left island-1-2">
             <i class="icon i-128 block">
@@ -27,7 +27,7 @@
             <svg><use xlink:href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.icons.source}}/{{spritesheet.filename}}#{{icon}}"></use></svg>
           </i>
           <span class="icon-label ib">
-            <code class="micro" style="{% if icon_has_bg %}background-color:{{icon | get_interface_color: 'icons', spritesheet.name | as_rgba:'.05'}}; border-color:{{icon | get_interface_color: 'icons', spritesheet.name | as_rgba:'.05'}}; color:{{icon | get_interface_color: 'icons', spritesheet.name | as_hex}}{% endif %}">
+            <code class="micro" style="{% if icon_has_bg %}background-color:{{icon | get_pattern_interface_color: 'icons', spritesheet.name | as_rgba:'.05'}}; border-color:{{icon | get_pattern_interface_color: 'icons', spritesheet.name | as_rgba:'.05'}}; color:{{icon | get_pattern_interface_color: 'icons', spritesheet.name | as_hex}}{% endif %}">
               #{{icon}}
             </code>
           </span>
@@ -35,7 +35,7 @@
             <button class="center-contents-vertical patternbot-tool-btn pattern-copy-btn" title="Copy icon: {{icon}}" aria-label="Copy icon: {{icon}}" data-clipboard-text="&lt;i class=&quot;icon i-18&quot;&gt;&lt;svg&gt;&lt;use xlink:href=&quot;images/{{spritesheet.filename}}#{{icon}}&quot;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/i&gt;" hidden>
               <i class="icon i-18 patternbot-color-body">
                 <svg>
-                  <use xlink:href="#icon-copy" style="{% if icon_has_bg %}fill:{{icon | get_interface_color: 'icons', spritesheet.name | as_hex}}; stroke:{{icon | get_interface_color: 'icons', spritesheet.name | as_hex}};{% endif %}"></use>
+                  <use xlink:href="#icon-copy" style="{% if icon_has_bg %}fill:{{icon | get_pattern_interface_color: 'icons', spritesheet.name | as_hex}}; stroke:{{icon | get_pattern_interface_color: 'icons', spritesheet.name | as_hex}};{% endif %}"></use>
                 </svg>
               </i>
             </button>

@@ -32,6 +32,6 @@ patternbot:
     This pattern library is the source for all the colours, fonts & styles available for our website.
 
   colors:
-    background_color: false
+    background_color: '#fff'
     accent_color: false
     patterns:
