@@ -10,7 +10,7 @@ module JekyllPatternbot
       url_info.split(/\;/).each do |mq_string|
         mq = {}
         mq[:prefix], mq[:columns], mq[:mq] = mq_string.split(/\,/)
-        mq[:columns] = mq[:columns].to_f
+        mq[:columns] = mq[:columns].to_i
         mq[:mq] = mq[:mq].to_f
         grid_settings.push(mq)
       end

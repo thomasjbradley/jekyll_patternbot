@@ -1,47 +1,47 @@
 <div class="patternbot-mq-display-wrap push patternbot-font-primary patternbot-color-body">
-  <ol class="patternbot-mq-display patternbot-list-group list-group push-0 pad-b" style="{{# each commonInfo.gridifier}}width: calc({{mq}}em + 40em); {{/each}}">
-    {{# each commonInfo.gridifier}}
-      <li style="padding-left: {{mq}}em">
-        <div class="patternbot-mq-inner relative" {{#if ../commonInfo.readme.attributes.accentColour}}style="background-color: {{../commonInfo.readme.attributes.accentColour}}"{{/if}}>
-          <dl class="patternbot-mq-list patternbot-list-group list-group-inline push-0 gutter-1-2 absolute micro" {{#if ../commonInfo.readme.attributes.accentColour}}style="border-color: {{../commonInfo.readme.attributes.accentColour}}"{{/if}}>
+  <ol class="patternbot-mq-display patternbot-list-group list-group push-0 pad-b" style="{% for mq in page._PatternbotData.css.gridifier.settings %}width: calc({{mq.mq | strip_trailing_zero}}em + 40em); {% endfor %}">
+    {% for mq in page._PatternbotData.css.gridifier.settings %}
+      <li style="padding-left: {{mq.mq}}em">
+        <div class="patternbot-mq-inner relative" {% if page._PatternbotConfig.patternbot.colors.accent_color %}style="background-color:{{page._PatternbotConfig.patternbot.colors.accent_color | as_hex}}"{% endif %}>
+          <dl class="patternbot-mq-list patternbot-list-group list-group-inline push-0 gutter-1-2 absolute micro" {% if page._PatternbotConfig.patternbot.colors.accent_color %}style="border-color:{{page._PatternbotConfig.patternbot.colors.accent_color | as_hex}}"{% endif %}>
             <dt class="push-0">Media query</dt>
-            <dd class="push-0">{{#if mq}}{{mq}}em{{else}}∞{{/if}}</dd>
+            <dd class="push-0">{% if mq.mq > 0 %}{{mq.mq | strip_trailing_zero}}em{% else %}∞{% endif %}</dd>
             <dt class="push-0">Class prefix</dt>
-            <dd class="push-0">{{prefix}}</dd>
+            <dd class="push-0">{{mq.prefix}}</dd>
             <dt class="push-0">№ columns</dt>
-            <dd class="push-0">{{columns}}</dd>
+            <dd class="push-0">{{mq.columns | strip_trailing_zero}}</dd>
           </dl>
         </div>
       </li>
-    {{/each}}
+    {% endfor %}
   </ol>
 </div>
 
 <hr class="patternbot-hr">
 
 <div class="patternbot-grid-wrap pad-b">
-  {{#each commonInfo.gridifier}}
-    <h2 class="patternbot-font-primary patternbot-color-body giga normal">Sizes available at “{{prefix}}”</h2>
-    {{#times columns}}
-      <ol class="patternbot-grid-display {{#if @last}}push{{/if}}" style="min-width: 320px; {{#if mq}}width: {{mq}}em{{else}}width: 320px{{/if}}">
-        {{#if @first}}
+  {% for mq in page._PatternbotData.css.gridifier.settings %}
+    <h2 class="patternbot-font-primary patternbot-color-body giga normal">Sizes available at “{{mq.prefix}}”</h2>
+    {% for columns in (1..mq.columns) %}
+      <ol class="patternbot-grid-display {% if forloop.last %}push{% endif %}" style="min-width: 320px; {% if mq.mq > 0 %}width: {{mq.mq | strip_trailing_zero}}em{% else %}width: 320px{% endif %}">
+        {% if forloop.first %}
           <li style="width: 100%">
-            <div class="patternbot-grid-display-inner island-1-4" {{#if ../commonInfo.readme.attributes.accentColour}}style="border-color: {{../commonInfo.readme.attributes.accentColour}}"{{/if}}>
-              <code class="micro">.{{prefix}}-1</code>
+            <div class="patternbot-grid-display-inner island-1-4" {% if page._PatternbotConfig.patternbot.colors.accent_color %}style="border-color:{{page._PatternbotConfig.patternbot.colors.accent_color | as_hex}}"{% endif %}>
+              <code class="micro">.{{mq.prefix}}-1</code>
             </div>
           </li>
-        {{else}}
-          {{#loop @index}}
-            <li style="width: calc(100% / {{@index}})">
-              <div class="patternbot-grid-display-inner island-1-4" {{#if ../../commonInfo.readme.attributes.accentColour}}style="border-color: {{../../commonInfo.readme.attributes.accentColour}}"{{/if}}>
-                <code class="micro">.{{../prefix}}-1-{{@index}}</code>
+        {% else %}
+          {% for i in (1..columns) %}
+            <li style="width: calc(100% / {{i}})">
+              <div class="patternbot-grid-display-inner island-1-4" {% if page._PatternbotConfig.patternbot.colors.accent_color %}style="border-color:{{page._PatternbotConfig.patternbot.colors.accent_color | as_hex}}"{% endif %}>
+                <code class="micro">.{{mq.prefix}}-1-{{i}}</code>
               </div>
             </li>
-          {{/loop}}
-        {{/if}}
+          {% endfor %}
+        {% endif %}
       </ol>
-    {{/times}}
+    {% endfor %}
 
     <hr class="patternbot-hr">
-  {{/each}}
+  {% endfor %}
 </div>
