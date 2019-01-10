@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-ca">
+<head>
+  <meta charset="utf-8">
+  <title>{{page.title}}</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    html { color: rgb(var(--color-patternbot-interface), var(--color-patternbot-interface), var(--color-patternbot-interface)); }
+  </style>
+  <link href="{{site.baseurl}}/assets/common/modulifier.min.css" rel="stylesheet">
+  {% if page._pattern_data.config._user_gridifier %}
+    <link href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.css.source}}/{{page._PatternbotConfig.patternbot.css.gridifier}}" rel="stylesheet">
+  {% else %}
+    <link href="{{site.baseurl}}/assets/common/gridifier.min.css" rel="stylesheet">
+  {% endif %}
+  {% if page._pattern_data.config._user_typografier %}
+    <link href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.css.source}}/{{page._PatternbotConfig.patternbot.css.typografier}}" rel="stylesheet">
+  {% else %}
+    <link href="{{site.baseurl}}/assets/common/typografier.min.css" rel="stylesheet">
+  {% endif %}
+  {% if page._PatternbotData.css.theme %}
+    <link href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.css.source}}/{{page._PatternbotConfig.patternbot.css.theme}}" rel="stylesheet">
+  {% endif %}
+  <link href="{{site.baseurl}}/assets/common/common.min.css" rel="stylesheet">
+  {% for css in page._pattern_data.config._extra_css %}
+    <link href="{{site.baseurl}}/assets/patterns/{{css}}" rel="stylesheet">
+  {% endfor %}
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" rel="stylesheet">
+  <style>
+    {% if page._PatternbotData.css.theme.fonts.primary %}
+      :root {
+        --font-patternbot-primary: {{page._PatternbotData.css.theme.fonts.primary.raw}}, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+      }
+      html {
+        font-family:{{page._PatternbotData.css.theme.fonts.primary.raw}}, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+      }
+    {% endif %}
+  </style>
+  {% if page._PatternbotConfig.patternbot.font_url %}
+    <link href="{{page._PatternbotConfig.patternbot.font_url}}" rel="stylesheet">
+  {% endif %}
+</head>
+<body>
+
+  {% include patternbot_pattern_icons.html %}
+
+  {{content}}
+
+</body>
+</html>

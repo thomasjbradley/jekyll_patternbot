@@ -9,11 +9,11 @@ module JekyllPatternbot
       config
     end
 
-    def self.title(pattern, subpattern, pattern_data, data)
+    def self.title(pattern, subpattern, data, subdata)
       group_title = self.slug_to_words(pattern).unicode_titlecase
       pattern_title = self.slug_to_words(subpattern).unicode_titlecase
-      pattern_title = data['title'] if data.is_a?(Hash) and data.key?('title')
-      group_title = pattern_data['title'] if pattern_data.is_a?(Hash) and pattern_data.key?('title')
+      group_title = data['title'] if data.is_a?(Hash) and data.key?('title')
+      pattern_title = subdata['title'] if subdata.is_a?(Hash) and subdata.key?('title')
       "#{pattern_title} · #{group_title}"
     end
 

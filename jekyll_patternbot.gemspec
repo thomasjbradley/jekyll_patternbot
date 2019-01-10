@@ -22,7 +22,8 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'deep_merge'
   spec.add_runtime_dependency 'unicode_titlecase'
   spec.add_runtime_dependency 'css_parser'
-  spec.add_runtime_dependency 'rgb'
+  spec.add_runtime_dependency 'color_contrast_calc'
+  spec.add_runtime_dependency 'indifference'
   spec.add_runtime_dependency 'jekyll_patternbot_plugins'
 
   spec.add_development_dependency 'bundler', '~> 1.17'

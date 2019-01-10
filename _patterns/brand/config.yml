@@ -1,3 +1,7 @@
+_layout: "patternbot_pattern_internal"
+_extra_css:
+  - 'brand/brand.min.css'
+
 patterns:
   logos:
     title: "Logos"

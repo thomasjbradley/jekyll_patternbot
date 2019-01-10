@@ -1,0 +1,47 @@
+<section>
+  {% if include.show_hr %}<hr class="patternbot-hr">{% endif %}
+
+  <h2 class="patternbot-color-body giga {% if page._PatternbotConfig.patternbot.colors.primary %}push-1-4{% endif %}">Primary colours</h2>
+  {% if page._PatternbotConfig.patternbot.colors.primary %}
+    <div class="patternbot-max-length italic max-length">
+      {{page._PatternbotConfig.patternbot.colors.primary | markdownify}}
+    </div>
+  {% endif %}
+
+  {% if include.style == "large" %}
+    <div class="patternbot-color-swatches {{include.extra_class}} grid grid-stretch">
+      <div class="unit xs-1-2" style="background-color:var(--color-primary)">&nbsp;</div>
+      <div class="patternbot-color-swatches-fill unit xs-1-2" style="background-color:var(--color-primary)">
+        {% for color in include.colors %}
+          <div style="background-color:var({{color.name}});">&nbsp;</div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+
+  <ul class="patternbot-color-swatch-labels patternbot-color-body patternbot-list-group list-group-inline milli pad-t-1-2 push-0">
+    {% for color in include.colors %}
+      <li class="push">
+        {% if include.style == "small" %}
+          <div class="patternbot-color-swatches patternbot-color-swatches-accent push-1-2" style="background-color:var({{name}});">&nbsp;</div>
+        {% endif %}
+        <div class="push-1-2">
+          <i class="patternbot-color-swatches icon i-24" style="background-color:var({{color.name}});">&nbsp;</i>
+          <span class="icon-label">{{color.name_pretty}}</span>
+        </div>
+        <ul class="patternbot-code-details patternbot-code-details-under patternbot-list-group list-group micro push-0">
+          <li class="push-1-8 relative">
+            <code>var({{color.name}})</code>
+            <button class="center-contents-vertical patternbot-tool-btn pattern-copy-btn" title="Copy color: {{color.name_pretty}}" aria-label="Copy color: {{color.name_pretty}}" data-clipboard-text="var({{color.name}})" hidden>
+              <i class="icon i-18">
+                <svg><use xlink:href="#icon-copy"></use></svg>
+              </i>
+            </button>
+          </li>
+          <li class="patternbot-color-swatch-labels-hex push-1-8"><code>{{color.hex}}</code></li>
+          <li class="patternbot-color-swatch-labels-rgba"><code>{{color.rgba}}</code></li>
+        </ul>
+      </li>
+    {% endfor %}
+  </ul>
+</section>

@@ -1,43 +1,47 @@
-<ul class="patternbot-icon-display patternbot-list-group list-group-inline {{#if commonInfo.readme.attributes.icons.icons.backgroundColor}}patternbot-icon-display-has-bg{{/if}}">
-  {{#each commonInfo.icons}}
-    <li class="pad-b-1-2 gutter-1-4 push" style="{{#with (lookup ../commonInfo.readme.attributes.icons.icons this) as |iconInfo|}}background-color:{{iconInfo.backgroundColour}}; color:rgb({{iconInfo.interfaceColours.primary}},{{iconInfo.interfaceColours.primary}},{{iconInfo.interfaceColours.primary}});{{/with}}">
-      <div class="text-center">
-        <div class="patternbot-icon-display-left island-1-2">
-          <i class="icon i-128 block">
-            <svg><use xlink:href="../../images/icons.svg#{{this}}" /></svg>
-          </i>
-        </div>
-        <div class="patternbot-icon-display-right center-contents island-1-2">
-          <i class="icon i-64 block push-1-8">
-            <svg><use xlink:href="../../images/icons.svg#{{this}}" /></svg>
-          </i>
-          <i class="icon i-32 block push-1-8">
-            <svg><use xlink:href="../../images/icons.svg#{{this}}" /></svg>
-          </i>
-          <i class="icon i-18 block">
-            <svg><use xlink:href="../../images/icons.svg#{{this}}" /></svg>
-          </i>
-        </div>
-      </div>
-      <div class="text-center patternbot-color-body">
-        <i class="icon i-24 patternbot-color-body">
-          <svg><use xlink:href="../../images/icons.svg#{{this}}" /></svg>
-        </i>
-        <span class="icon-label ib">
-          <code class="micro" style="{{#with (lookup ../commonInfo.readme.attributes.icons.icons this) as |iconInfo|}}background-color:rgba({{iconInfo.interfaceColours.primary}},{{iconInfo.interfaceColours.primary}},{{iconInfo.interfaceColours.primary}},.05); border-color:rgba({{iconInfo.interfaceColours.primary}},{{iconInfo.interfaceColours.primary}},{{iconInfo.interfaceColours.primary}},.05); color:rgb({{iconInfo.interfaceColours.primary}},{{iconInfo.interfaceColours.primary}},{{iconInfo.interfaceColours.primary}});{{/with}}">
-            #{{this}}
-          </code>
-        </span>
-        <span class="icon-label ib">
-          <button class="center-contents-vertical patternbot-tool-btn pattern-copy-btn" title="Copy icon: {{this}}" aria-label="Copy icon: {{this}}" data-clipboard-text="&lt;i class=&quot;icon i-18&quot;&gt;&lt;svg&gt;&lt;use xlink:href=&quot;images/icons.svg#{{this}}&quot;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/i&gt;" hidden>
-            <i class="icon i-18 patternbot-color-body">
-              <svg>
-                <use xlink:href="#icon-copy"  style="{{#with (lookup ../commonInfo.readme.attributes.icons.icons this) as |iconInfo|}}fill:rgb({{iconInfo.interfaceColours.primary}},{{iconInfo.interfaceColours.primary}},{{iconInfo.interfaceColours.primary}}); stroke:rgb({{iconInfo.interfaceColours.primary}},{{iconInfo.interfaceColours.primary}},{{iconInfo.interfaceColours.primary}});{{/with}}"></use>
-              </svg>
+{% for spritesheet in page._PatternbotData.icons %}
+  {% assign spritesheet_has_bg = spritesheet.name | has_background_color: 'icons' %}
+  <ul class="patternbot-icon-display patternbot-list-group list-group-inline {% if spritesheet_has_bg %}patternbot-icon-display-has-bg{% endif %}">
+    {% for icon in spritesheet.icons %}
+      {% assign icon_has_bg = icon | has_background_color: 'icons', spritesheet.name %}
+      <li class="pad-b-1-2 gutter-1-4 push" style="{% if icon_has_bg %}background-color:{{icon | get_background_color: 'icons', spritesheet.name | as_hex }}; color:{{icon | get_interface_color: 'icons', spritesheet.name | as_hex}}{% endif %}">
+        <div class="text-center">
+          <div class="patternbot-icon-display-left island-1-2">
+            <i class="icon i-128 block">
+              <svg><use xlink:href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.icons.source}}/{{spritesheet.filename}}#{{icon}}"></use></svg>
             </i>
-          </button>
-        </span>
-      </div>
-    </li>
-  {{/each}}
-</ul>
+          </div>
+          <div class="patternbot-icon-display-right center-contents island-1-2">
+            <i class="icon i-64 block push-1-8">
+              <svg><use xlink:href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.icons.source}}/{{spritesheet.filename}}#{{icon}}"></use></svg>
+            </i>
+            <i class="icon i-32 block push-1-8">
+              <svg><use xlink:href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.icons.source}}/{{spritesheet.filename}}#{{icon}}"></use></svg>
+            </i>
+            <i class="icon i-18 block">
+              <svg><use xlink:href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.icons.source}}/{{spritesheet.filename}}#{{icon}}"></use></svg>
+            </i>
+          </div>
+        </div>
+        <div class="text-center patternbot-color-body">
+          <i class="icon i-24 patternbot-color-body">
+            <svg><use xlink:href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.icons.source}}/{{spritesheet.filename}}#{{icon}}"></use></svg>
+          </i>
+          <span class="icon-label ib">
+            <code class="micro" style="{% if icon_has_bg %}background-color:{{icon | get_interface_color: 'icons', spritesheet.name | as_rgba:'.05'}}; border-color:{{icon | get_interface_color: 'icons', spritesheet.name | as_rgba:'.05'}}; color:{{icon | get_interface_color: 'icons', spritesheet.name | as_hex}}{% endif %}">
+              #{{icon}}
+            </code>
+          </span>
+          <span class="icon-label ib">
+            <button class="center-contents-vertical patternbot-tool-btn pattern-copy-btn" title="Copy icon: {{icon}}" aria-label="Copy icon: {{icon}}" data-clipboard-text="&lt;i class=&quot;icon i-18&quot;&gt;&lt;svg&gt;&lt;use xlink:href=&quot;images/{{spritesheet.filename}}#{{icon}}&quot;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/i&gt;" hidden>
+              <i class="icon i-18 patternbot-color-body">
+                <svg>
+                  <use xlink:href="#icon-copy" style="{% if icon_has_bg %}fill:{{icon | get_interface_color: 'icons', spritesheet.name | as_hex}}; stroke:{{icon | get_interface_color: 'icons', spritesheet.name | as_hex}};{% endif %}"></use>
+                </svg>
+              </i>
+            </button>
+          </span>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+{% endfor %}

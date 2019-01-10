@@ -14,6 +14,7 @@ module JekyllPatternbot
         :name => nil,
         :name_pretty => nil,
         :raw => nil,
+        :var => nil,
         :weights => nil,
       }
     end
@@ -66,6 +67,7 @@ module JekyllPatternbot
       font[:name] = font_family_slug
       font[:name_pretty] = font_family
       font[:raw] = val
+      font[:var] = dec
       font[:weights] = available_weights[font_family_slug] if available_weights.key? font_family_slug
       font
     end

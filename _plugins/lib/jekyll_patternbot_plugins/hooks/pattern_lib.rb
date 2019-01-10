@@ -36,7 +36,11 @@ module JekyllPatternbot
       :user => pattern_files.user_patterns_info,
     }
 
-    puts PatternbotData.inspect
+    require 'json'
+    File.open('/Users/thomasjbradley/Desktop/patternbot.json', 'w') do |f|
+      f.write(JSON.pretty_generate(PatternbotData))
+    end
+    # puts PatternbotData.inspect
   end
 
 end

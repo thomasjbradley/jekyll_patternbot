@@ -26,6 +26,12 @@ patternbot:
       - ".svg"
       - ".png"
 
-  title: "Pattern Library"
+  title: false
+  title_backup: "Pattern Library"
   description: |
     This pattern library is the source for all the colours, fonts & styles available for our website.
+
+  colors:
+    background_color: false
+    accent_color: false
+    patterns:

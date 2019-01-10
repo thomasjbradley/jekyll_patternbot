@@ -1,18 +1,18 @@
 <div class="grid grid-bottom text-center">
   <div class="unit [ xs-1-5 ]">
-    <div class="patternbot-pad-box pad-t-2" {{#if commonInfo.readme.attributes.accentColour}}style="background-color: {{commonInfo.readme.attributes.accentColour}}"{{/if}}></div>
+    <div class="patternbot-pad-box pad-t-2" {% if page._PatternbotConfig.patternbot.colors.accent_color %}style="background-color:{{page._PatternbotConfig.patternbot.colors.accent_color | as_hex}}"{% endif %}></div>
   </div>
   <div class="unit [ xs-1-5 ]">
-    <div class="patternbot-pad-box pad-t" {{#if commonInfo.readme.attributes.accentColour}}style="background-color: {{commonInfo.readme.attributes.accentColour}}"{{/if}}></div>
+    <div class="patternbot-pad-box pad-t" {% if page._PatternbotConfig.patternbot.colors.accent_color %}style="background-color:{{page._PatternbotConfig.patternbot.colors.accent_color | as_hex}}"{% endif %}></div>
   </div>
   <div class="unit [ xs-1-5 ]">
-    <div class="patternbot-pad-box pad-t-1-2" {{#if commonInfo.readme.attributes.accentColour}}style="background-color: {{commonInfo.readme.attributes.accentColour}}"{{/if}}></div>
+    <div class="patternbot-pad-box pad-t-1-2" {% if page._PatternbotConfig.patternbot.colors.accent_color %}style="background-color:{{page._PatternbotConfig.patternbot.colors.accent_color | as_hex}}"{% endif %}></div>
   </div>
   <div class="unit [ xs-1-5 ]">
-    <div class="patternbot-pad-box pad-t-1-4" {{#if commonInfo.readme.attributes.accentColour}}style="background-color: {{commonInfo.readme.attributes.accentColour}}"{{/if}}></div>
+    <div class="patternbot-pad-box pad-t-1-4" {% if page._PatternbotConfig.patternbot.colors.accent_color %}style="background-color:{{page._PatternbotConfig.patternbot.colors.accent_color | as_hex}}"{% endif %}></div>
   </div>
   <div class="unit [ xs-1-5 ]">
-    <div class="patternbot-pad-box pad-t-1-8" {{#if commonInfo.readme.attributes.accentColour}}style="background-color: {{commonInfo.readme.attributes.accentColour}}"{{/if}}></div>
+    <div class="patternbot-pad-box pad-t-1-8" {% if page._PatternbotConfig.patternbot.colors.accent_color %}style="background-color:{{page._PatternbotConfig.patternbot.colors.accent_color | as_hex}}"{% endif %}></div>
   </div>
 </div>
 

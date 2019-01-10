@@ -3,12 +3,10 @@ module JekyllPatternbot
 
     def self.base
       {
-        :parsed => {
-          :primary => [],
-          :secondary => [],
-          :neutral => [],
-          :accent => [],
-        },
+        :primary => [],
+        :secondary => [],
+        :neutral => [],
+        :accent => [],
         :raw => {},
       }
     end
@@ -27,22 +25,14 @@ module JekyllPatternbot
       !!dec.match(/\-\-color\-/)
     end
 
-    def self.parse_color_val(val)
-      return RGB::Color.from_rgb_hex(val) if val.match /^\#/
-      return RGB::Color.from_rgb_hex(CSSColorNames[val]) if CSSColorNames.key? val
-      if val.match /^rgb/
-        rgb_bits = val.sub(/rgba?\(/, '').sub(/\)/, '').strip.split(/\,/)
-        return RGB::Color.from_rgb(rgb_bits[0].to_i, rgb_bits[1].to_i, rgb_bits[2].to_i)
-      end
-    end
-
     def self.parse_color(dec, val)
+      parsed_color = ColorHelper::color val
       color = self.color.clone
       color[:name] = dec
       color[:name_pretty] = PatternHelper.slug_to_words(dec.sub(/\-\-color\-/, '')).unicode_titlecase
       color[:raw] = val
-      color[:hex] = self.parse_color_val(val).to_rgb_hex.downcase
-      color[:rgba] = "rgba(#{self.parse_color_val(val).to_rgb.join(', ')}, 1)"
+      color[:hex] = parsed_color.hex.downcase
+      color[:rgba] = "rgba(#{parsed_color.rgb.join(', ')}, 1)"
       color
     end
 
@@ -50,11 +40,11 @@ module JekyllPatternbot
       colors = self.base.clone
       data.each do |dec, val|
         if self.is_color? dec
+          colors[:primary].push(self.parse_color(dec, val)) if dec.match(/\-\-color\-primary/)
+          colors[:secondary].push(self.parse_color(dec, val)) if dec.match(/\-\-color\-secondary/)
+          colors[:neutral].push(self.parse_color(dec, val)) if dec.match(/\-\-color\-neutral/)
+          colors[:accent].push(self.parse_color(dec, val)) unless dec.match(/\-\-color\-(primary|secondary|neutral)/)
           colors[:raw][dec] = val
-          colors[:parsed][:primary].push(self.parse_color(dec, val)) if dec.match(/\-\-color\-primary/)
-          colors[:parsed][:secondary].push(self.parse_color(dec, val)) if dec.match(/\-\-color\-secondary/)
-          colors[:parsed][:neutral].push(self.parse_color(dec, val)) if dec.match(/\-\-color\-neutral/)
-          colors[:parsed][:accent].push(self.parse_color(dec, val)) unless dec.match(/\-\-color\-(primary|secondary|neutral)/)
         end
       end
       colors
