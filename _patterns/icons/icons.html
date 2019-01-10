@@ -32,7 +32,7 @@
             </code>
           </span>
           <span class="icon-label ib">
-            <button class="center-contents-vertical patternbot-tool-btn pattern-copy-btn" title="Copy icon: {{icon}}" aria-label="Copy icon: {{icon}}" data-clipboard-text="&lt;i class=&quot;icon i-18&quot;&gt;&lt;svg&gt;&lt;use xlink:href=&quot;images/{{spritesheet.filename}}#{{icon}}&quot;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/i&gt;" hidden>
+            <button class="center-contents-vertical patternbot-tool-btn pattern-copy-btn" title="Copy icon: {{icon}}" aria-label="Copy icon: {{icon}}" data-clipboard-text="&lt;i class=&quot;icon i-18&quot;&gt;&lt;svg&gt;&lt;use xlink:href=&quot;{{site.baseurl}}/{{page._PatternbotConfig.patternbot.icons.source}}/{{spritesheet.filename}}#{{icon}}&quot;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/i&gt;" hidden>
               <i class="icon i-18 patternbot-color-body">
                 <svg>
                   <use xlink:href="#icon-copy" style="{% if icon_has_bg %}fill:{{icon | get_pattern_interface_color: 'icons', spritesheet.name | as_hex}}; stroke:{{icon | get_pattern_interface_color: 'icons', spritesheet.name | as_hex}};{% endif %}"></use>
