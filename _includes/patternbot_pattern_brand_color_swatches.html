@@ -1,7 +1,7 @@
 <section>
   {% if include.show_hr %}<hr class="patternbot-hr">{% endif %}
 
-  <h2 class="patternbot-color-body giga {% if page._PatternbotConfig.patternbot.colors.primary %}push-1-4{% endif %}">Primary colours</h2>
+  <h2 class="patternbot-color-body giga {% if page._PatternbotConfig.patternbot.colors.primary %}push-1-4{% endif %}">{{include.title}} colours</h2>
   {% if page._PatternbotConfig.patternbot.colors.primary %}
     <div class="patternbot-max-length italic max-length">
       {{page._PatternbotConfig.patternbot.colors.primary | markdownify}}
@@ -10,8 +10,8 @@
 
   {% if include.style == "large" %}
     <div class="patternbot-color-swatches {{include.extra_class}} grid grid-stretch">
-      <div class="unit xs-1-2" style="background-color:var(--color-primary)">&nbsp;</div>
-      <div class="patternbot-color-swatches-fill unit xs-1-2" style="background-color:var(--color-primary)">
+      <div class="unit xs-1-2" style="background-color:var({{include.colors[0].name}})">&nbsp;</div>
+      <div class="patternbot-color-swatches-fill unit xs-1-2" style="background-color:var({{include.colors[0].name}})">
         {% for color in include.colors %}
           <div style="background-color:var({{color.name}});">&nbsp;</div>
         {% endfor %}
@@ -23,7 +23,7 @@
     {% for color in include.colors %}
       <li class="push">
         {% if include.style == "small" %}
-          <div class="patternbot-color-swatches patternbot-color-swatches-accent push-1-2" style="background-color:var({{name}});">&nbsp;</div>
+          <div class="patternbot-color-swatches patternbot-color-swatches-accent push-1-2" style="background-color:var({{color.name}});">&nbsp;</div>
         {% endif %}
         <div class="push-1-2">
           <i class="patternbot-color-swatches icon i-24" style="background-color:var({{color.name}});">&nbsp;</i>
