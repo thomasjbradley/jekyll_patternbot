@@ -4,7 +4,11 @@
   <meta charset="utf-8">
   <title>{{page.title}}</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link href="{{site.baseurl}}/assets/_patternbot/common/modulifier.min.css" rel="stylesheet">
+  {% if page._pattern_data.config._user_modulifier %}
+    <link href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.css.source}}/{{page._PatternbotConfig.patternbot.css.modulifier}}" rel="stylesheet">
+  {% else %}
+    <link href="{{site.baseurl}}/assets/_patternbot/common/modulifier.min.css" rel="stylesheet">
+  {% endif %}
   {% if page._pattern_data.config._user_gridifier %}
     <link href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.css.source}}/{{page._PatternbotConfig.patternbot.css.gridifier}}" rel="stylesheet">
   {% else %}

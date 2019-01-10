@@ -1,5 +1,5 @@
 _layout: "patternbot_pattern_internal"
-_user_typografier: true
+_user_modulifier: true
 _extra_css:
   - 'modules/modules.min.css'
 
