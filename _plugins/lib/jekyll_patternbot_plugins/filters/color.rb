@@ -46,7 +46,11 @@ module JekyllPatternbot
     end
 
     def get_pattern_interface_color(id, *namespaces)
-      get_interface_color get_pattern_background_color(id, *namespaces)
+      get_interface_color get_pattern_background_color id, *namespaces
+    end
+
+    def get_pattern_interface_color_opposite(id, *namespaces)
+      get_interface_color_opposite get_pattern_background_color id, *namespaces
     end
 
   end
