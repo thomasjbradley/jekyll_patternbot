@@ -3,16 +3,16 @@
 
   {% if page._PatternbotData.css.theme.fonts.primary %}
     {% assign show_hr = true %}
-    {% include patternbot_pattern_brand_typeface.html font=page._PatternbotData.css.theme.fonts.primary desc=page._PatternbotConfig.patternbot.fonts.primary designation="Primary" preposition="the" %}
+    {% include patternbot_pattern_brand_typeface.html title="Primary" key="primary" font=page._PatternbotData.css.theme.fonts.primary preposition="the" %}
   {% endif %}
 
   {% if page._PatternbotData.css.theme.fonts.secondary %}
     {% assign show_hr = true %}
-    {% include patternbot_pattern_brand_typeface.html font=page._PatternbotData.css.theme.fonts.secondary desc=page._PatternbotConfig.patternbot.fonts.secondary designation="Secondary" preposition="the" show_hr=show_hr %}
+    {% include patternbot_pattern_brand_typeface.html title="Secondary" key="secondary" font=page._PatternbotData.css.theme.fonts.secondary preposition="the" show_hr=show_hr %}
   {% endif %}
 
   {% for font in page._PatternbotData.css.theme.fonts.accent %}
     {% assign show_hr = true %}
-    {% include patternbot_pattern_brand_typeface.html font=font desc=page._PatternbotConfig.patternbot.fonts.accent designation="Accent" preposition="an" show_hr=show_hr %}
+    {% include patternbot_pattern_brand_typeface.html title="Accent" key="accent" font=font desc=page._PatternbotConfig.patternbot.fonts.accent preposition="an" show_hr=show_hr %}
   {% endfor %}
 </div>

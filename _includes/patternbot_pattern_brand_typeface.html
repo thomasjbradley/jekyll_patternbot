@@ -4,7 +4,7 @@
   <ul class="patternbot-code-details patternbot-list-group list-group-inline micro push-1-2 pad-t">
     <li class="relative">
       <code>var({{include.font.var}})</code>
-      <button class="center-contents-vertical patternbot-tool-btn pattern-copy-btn" title="Copy font: {{include.designation}}: {{include.font.name_pretty}}" aria-label="Copy font: {{include.designation}}: {{include.font.name_pretty}}" data-clipboard-text="var({{include.font.var}})" hidden>
+      <button class="center-contents-vertical patternbot-tool-btn pattern-copy-btn" title="Copy font: {{include.title}}: {{include.font.name_pretty}}" aria-label="Copy font: {{include.title}}: {{include.font.name_pretty}}" data-clipboard-text="var({{include.font.var}})" hidden>
         <i class="icon i-18">
           <svg><use xlink:href="#icon-copy"></use></svg>
         </i>
@@ -13,9 +13,10 @@
   </ul>
 
   <h2 class="patternbot-color-body yotta" style="font-family:var({{include.font.var}});"><span style="color:{% if page._PatternbotConfig.patternbot.colors.accent %}{{page._PatternbotConfig.patternbot.colors.accent | as_hex}}{% else %}var(--color-primary){% endif %}">{{include.font.name_pretty}}</span> is {{include.preposition}} {{include.destination | downcase}} typeface</h2>
-  {% if include.desc %}
+  {% assign pattern_has_rationale = include.key | has_pattern_rationale:'typefaces' %}
+  {% if pattern_has_rationale %}
     <div class="patternbot-max-length tera max-length">
-      {{include.desc | markdownify}}
+      {{include.key | get_pattern_rationale:'typefaces' | markdownify}}
     </div>
   {% endif %}
 

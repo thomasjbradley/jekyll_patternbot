@@ -2,9 +2,10 @@
   {% if include.show_hr %}<hr class="patternbot-hr">{% endif %}
 
   <h2 class="patternbot-color-body giga {% if page._PatternbotConfig.patternbot.colors.primary %}push-1-4{% endif %}">{{include.title}} colours</h2>
-  {% if page._PatternbotConfig.patternbot.colors.primary %}
+  {% assign pattern_has_rationale = include.key | has_pattern_rationale:'colors' %}
+  {% if pattern_has_rationale %}
     <div class="patternbot-max-length italic max-length">
-      {{page._PatternbotConfig.patternbot.colors.primary | markdownify}}
+      {{include.key | get_pattern_rationale:'colors' | markdownify}}
     </div>
   {% endif %}
 
@@ -19,7 +20,7 @@
     </div>
   {% endif %}
 
-  <ul class="patternbot-color-swatch-labels patternbot-color-body patternbot-list-group list-group-inline milli pad-t-1-2 push-0">
+  <ul class="patternbot-color-swatch-labels patternbot-color-body patternbot-list-group list-group-inline milli push-0 {% if include.style == 'large' %}pad-t-1-2{% endif %}">
     {% for color in include.colors %}
       <li class="push">
         {% if include.style == "small" %}
