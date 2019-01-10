@@ -2,8 +2,8 @@
   <ol class="patternbot-mq-display patternbot-list-group list-group push-0 pad-b" style="{% for mq in page._PatternbotData.css.gridifier.settings %}width: calc({{mq.mq | strip_trailing_zero}}em + 40em); {% endfor %}">
     {% for mq in page._PatternbotData.css.gridifier.settings %}
       <li style="padding-left: {{mq.mq}}em">
-        <div class="patternbot-mq-inner relative" {% if page._PatternbotConfig.patternbot.colors.accent_color %}style="background-color:{{page._PatternbotConfig.patternbot.colors.accent_color | as_hex}}"{% endif %}>
-          <dl class="patternbot-mq-list patternbot-list-group list-group-inline push-0 gutter-1-2 absolute micro" {% if page._PatternbotConfig.patternbot.colors.accent_color %}style="border-color:{{page._PatternbotConfig.patternbot.colors.accent_color | as_hex}}"{% endif %}>
+        <div class="patternbot-mq-inner relative" {% if page._PatternbotConfig.patternbot.colors.accent %}style="background-color:{{page._PatternbotConfig.patternbot.colors.accent | as_hex}}"{% endif %}>
+          <dl class="patternbot-mq-list patternbot-list-group list-group-inline push-0 gutter-1-2 absolute micro" {% if page._PatternbotConfig.patternbot.colors.accent %}style="border-color:{{page._PatternbotConfig.patternbot.colors.accent | as_hex}}"{% endif %}>
             <dt class="push-0">Media query</dt>
             <dd class="push-0">{% if mq.mq > 0 %}{{mq.mq | strip_trailing_zero}}em{% else %}∞{% endif %}</dd>
             <dt class="push-0">Class prefix</dt>
@@ -26,14 +26,14 @@
       <ol class="patternbot-grid-display {% if forloop.last %}push{% endif %}" style="min-width: 320px; {% if mq.mq > 0 %}width: {{mq.mq | strip_trailing_zero}}em{% else %}width: 320px{% endif %}">
         {% if forloop.first %}
           <li style="width: 100%">
-            <div class="patternbot-grid-display-inner island-1-4" {% if page._PatternbotConfig.patternbot.colors.accent_color %}style="border-color:{{page._PatternbotConfig.patternbot.colors.accent_color | as_hex}}"{% endif %}>
+            <div class="patternbot-grid-display-inner island-1-4" {% if page._PatternbotConfig.patternbot.colors.accent %}style="border-color:{{page._PatternbotConfig.patternbot.colors.accent | as_hex}}"{% endif %}>
               <code class="micro">.{{mq.prefix}}-1</code>
             </div>
           </li>
         {% else %}
           {% for i in (1..columns) %}
             <li style="width: calc(100% / {{i}})">
-              <div class="patternbot-grid-display-inner island-1-4" {% if page._PatternbotConfig.patternbot.colors.accent_color %}style="border-color:{{page._PatternbotConfig.patternbot.colors.accent_color | as_hex}}"{% endif %}>
+              <div class="patternbot-grid-display-inner island-1-4" {% if page._PatternbotConfig.patternbot.colors.accent %}style="border-color:{{page._PatternbotConfig.patternbot.colors.accent | as_hex}}"{% endif %}>
                 <code class="micro">.{{mq.prefix}}-1-{{i}}</code>
               </div>
             </li>

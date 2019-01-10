@@ -1,7 +1,7 @@
 :root {
   --color-patternbot-primary: rgba(var(--color-patternbot-interface), var(--color-patternbot-interface), var(--color-patternbot-interface), .9);
   --color-patternbot-opposite: rgba(var(--color-patternbot-interface-opposite), var(--color-patternbot-interface-opposite), var(--color-patternbot-interface-opposite), .9);
-  --color-patternbot-background: #fff;
+  --color-patternbot-interface-background: #fff;
 
   --font-patternbot-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   --font-patternbot-code: "Source Code Pro", monospace;
@@ -87,7 +87,7 @@ code {
 .patternbot-pad-box-inner {
   overflow: hidden;
 
-  background-color: var(--color-patternbot-background);
+  background-color: var(--color-patternbot-interface-background);
 }
 
 .patternbot-spacing-display {
@@ -137,7 +137,7 @@ code {
   min-height: 2rem;
 
   background-color: var(--color-primary, rgba(var(--color-patternbot-interface), var(--color-patternbot-interface), var(--color-patternbot-interface), .1));
-  border-top: 2px solid var(--color-patternbot-background);
+  border-top: 2px solid var(--color-patternbot-interface-background);
 }
 
 .patternbot-mq-list {

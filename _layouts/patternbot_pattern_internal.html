@@ -33,19 +33,19 @@
       :root {
         --color-patternbot-interface: {{page._subpattern | get_pattern_interface_color: page._pattern | as_rgb_digit}};
         --color-patternbot-interface-opposite: {{page._subpattern | get_pattern_interface_color_opposite: page._pattern | as_rgb_digit}};
-        --color-patternbot-background: {{page._PatternbotConfig.patternbot.colors.background_color | as_hex}};
+        --color-patternbot-interface-background: {{page._PatternbotConfig.patternbot.colors.background | as_hex}};
       }
       html {
         color: {{page._subpattern | get_pattern_interface_color: page._pattern}};
       }
     {% else %}
       :root {
-        --color-patternbot-interface: {{page._PatternbotConfig.patternbot.colors.background_color | get_interface_color | as_rgb_digit}};
-        --color-patternbot-interface-opposite: {{page._PatternbotConfig.patternbot.colors.background_color | get_interface_color_opposite | as_rgb_digit}};
-        --color-patternbot-background: {{page._PatternbotConfig.patternbot.colors.background_color | as_hex}};
+        --color-patternbot-interface: {{page._PatternbotConfig.patternbot.colors.background | get_interface_color | as_rgb_digit}};
+        --color-patternbot-interface-opposite: {{page._PatternbotConfig.patternbot.colors.background | get_interface_color_opposite | as_rgb_digit}};
+        --color-patternbot-interface-background: {{page._PatternbotConfig.patternbot.colors.background | as_hex}};
       }
       html {
-        color: {{page._PatternbotConfig.patternbot.colors.background_color | get_interface_color}};
+        color: {{page._PatternbotConfig.patternbot.colors.background | get_interface_color}};
       }
     {% endif %}
     {% if page._PatternbotData.css.theme.fonts.primary %}

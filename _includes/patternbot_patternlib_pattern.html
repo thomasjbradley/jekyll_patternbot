@@ -19,7 +19,7 @@
 
 <section class="pattern" id="{{include.pattern.name}}" role="tabpanel" hidden aria-hidden="true" {% unless show_sub_headings %}style="{% if first_pattern_has_bg %}background-color:{{first_pattern_name | get_pattern_background_color}}; color:{{first_pattern_name | get_pattern_interface_color | as_rgba:'.9'}};{% endif %}"{% endunless %}>
   <div class="pattern-toolbar gutter pad-t-1-4 pad-b-1-8 relative" {% unless show_sub_headings %}style="{% if first_pattern_has_bg %}border-color:{{first_pattern_name | get_pattern_interface_color | as_rgba:'.1'}}; color:{{first_pattern_name | get_pattern_interface_color | as_rgba:'.9'}};{% endif %}"{% endunless %}>
-    <h2 class="pattern-name exa push-1-4" style="color:{% if page._PatternbotConfig.patternbot.colors.accent_color %}{{page._PatternbotConfig.patternbot.colors.accent_color}}{% else %}{{page._PatternbotData.css.theme.colors.primary[0].hex}}{% endif %}; {% if page._PatternbotData.css.theme.fonts.secondary %}font-family:{{page._PatternbotData.css.theme.fonts.secondary.raw | replace:'"',"'"}};{% endif %}">{% if include.pattern.config.title %}{{include.pattern.config.title}}{% else %}{{include.pattern.name | as_title}}{% endif %}</h2>
+    <h2 class="pattern-name exa push-1-4" style="color:{% if page._PatternbotConfig.patternbot.colors.accent %}{{page._PatternbotConfig.patternbot.colors.accent | as_hex}}{% else %}{{page._PatternbotData.css.theme.colors.primary[0].hex}}{% endif %}; {% if page._PatternbotData.css.theme.fonts.secondary %}font-family:{{page._PatternbotData.css.theme.fonts.secondary.raw | replace:'"',"'"}};{% endif %}">{% if include.pattern.config.title %}{{include.pattern.config.title}}{% else %}{{include.pattern.name | as_title}}{% endif %}</h2>
     {% if show_sub_headings %}
       <nav class="pattern-nav">
         <ol class="list-group-inline push-1-4 pad-b-1-4">
@@ -77,9 +77,9 @@
   {% for pattern in include.pattern.config.patterns %}
     {% assign pattern_name = pattern[0] %}
     {% assign pattern_data = pattern[1] %}
-    <div class="pattern-details {% if pattern_data.background_color %}pattern-details-has-bg{% endif %}" id="{{include.pattern.name}}--{{pattern_name}}" style="{% if pattern_data.background_color %}background-color:{{pattern_data.background_color | as_hex}};{% endif %}">
+    <div class="pattern-details {% if pattern_data.background %}pattern-details-has-bg{% endif %}" id="{{include.pattern.name}}--{{pattern_name}}" style="{% if pattern_data.background %}background-color:{{pattern_data.background | as_hex}};{% endif %}">
       {% if show_sub_headings %}
-        <div class="pattern-toolbar pattern-toolbar-inner relative gutter pad-t-1-4 pad-b-1-4" style="{% if pattern_data.background_color %}border-color:{{pattern_data.background_color | get_interface_color | as_rgba:'.1'}}; color:{{pattern_data.background_color | get_interface_color | as_rgba:'.9'}};{% endif %}">
+        <div class="pattern-toolbar pattern-toolbar-inner relative gutter pad-t-1-4 pad-b-1-4" style="{% if pattern_data.background %}border-color:{{pattern_data.background | get_interface_color | as_rgba:'.1'}}; color:{{pattern_data.background | get_interface_color | as_rgba:'.9'}};{% endif %}">
           <h3 class="pattern-name tera push-1-8">{% if pattern_data.title %}{{pattern_data.title}}{% else %}{{pattern_name | as_title}}{% endif %}</h3>
             <ul class="list-group-inline gutter absolute pin-cr">
               {% if pattern_data.code != false %}
@@ -112,25 +112,25 @@
             </ul>
         </div>
         {% if pattern_data.description %}
-          <div class="pattern-desc milli island" style="{% if pattern_data.background_color %}border-color:{{pattern_data.background_color | get_interface_color | as_rgba:'.05'}}; color:{{pattern_data.background_color | get_interface_color | as_rgba:'.9'}};{% endif %}">
+          <div class="pattern-desc milli island" style="{% if pattern_data.background %}border-color:{{pattern_data.background | get_interface_color | as_rgba:'.05'}}; color:{{pattern_data.background | get_interface_color | as_rgba:'.9'}};{% endif %}">
             <div class="max-length">{{pattern_data.description | markdownify}}</div>
           </div>
         {% endif %}
       {% endif %}
 
-      <div class="pattern-examples pad-t-1-2 pad-b-1-2" style="{% if pattern_data.background_color %}color:{{pattern_data.background_color | get_interface_color | as_hex}};{% endif %}">
+      <div class="pattern-examples pad-t-1-2 pad-b-1-2" style="{% if pattern_data.background %}color:{{pattern_data.background | get_interface_color | as_hex}};{% endif %}">
         <div class="gutter{% if pattern_data.resizable != false %}-2{% endif %} pad-t-1-2 pad-b-1-2">
           <div class="resizeable-pattern relative" style="{% if pattern_data.width %}width:{{pattern_data.width}}px{% endif %}">
             <i class="icon i-32 patternbot-iframe-loading-gears absolute pin-c"><svg><use xlink:href="#patternbot-iframe-loading-gears"></use></svg></i>
             <iframe data-src="/{{page._PatternbotConfig.patternbot.destination}}/patterns/{{include.pattern.name}}/{{pattern_name}}.html" scrolling="no" data-inject-css="{% if pattern_data.padding %}body { padding:{{pattern_data.padding}}; }{% endif %}" {% if pattern_data.height %}data-min-height="{{pattern_data.height}}"{% endif %}></iframe>
             {% if pattern_data.resizable != false %}
               <div class="resizeable-pattern-length">
-                <div class="resize-handle resize-handle-left" style="{% if pattern_data.background_color %}border-color:{{pattern_data.background_color | get_interface_color | as_rgba:'.1'}}; color:{{pattern_data.background_color | get_interface_color | as_rgba:'.3'}};{% endif %}">
+                <div class="resize-handle resize-handle-left" style="{% if pattern_data.background %}border-color:{{pattern_data.background | get_interface_color | as_rgba:'.1'}}; color:{{pattern_data.background | get_interface_color | as_rgba:'.3'}};{% endif %}">
                   <i class="icon i-18">
                     <svg><use xlink:href="#icon-resize-handle"></use></svg>
                   </i>
                 </div>
-                <div class="resize-handle resize-handle-right" style="{% if pattern_data.background_color %}border-color:{{pattern_data.background_color | get_interface_color | as_rgba:'.1'}}; color:{{pattern_data.background_color | get_interface_color | as_rgba:'.3'}};{% endif %}">
+                <div class="resize-handle resize-handle-right" style="{% if pattern_data.background %}border-color:{{pattern_data.background | get_interface_color | as_rgba:'.1'}}; color:{{pattern_data.background | get_interface_color | as_rgba:'.3'}};{% endif %}">
                   <i class="icon i-18">
                     <svg><use xlink:href="#icon-resize-handle"></use></svg>
                   </i>
@@ -142,7 +142,7 @@
 
         {% if pattern_data.code != false %}
           <div class="pattern-code-wrap gutter pad-t-1-2 pad-b-1-2" hidden aria-hidden="true" id="{{include.pattern.name}}-{{pattern_name}}-code-sample" tabindex="-1">
-            <div class="pattern-code relative milli island-1-2" style="{% if pattern_data.background_color %}border-color:{{pattern_data.background_color | get_interface_color | as_rgba:'.5'}}; color:{{pattern_data.background_color | get_interface_color | as_rgba:'.9'}};{% endif %}">
+            <div class="pattern-code relative milli island-1-2" style="{% if pattern_data.background %}border-color:{{pattern_data.background | get_interface_color | as_rgba:'.5'}}; color:{{pattern_data.background | get_interface_color | as_rgba:'.9'}};{% endif %}">
               <button class="center-contents-vertical pattern-tool-btn pattern-copy-btn absolute pin-tr" title="Copy code" aria-label="Copy code" data-clipboard-target="#{{../name}}-{{name}}-code-sample-copy-chunk" hidden>
                 <i class="icon i-18">
                   <svg><use xlink:href="#icon-copy"></use></svg>

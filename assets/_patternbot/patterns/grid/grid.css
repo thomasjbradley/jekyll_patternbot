@@ -8,7 +8,7 @@
 }
 
 .patternbot-grid-display > li {
-  border: 2px solid var(--color-patternbot-background);
+  border: 2px solid var(--color-patternbot-interface-background);
 }
 
 .patternbot-grid-display-inner {
