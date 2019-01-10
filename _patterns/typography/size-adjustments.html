@@ -1,8 +1,8 @@
 <div class="text-left">
   <div class="patternbot-mq-display-wrap push patternbot-font-primary patternbot-color-body">
-    <ol class="patternbot-mq-display list-group push-0 pad-b" style="{% for mq in page._PatternbotData.css.theme.typografier.settings %}width: calc({{mq.mq | strip_trailing_zero}}em + 40em); {% endfor %}">
-      {% for mq in page._PatternbotData.css.theme.typografier.settings %}
-        <li style="padding-left: {{mq}}em">
+    <ol class="patternbot-mq-display list-group push-0 pad-b" style="{% for mq in page._PatternbotData.css.typografier.settings %}width: calc({{mq.mq | strip_trailing_zero}}em + 40em); {% endfor %}">
+      {% for mq in page._PatternbotData.css.typografier.settings %}
+        <li style="padding-left: {{mq.mq}}em">
           <div class="patternbot-mq-inner relative" {% if page._PatternbotConfig.patternbot.colors.accent_color %}style="background-color:{{page._PatternbotConfig.patternbot.colors.accent_color | as_hex}}"{% endif %}>
             <dl class="patternbot-mq-list list-group-inline push-0 gutter-1-2 absolute micro" {% if page._PatternbotConfig.patternbot.colors.accent_color %}style="border-color:{{page._PatternbotConfig.patternbot.colors.accent_color | as_hex}}"{% endif %}>
               <dt class="push-0">Media query</dt>
