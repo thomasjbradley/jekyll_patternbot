@@ -39,7 +39,7 @@
     {% endif %}
     {% unless show_sub_headings %}
       <ul class="list-group-inline gutter absolute pin-cr">
-        {% if first_pattern.code != false %}
+        {% if first_pattern._code != false %}
           <li>
             <button class="center-contents-vertical pattern-tool-btn pattern-code-btn" title="Show code" aria-label="Show code" aria-pressed="false" aria-controls="{{include.pattern.name}}-{{first_pattern_name}}-code-sample">
               <i class="icon i-18">
@@ -57,7 +57,7 @@
           </li>
           -->
         {% endif %}
-        {% if first_pattern.popout_button != false %}
+        {% if first_pattern._popout_button != false %}
           <li>
             <a class="center-contents-vertical pattern-tool-btn pattern-pop-btn" href="/{{page._PatternbotConfig.patternbot.destination}}/patterns/{{include.pattern.name}}/{{first_pattern_name}}.html" target="_blank" title="Open pattern in a new tab" aria-label="Open pattern in a new tab">
               <i class="icon i-18">
@@ -101,7 +101,7 @@
         <div class="pattern-toolbar pattern-toolbar-inner relative gutter pad-t-1-4 pad-b-1-4" style="{% if pattern_has_bg %}border-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}}; color:{{pattern_bg | get_interface_color | as_rgba:'.9'}};{% endif %}">
           <h3 class="pattern-name tera push-1-8">{% if pattern_data.title %}{{pattern_data.title}}{% else %}{{pattern_name | as_title}}{% endif %}</h3>
             <ul class="list-group-inline gutter absolute pin-cr">
-              {% if pattern_data.code != false %}
+              {% if pattern_data._code != false %}
                 <li>
                   <button class="center-contents-vertical pattern-tool-btn pattern-code-btn" title="Show code" aria-label="Show code" aria-pressed="false" aria-controls="{{include.pattern.name}}-{{pattern_name}}-code-sample">
                     <i class="icon i-18">
@@ -119,7 +119,7 @@
                 </li>
                 -->
               {% endif %}
-              {% if pattern_data.popout_button != false %}
+              {% if pattern_data._popout_button != false %}
                 <li>
                   <a class="btn center-contents-vertical pattern-tool-btn pattern-pop-btn" href="/{{page._PatternbotConfig.patternbot.destination}}/patterns/{{include.pattern.name}}/{{pattern_name}}.html" target="_blank" title="Open pattern in a new tab" aria-label="Open pattern in a new tab">
                     <i class="icon i-18">
@@ -138,11 +138,11 @@
       {% endif %}
 
       <div class="pattern-examples pad-t-1-2 pad-b-1-2" style="{% if pattern_has_bg %}color:{{pattern_bg | get_interface_color | as_hex}};{% endif %}">
-        <div class="gutter{% if pattern_data.resizable != false %}-2{% endif %} pad-t-1-2 pad-b-1-2">
+        <div class="gutter{% if pattern_data._resizable != false %}-2{% endif %} pad-t-1-2 pad-b-1-2">
           <div class="resizeable-pattern relative" style="{% if pattern_data.width %}width:{{pattern_data.width}}px{% endif %}">
             <i class="icon i-32 patternbot-iframe-loading-gears absolute pin-c"><svg><use xlink:href="#patternbot-iframe-loading-gears"></use></svg></i>
             <iframe data-src="/{{page._PatternbotConfig.patternbot.destination}}/patterns/{{include.pattern.name}}/{{pattern_name}}.html" scrolling="no" data-inject-css="{% if pattern_data.padding %}body { padding:{{pattern_data.padding}}; }{% endif %}" {% if pattern_data.height %}data-min-height="{{pattern_data.height}}"{% endif %}></iframe>
-            {% if pattern_data.resizable != false %}
+            {% if pattern_data._resizable != false %}
               <div class="resizeable-pattern-length">
                 <div class="resize-handle resize-handle-left" style="{% if pattern_has_bg %}border-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}}; color:{{pattern_bg | get_interface_color | as_rgba:'.3'}};{% endif %}">
                   <i class="icon i-18">
@@ -159,7 +159,7 @@
           </div>
         </div>
 
-        {% if pattern_data.code != false %}
+        {% if pattern_data._code != false %}
           <div class="pattern-code-wrap gutter pad-t-1-2 pad-b-1-2" hidden aria-hidden="true" id="{{include.pattern.name}}-{{pattern_name}}-code-sample" tabindex="-1">
             <div class="pattern-code relative milli island-1-2" style="{% if pattern_has_bg %}border-color:{{pattern_bg | get_interface_color | as_rgba:'.5'}}; color:{{pattern_bg | get_interface_color | as_rgba:'.9'}};{% endif %}">
               <button class="center-contents-vertical pattern-tool-btn pattern-copy-btn absolute pin-tr" title="Copy code" aria-label="Copy code" data-clipboard-target="#{{../name}}-{{name}}-code-sample-copy-chunk" hidden>

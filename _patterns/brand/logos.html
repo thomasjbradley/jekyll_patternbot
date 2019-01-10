@@ -4,9 +4,9 @@
       <h1 class="patternbot-color-body patternbot-color-user-or-body yotta text-left" style="color:{% if page._PatternbotConfig.patternbot.colors.accent %}{{page._PatternbotConfig.patternbot.colors.accent | as_hex}}{% else %}var(--color-primary){% endif %}; {% if page._PatternbotData.css.theme.fonts.secondary %}font-family:{{page._PatternbotData.css.theme.fonts.secondary.raw | replace:'"',"'"}};{% endif %}">
         {% if page._PatternbotConfig.patternbot.title %}
           {{page._PatternbotConfig.patternbot.title | strip}}
-          <span class="patternbot-sub-heading block giga">{{page._PatternbotConfig.patternbot.title_backup}}</span>
+          <span class="patternbot-sub-heading block giga">{{page._PatternbotConfig.patternbot._title_backup}}</span>
         {% else %}
-          {{page._PatternbotConfig.patternbot.title_backup | strip}}
+          {{page._PatternbotConfig.patternbot._title_backup | strip}}
         {% endif %}
       </h1>
       <div class="patternbot-brand-desc peta">

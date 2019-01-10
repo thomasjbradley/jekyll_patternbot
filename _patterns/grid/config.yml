@@ -9,6 +9,6 @@ description: |
 
 patterns:
   grid-sizes:
-    popout_button: false
-    resizable: false
-    code: false
+    _popout_button: false
+    _resizable: false
+    _code: false

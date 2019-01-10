@@ -8,6 +8,6 @@ description: |
 
 patterns:
   icons:
-    popout_button: false
-    code: false
-    resizable: false
+    _popout_button: false
+    _code: false
+    _resizable: false

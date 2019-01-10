@@ -27,7 +27,7 @@ patternbot:
       - ".png"
 
   title: false
-  title_backup: "Pattern Library"
+  _title_backup: "Pattern Library"
   description: |
     This pattern library is the source for all the colours, fonts & styles available for our website.
 

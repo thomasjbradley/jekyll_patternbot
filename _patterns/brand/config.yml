@@ -5,18 +5,18 @@ _extra_css:
 patterns:
   logos:
     title: "Logos"
-    popout_button: false
-    resizable: false
-    code: false
+    _popout_button: false
+    _resizable: false
+    _code: false
 
   colours:
     title: "Colours"
-    popout_button: false
-    resizable: false
-    code: false
+    _popout_button: false
+    _resizable: false
+    _code: false
 
   typefaces:
     title: "Typefaces"
-    popout_button: false
-    resizable: false
-    code: false
+    _popout_button: false
+    _resizable: false
+    _code: false
