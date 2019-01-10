@@ -33,7 +33,7 @@
       :root {
         --color-patternbot-interface: {{page._subpattern | get_pattern_interface_color: page._pattern | as_rgb_digit}};
         --color-patternbot-interface-opposite: {{page._subpattern | get_pattern_interface_color_opposite: page._pattern | as_rgb_digit}};
-        --color-patternbot-interface-background: {{page._PatternbotConfig.patternbot.colors.background | as_hex}};
+        --color-patternbot-interface-background: {{page._subpattern | get_pattern_background_color: page._pattern | as_hex}};
       }
       html {
         color: {{page._subpattern | get_pattern_interface_color: page._pattern}};
