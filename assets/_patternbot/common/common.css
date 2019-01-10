@@ -1,6 +1,7 @@
 :root {
   --color-patternbot-primary: rgba(var(--color-patternbot-interface), var(--color-patternbot-interface), var(--color-patternbot-interface), .9);
   --color-patternbot-opposite: rgba(var(--color-patternbot-interface-opposite), var(--color-patternbot-interface-opposite), var(--color-patternbot-interface-opposite), .9);
+  --color-patternbot-background: #fff;
 
   --font-patternbot-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   --font-patternbot-code: "Source Code Pro", monospace;
