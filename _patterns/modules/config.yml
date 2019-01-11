@@ -5,7 +5,7 @@ _extra_css:
 
 title: "Modules"
 description: |
-  [Modulifier](https://modulifier.web-dev.tools/++modulifier-settings-url++) generates a series of simple, default CSS components that can be used throughout the site, or as basic building blocks for more complex patterns. [See the documentation for all available classes.](https://learn-the-web.algonquindesign.ca/topics/modulifier-cheat-sheet/)
+  [Modulifier](++modulifier-settings-url++) generates a series of simple, default CSS components that can be used throughout the site, or as basic building blocks for more complex patterns. [See the documentation for all available classes.](https://learn-the-web.algonquindesign.ca/topics/modulifier-cheat-sheet/)
 
 patterns:
   list-group:

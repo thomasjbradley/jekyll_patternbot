@@ -63,12 +63,12 @@
 
   {% if include.pattern.config.description %}
     <div class="pattern-desc milli island" {% unless show_sub_headings %}style="{% if first_pattern_has_bg %}border-color:{{first_pattern_bg | get_interface_color | as_rgba:'.5'}}; color:{{first_pattern_bg | get_interface_color| as_rgba:'.9'}};{% endif %}"{% endunless %}>
-      <div class="max-length">{{include.pattern.config.description | markdownify}}</div>
+      <div class="max-length">{{include.pattern.config.description | markdownify | sub_web_dev_tool_urls}}</div>
     </div>
   {% else %}
     {% if first_pattern.description %}
       <div class="pattern-desc milli island" {% unless show_sub_headings %}style="{% if first_pattern_has_bg %}border-color:{{first_pattern_bg | get_interface_color | as_rgba:'.5'}}; color:{{first_pattern_bg | get_interface_color | as_rgba:'.9'}};{% endif %}"{% endunless %}>
-        <div class="max-length">{{first_pattern.description | markdownify}}</div>
+        <div class="max-length">{{first_pattern.description | markdownify | sub_web_dev_tool_urls}}</div>
       </div>
     {% endif %}
   {% endif %}
@@ -114,7 +114,7 @@
         </div>
         {% if pattern_data.description %}
           <div class="pattern-desc milli island" style="{% if pattern_has_bg %}border-color:{{pattern_bg | get_interface_color | as_rgba:'.05'}}; color:{{pattern_bg | get_interface_color | as_rgba:'.9'}};{% endif %}">
-            <div class="max-length">{{pattern_data.description | markdownify}}</div>
+            <div class="max-length">{{pattern_data.description | markdownify | sub_web_dev_tool_urls}}</div>
           </div>
         {% endif %}
       {% endif %}
