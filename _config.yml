@@ -39,6 +39,7 @@ patternbot:
     patterns:
       # brand.logos: hotpink
       # icons.icons.brachiosaurus: orange
+      # icons.icons.velociraptor.--color-stroke:
 
   rationales:
     # typefaces.primary: "Blah, blah…"
