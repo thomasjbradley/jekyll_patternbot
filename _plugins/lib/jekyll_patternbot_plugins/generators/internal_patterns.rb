@@ -34,6 +34,7 @@ module JekyllPatternbot
       html.data['title'] = PatternHelper.title pattern, subpattern, data, subdata
       html.data['layout'] = data[:config]['_layout']
       html.data['_PatternbotConfig'] = Config.with_indifferent_access
+      html.data['_PatternbotLocale'] = PatternbotLocale.with_indifferent_access
       html.data['_PatternbotData'] = PatternbotData.with_indifferent_access
       html.data['_pattern'] = pattern
       html.data['_pattern_data'] = data.with_indifferent_access if data.is_a?(Hash)

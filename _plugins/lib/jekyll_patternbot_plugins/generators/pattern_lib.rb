@@ -16,6 +16,7 @@ module JekyllPatternbot
       html = Jekyll::PageWithoutAFile.new(@site, @site.source, Config['patternbot']['destination'], 'index.html')
       html.data['layout'] = 'patternbot_pattern_lib'
       html.data['_PatternbotConfig'] = Config.with_indifferent_access
+      html.data['_PatternbotLocale'] = PatternbotLocale.with_indifferent_access
       html.data['_PatternbotData'] = PatternbotData.with_indifferent_access
       html.content = ''
       html

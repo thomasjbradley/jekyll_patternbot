@@ -1,0 +1,5 @@
+locale: "en-ca"
+
+patternlib:
+  title: "Pattern Library"
+  description: "This pattern library is the source for all the colours, fonts & styles available for our website."

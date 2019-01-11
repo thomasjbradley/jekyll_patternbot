@@ -2,9 +2,9 @@
 <html lang="en-ca">
 <head>
   <meta charset="utf-8">
-  <title>{% if page._PatternbotConfig.patternbot.title %}{{page._PatternbotConfig.patternbot.title}} · {% endif %}{{page._PatternbotConfig.patternbot._title_backup}}</title>
+  <title>{% if page._PatternbotConfig.patternbot.title %}{{page._PatternbotConfig.patternbot.title}} · {% endif %}{{page._PatternbotLocale.patternlib.title}}</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="{% if page._PatternbotConfig.patternbot.title %}{{page._PatternbotConfig.patternbot.title}} {% endif %}{{page._PatternbotConfig.patternbot._title_backup}} — {{page._PatternbotConfig.patternbot.description | strip}}">
+  <meta name="description" content="{% if page._PatternbotConfig.patternbot.title %}{{page._PatternbotConfig.patternbot.title}} {% endif %}{{page._PatternbotLocale.patternlib.title}} — {% if page._PatternbotConfig.patternbot.description %}{{page._PatternbotConfig.patternbot.description | strip | strip_newlines}}{% else %}{{page._PatternbotLocale.patternlib.description | strip | strip_newlines}}{% endif %}">
   <meta name="generator" content="jekyll_patternbot/{{page._PatternbotConfig.patternbot.version}}">
   <link href="{{site.baseurl}}/assets/_patternbot/ui/pattern-lib.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" rel="stylesheet">
@@ -46,9 +46,9 @@
       <h1 class="kilo pad-t-1-8 pad-b-1-8 push-0" style="color:{% if page._PatternbotConfig.patternbot.colors.accent %}{{page._PatternbotConfig.patternbot.colors.accent | as_hex}}{% else %}{{page._PatternbotData.css.theme.colors.primary[0].hex}}{% endif %}; {% if page._PatternbotData.css.theme.fonts.secondary %}font-family:{{page._PatternbotData.css.theme.fonts.secondary.raw | replace:'"',"'"}};{% endif %}">
         {% if page._PatternbotConfig.patternbot.title %}
           {{page._PatternbotConfig.patternbot.title}}
-          <span class="block normal milli">{{page._PatternbotConfig.patternbot._title_backup}}</span>
+          <span class="block normal milli">{{page._PatternbotLocale.patternlib.title}}</span>
         {% else %}
-          {{page._PatternbotConfig.patternbot._title_backup}}
+          {{page._PatternbotLocale.patternlib.title}}
         {% endif %}
       </h1>
     </header>
@@ -57,9 +57,9 @@
       <h1 class="tera gutter pad-t pad-b push-0" style="color:{% if page._PatternbotConfig.patternbot.colors.accent %}{{page._PatternbotConfig.patternbot.colors.accent | as_hex}}{% else %}{{page._PatternbotData.css.theme.colors.primary[0].hex}}{% endif %}; {% if page._PatternbotData.css.theme.fonts.secondary %}font-family:{{page._PatternbotData.css.theme.fonts.secondary.raw | replace:'"',"'"}};{% endif %}">
         {% if page._PatternbotConfig.patternbot.title %}
           {{page._PatternbotConfig.patternbot.title}}
-          <span class="block normal mega pad-t-1-4">{{page._PatternbotConfig.patternbot._title_backup}}</span>
+          <span class="block normal mega pad-t-1-4">{{page._PatternbotLocale.patternlib.title}}</span>
         {% else %}
-          {{page._PatternbotConfig.patternbot._title_backup}}
+          {{page._PatternbotLocale.patternlib.title}}
         {% endif %}
       </h1>
       <hr>
