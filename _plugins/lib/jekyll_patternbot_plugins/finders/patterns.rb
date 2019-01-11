@@ -9,7 +9,7 @@ module JekyllPatternbot
     end
 
     def pattern_config(patternpath)
-      config_path = File.expand_path 'config.yml', patternpath
+      config_path = File.expand_path Config['patternbot']['config'], patternpath
       return false unless File.file?(config_path)
       PatternHelper.config_valid? YAML.load_file(config_path)
     end

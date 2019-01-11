@@ -1,6 +1,7 @@
 patternbot:
   locale: "en-ca"
   source: "_patterns"
+  config: "config.yml"
   destination: "pattern-library"
   font_url: false
   css:
