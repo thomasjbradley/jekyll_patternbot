@@ -4,6 +4,7 @@
 
 .patternbot-icon-display > li {
   border-radius: 3px;
+  vertical-align: top;
 }
 
 .patternbot-icon-display-left,

@@ -53,6 +53,25 @@ module JekyllPatternbot
       get_interface_color_opposite get_pattern_background_color id, *namespaces
     end
 
+    def get_var_colors(id, *namespaces)
+      var_colors = []
+      namespaces.push(id)
+      key_name = namespaces.join('.')
+      Config['patternbot']['colors']['patterns'].each do |key, val|
+        if key.start_with?(key_name + '.')
+          var_colors.push({
+            'key' => key.sub(key_name + '.', ''),
+            'val' => val,
+          })
+        end
+      end
+      if var_colors.length > 0
+        return var_colors
+      else
+        return false
+      end
+    end
+
   end
 end
 

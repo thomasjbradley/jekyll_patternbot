@@ -3,28 +3,39 @@
   <ul class="patternbot-icon-display patternbot-list-group list-group-inline {% if spritesheet_has_bg %}patternbot-icon-display-has-bg{% endif %}">
     {% for icon in spritesheet.icons %}
       {% assign icon_has_bg = icon | has_pattern_background_color: 'icons', spritesheet.name %}
+      {% capture icon_class %}patternbot-icon-{{spritesheet.filename | replace:'.svg', ''}}-{{icon}}{% endcapture %}
+      {% assign icon_var_colors = icon | get_var_colors: 'icons', spritesheet.name %}
       <li class="pad-b-1-2 gutter-1-4 push" style="{% if icon_has_bg %}background-color:{{icon | get_pattern_background_color: 'icons', spritesheet.name | as_hex }}; color:{{icon | get_pattern_interface_color: 'icons', spritesheet.name | as_hex}}{% endif %}">
+        {% if icon_var_colors %}
+          <style>
+            .{{icon_class}} {
+              {% for varcol in icon_var_colors %}
+                {{varcol.key}}: {{varcol.val | as_hex}};
+              {% endfor %}
+            }
+          </style>
+        {% endif %}
         <div class="text-center">
           <div class="patternbot-icon-display-left island-1-2">
             <i class="icon i-128 block">
-              <svg><use xlink:href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.icons.source}}/{{spritesheet.filename}}#{{icon}}"></use></svg>
+              <svg class="{{icon_class}}"><use xlink:href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.icons.source}}/{{spritesheet.filename}}#{{icon}}"></use></svg>
             </i>
           </div>
           <div class="patternbot-icon-display-right center-contents island-1-2">
             <i class="icon i-64 block push-1-8">
-              <svg><use xlink:href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.icons.source}}/{{spritesheet.filename}}#{{icon}}"></use></svg>
+              <svg class="{{icon_class}}"><use xlink:href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.icons.source}}/{{spritesheet.filename}}#{{icon}}"></use></svg>
             </i>
             <i class="icon i-32 block push-1-8">
-              <svg><use xlink:href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.icons.source}}/{{spritesheet.filename}}#{{icon}}"></use></svg>
+              <svg class="{{icon_class}}"><use xlink:href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.icons.source}}/{{spritesheet.filename}}#{{icon}}"></use></svg>
             </i>
             <i class="icon i-18 block">
-              <svg><use xlink:href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.icons.source}}/{{spritesheet.filename}}#{{icon}}"></use></svg>
+              <svg class="{{icon_class}}"><use xlink:href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.icons.source}}/{{spritesheet.filename}}#{{icon}}"></use></svg>
             </i>
           </div>
         </div>
         <div class="text-center patternbot-color-body">
           <i class="icon i-24 patternbot-color-body">
-            <svg><use xlink:href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.icons.source}}/{{spritesheet.filename}}#{{icon}}"></use></svg>
+            <svg class="{{icon_class}}"><use xlink:href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.icons.source}}/{{spritesheet.filename}}#{{icon}}"></use></svg>
           </i>
           <span class="icon-label ib">
             <code class="micro" style="{% if icon_has_bg %}background-color:{{icon | get_pattern_interface_color: 'icons', spritesheet.name | as_rgba:'.05'}}; border-color:{{icon | get_pattern_interface_color: 'icons', spritesheet.name | as_rgba:'.05'}}; color:{{icon | get_pattern_interface_color: 'icons', spritesheet.name | as_hex}}{% endif %}">
@@ -41,6 +52,20 @@
             </button>
           </span>
         </div>
+        {% if icon_var_colors %}
+          <div class="text-center patternbot-color-body">
+            <strong class="not-bold italic block micro pad-t-1-8">Variables</strong>
+            <ul class="list-group">
+              {% for varcol in icon_var_colors %}
+                <li>
+                  <code class="pico ib" style="{% if icon_has_bg %}background-color:{{icon | get_pattern_interface_color: 'icons', spritesheet.name | as_rgba:'.05'}}; border-color:{{icon | get_pattern_interface_color: 'icons', spritesheet.name | as_rgba:'.05'}}; color:{{icon | get_pattern_interface_color: 'icons', spritesheet.name | as_hex}}{% endif %}">
+                    {{varcol.key}}
+                  </code>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
       </li>
     {% endfor %}
   </ul>
