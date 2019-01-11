@@ -308,7 +308,8 @@ a {
 
 .pattern-code,
 .pattern-code code,
-.pattern-code pre {
+.pattern-code pre,
+.pattern-code kbd {
   font-family: "Source Code Pro", monospace;
 }
 
@@ -336,6 +337,31 @@ a {
 .pattern-code code {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+}
+
+.pattern-code-sep {
+  border: 1px solid rgba(var(--color-patternbot-interface), var(--color-patternbot-interface), var(--color-patternbot-interface), .3);
+}
+
+.pattern-code-fields {
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+}
+
+.pattern-code-fields th,
+.pattern-code-fields td {
+  padding: .4em 0 0;
+  border-color: rgba(var(--color-patternbot-interface), var(--color-patternbot-interface), var(--color-patternbot-interface), .3);
+}
+
+.pattern-code-field {
+  display: inline-block;
+  padding: 0 .4em .15em;
+  background-color: rgba(var(--color-patternbot-interface), var(--color-patternbot-interface), var(--color-patternbot-interface), .05);
+  border: 1px solid transparent;
+  border-color: rgba(var(--color-patternbot-interface), var(--color-patternbot-interface), var(--color-patternbot-interface), .05);
+  border-radius: 4px;
 }
 
 .pattern-tool-btn {

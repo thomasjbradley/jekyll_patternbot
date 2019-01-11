@@ -150,6 +150,35 @@
                 </i>
               </button>
               <code><pre id="{{include.pattern.name}}-{{pattern_name}}-code-sample-copy-chunk">{{pattern_name | pattern_code:include.pattern.name, pattern_data | escape}}</pre></code>
+              {% if pattern_data.fields %}
+                <div class="pad-t-1-2">
+                  <hr class="pattern-code-sep push-1-2" style="{% if pattern_has_bg %}border-color:{{pattern_bg | get_interface_color | as_rgba:'.3'}};{% endif %}">
+                  <table class="pattern-code-fields nano push-0" style="{% if pattern_has_bg %}border-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}};{% endif %}">
+                    <thead>
+                      <tr>
+                        <th class="not-bold pico" scope="col" colspan="6" style="{% if pattern_has_bg %}border-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}};{% endif %}">Field name</th>
+                        <th class="not-bold pico" scope="col" colspan="4" style="{% if pattern_has_bg %}border-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}};{% endif %}">Data type</th>
+                        <th class="not-bold pico" scope="col" colspan="14" style="{% if pattern_has_bg %}border-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}};{% endif %}">Example</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for field in pattern_data.fields %}
+                        <tr>
+                          <th scope="row" colspan="6" style="{% if pattern_has_bg %}border-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}};{% endif %}">
+                            <kbd class="pattern-code-field" style="{% if pattern_has_bg %}background-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}}; border-color:{{pattern_bg | get_interface_color | as_rgba:'.3'}}; color:{{pattern_bg | get_interface_color | as_rgba:'.9'}};{% endif %}">{{field.name | escape}}</kbd>
+                          </th>
+                          <td scope="col" colspan="4" style="{% if pattern_has_bg %}border-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}};{% endif %}">
+                            <code class="pattern-code-field" style="{% if pattern_has_bg %}background-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}}; border-color:{{pattern_bg | get_interface_color | as_rgba:'.3'}}; color:{{pattern_bg | get_interface_color | as_rgba:'.9'}};{% endif %}">{{field.type | escape}}</code>
+                          </td>
+                          <td class="italic" scope="col" colspan="14" style="{% if pattern_has_bg %}border-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}};{% endif %}">
+                            <span>{{field.example | escape}}</span>
+                          </td>
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              {% endif %}
             </div>
           </div>
         {% endif %}
