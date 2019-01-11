@@ -40,11 +40,10 @@ module JekyllPatternbot
     pages = PagesFinder.new
     PatternbotData[:pages] = pages.info
 
-    require 'json'
-    File.open('/Users/thomasjbradley/Desktop/patternbot.json', 'w') do |f|
-      f.write(JSON.pretty_generate(PatternbotData))
-    end
-    # puts PatternbotData.inspect
+    # require 'json'
+    # File.open('/Users/thomasjbradley/Desktop/patternbot.json', 'w') do |f|
+      # f.write(JSON.pretty_generate(PatternbotData))
+    # end
   end
 
 end
