@@ -9,7 +9,7 @@ patterns:
     _resizable: false
     _code: false
 
-  colours:
+  colors:
     title: "Colours"
     _popout_button: false
     _resizable: false
