@@ -26,6 +26,8 @@ patternbot:
     extensions:
       - ".svg"
       - ".png"
+  pages:
+    source: "pattern_examples"
 
   title: false
   description: false

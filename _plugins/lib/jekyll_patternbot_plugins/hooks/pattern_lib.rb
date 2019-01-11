@@ -7,6 +7,7 @@ module JekyllPatternbot
       :logos => false,
       :icons => false,
       :patterns => {},
+      :pages => [],
     }
 
     modulifier = ModulifierParser.new(Config['patternbot']['css']['modulifier'])
@@ -35,6 +36,9 @@ module JekyllPatternbot
       :internal => pattern_files.internal_patterns_info,
       :user => pattern_files.user_patterns_info,
     }
+
+    pages = PagesFinder.new
+    PatternbotData[:pages] = pages.info
 
     require 'json'
     File.open('/Users/thomasjbradley/Desktop/patternbot.json', 'w') do |f|
