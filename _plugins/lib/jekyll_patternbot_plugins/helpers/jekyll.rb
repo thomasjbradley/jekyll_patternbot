@@ -3,6 +3,7 @@ module JekyllPatternbot
 
     def self.pattern_tag(pattern, subpattern, fields)
       liquid_fields = []
+      extra_space = ''
 
       if fields
         liquid_fields = fields.map do |field|
@@ -10,7 +11,9 @@ module JekyllPatternbot
         end
       end
 
-      "{% pattern #{pattern}/#{subpattern} #{liquid_fields.join(' ')} %}"
+      extra_space = ' ' if liquid_fields.length > 0
+
+      "{% pattern #{pattern}/#{subpattern}#{extra_space}#{liquid_fields.join(' ')} %}"
     end
 
   end
