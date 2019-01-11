@@ -35,5 +35,9 @@ patternbot:
     background: '#fff'
     accent: false
     patterns:
+      # brand.logos: hotpink
+      # icons.icons.brachiosaurus: orange
 
   rationales:
+    # typefaces.primary: "Blah, blah…"
+    # colors.secondary: "Blerg, blerg…"
