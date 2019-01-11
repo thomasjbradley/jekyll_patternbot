@@ -1,0 +1,22 @@
+<script>
+  /*
+    ================================================
+    COPY BUTTONS
+    ================================================
+  */
+  (function () {
+    'use strict';
+
+    var copyBtns = document.querySelectorAll('.pattern-copy-btn');
+
+    if (!copyBtns) return;
+
+    if (ClipboardJS.isSupported()) {
+      [].forEach.call(copyBtns, function (btn) {
+        btn.removeAttribute('hidden');
+      });
+
+      new ClipboardJS('.pattern-copy-btn');
+    }
+  }());
+</script>

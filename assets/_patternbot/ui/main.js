@@ -7,36 +7,18 @@ var patternbot = {};
 */
 
 (function () {
-  // var jsToInject = document.querySelectorAll('.injectable-js');
-  // var defaultCssToInject = document.getElementById('inject-css').innerHTML;
-
-  // var injectJs = function (iframe) {
-  //   var script;
-
-  //   if (!jsToInject) return;
-
-  //   [].forEach.call(jsToInject, function (js) {
-  //     script = document.createElement('script');
-  //     script.innerHTML = js.innerHTML;
-  //     iframe.contentWindow.document.body.appendChild(script);
-  //   });
-  // };
-
   var injectCss = function (iframe) {
     var style = document.createElement('style');
 
     if (iframe.dataset.injectCss.trim().length > 0) {
       style.innerHTML = iframe.dataset.injectCss.trim();
       iframe.contentWindow.document.body.classList.add('custom-bg-colors-used');
-    }/* else {
-      style.innerHTML = defaultCssToInject;
     }
-    */
+
     iframe.contentWindow.document.head.appendChild(style);
   };
 
   var injectAssetsIntoIframe = function (iframe) {
-    // injectJs(iframe);
     injectCss(iframe);
   };
 
@@ -113,8 +95,7 @@ var patternbot = {};
           patternbot.injectAssetsIntoIframe(e.target);
 
           iFrameResize({
-            heightCalculationMethod: 'grow',
-            // autoResize: false,
+            heightCalculationMethod: 'max',
             minHeight: (e.target.dataset.minHeight) ? parseInt(e.target.dataset.minHeight, 10) : 0,
             resizedCallback: function (opts) {
               opts.iframe.previousElementSibling.setAttribute('hidden', true);
@@ -319,30 +300,3 @@ var patternbot = {};
 
   toggleBasedOnScreen();
 }());
-
-/*
-  ================================================
-  COPY INCLUDE BUTTONS
-  ================================================
-*/
-/*
-(function () {
-  'use strict';
-
-  var copyBtns = document.querySelectorAll('.pattern-include-btn');
-
-  if (!copyBtns) return;
-
-  if (Clipboard.isSupported()) {
-    [].forEach.call(copyBtns, function (btn) {
-      btn.removeAttribute('hidden');
-    });
-
-    new Clipboard('.pattern-include-btn', {
-      text: function (trigger) {
-        return '<script type="application/json" data-pattern="' + trigger.dataset.copyIncludePattern + '"></script>';
-      }
-    });
-  }
-}());
-*/

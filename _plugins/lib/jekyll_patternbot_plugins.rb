@@ -40,6 +40,7 @@ module JekyllPatternbot
   require 'jekyll_patternbot_plugins/filters/text'
   require 'jekyll_patternbot_plugins/filters/color'
   require 'jekyll_patternbot_plugins/filters/number'
+  require 'jekyll_patternbot_plugins/filters/pattern'
 
   require 'jekyll_patternbot_plugins/generators/internal_patterns'
   require 'jekyll_patternbot_plugins/generators/user_patterns'

@@ -181,7 +181,10 @@
 
   </div>
 
-  {% include patternbot_patternlib_scripts.html %}
+  <script src="{{site.baseurl}}/assets/_patternbot/vendor/iframe-resizer.min.js"></script>
+  <script src="{{site.baseurl}}/assets/_patternbot/vendor/interact.min.js"></script>
+  <script src="{{site.baseurl}}/assets/_patternbot/vendor/clipboard.min.js"></script>
+  {% include patternbot_pattern_copy_script.html %}
 
   <script src="{{site.baseurl}}/assets/_patternbot/ui/pattern-lib.min.js"></script>
 </body>

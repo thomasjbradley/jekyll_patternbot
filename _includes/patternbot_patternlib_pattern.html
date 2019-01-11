@@ -47,15 +47,6 @@
               </i>
             </button>
           </li>
-          <!--
-          <li>
-            <button class="center-contents-vertical pattern-tool-btn pattern-include-btn" title="Copy include" aria-label="Copy include" data-copy-include-pattern="{{include.pattern.name}}/{{first_pattern_name}}" hidden>
-              <i class="icon i-18">
-                <svg><use xlink:href="#icon-copy"></use></svg>
-              </i>
-            </button>
-          </li>
-          -->
         {% endif %}
         {% if first_pattern._popout_button != false %}
           <li>
@@ -109,15 +100,6 @@
                     </i>
                   </button>
                 </li>
-                <!--
-                <li>
-                  <button class="center-contents-vertical pattern-tool-btn pattern-include-btn" title="Copy include" aria-label="Copy include" data-copy-include-pattern="{{../name}}/{{filename}}" hidden>
-                    <i class="icon i-18">
-                      <svg><use xlink:href="#icon-copy"></use></svg>
-                    </i>
-                  </button>
-                </li>
-                -->
               {% endif %}
               {% if pattern_data._popout_button != false %}
                 <li>
@@ -162,12 +144,12 @@
         {% if pattern_data._code != false %}
           <div class="pattern-code-wrap gutter pad-t-1-2 pad-b-1-2" hidden aria-hidden="true" id="{{include.pattern.name}}-{{pattern_name}}-code-sample" tabindex="-1">
             <div class="pattern-code relative milli island-1-2" style="{% if pattern_has_bg %}border-color:{{pattern_bg | get_interface_color | as_rgba:'.5'}}; color:{{pattern_bg | get_interface_color | as_rgba:'.9'}};{% endif %}">
-              <button class="center-contents-vertical pattern-tool-btn pattern-copy-btn absolute pin-tr" title="Copy code" aria-label="Copy code" data-clipboard-target="#{{../name}}-{{name}}-code-sample-copy-chunk" hidden>
+              <button class="center-contents-vertical pattern-tool-btn pattern-copy-btn absolute pin-tr" title="Copy code" aria-label="Copy code" data-clipboard-target="#{{include.pattern.name}}-{{pattern_name}}-code-sample-copy-chunk" hidden>
                 <i class="icon i-18">
                   <svg><use xlink:href="#icon-copy"></use></svg>
                 </i>
               </button>
-              <code><pre id="{{include.pattern.name}}-{{pattern_name}}-code-sample-copy-chunk">{{pattern_data.include_code | escape}}</pre></code>
+              <code><pre id="{{include.pattern.name}}-{{pattern_name}}-code-sample-copy-chunk">{{pattern_name | pattern_code:include.pattern.name, pattern_data | escape}}</pre></code>
             </div>
           </div>
         {% endif %}

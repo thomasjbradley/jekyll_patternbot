@@ -19,7 +19,9 @@
     {{content}}
   </div>
 
-  {% include patternbot_pattern_scripts.html %}
+  <script src="{{site.baseurl}}/assets/_patternbot/vendor/iframe-resizer-content-window.min.js"></script>
+  <script src="{{site.baseurl}}/assets/_patternbot/vendor/clipboard.min.js"></script>
+  {% include patternbot_pattern_copy_script.html %}
 
 </body>
 </html>
