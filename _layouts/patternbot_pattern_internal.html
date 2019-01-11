@@ -5,26 +5,26 @@
   <title>{{page.title}}</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   {% if page._pattern_data.config._user_modulifier %}
-    <link href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.css.source}}/{{page._PatternbotConfig.patternbot.css.modulifier}}" rel="stylesheet">
+    <link href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.css.source}}/{{page._PatternbotConfig.patternbot.css.modulifier}}?v={{site.time | date:'%s'}}" rel="stylesheet">
   {% else %}
-    <link href="{{site.baseurl}}/assets/_patternbot/common/modulifier.min.css" rel="stylesheet">
+    <link href="{{site.baseurl}}/assets/_patternbot/common/modulifier.min.css?v={{page._PatternbotConfig.patternbot.version}}" rel="stylesheet">
   {% endif %}
   {% if page._pattern_data.config._user_gridifier %}
-    <link href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.css.source}}/{{page._PatternbotConfig.patternbot.css.gridifier}}" rel="stylesheet">
+    <link href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.css.source}}/{{page._PatternbotConfig.patternbot.css.gridifier}}?v={{site.time | date:'%s'}}" rel="stylesheet">
   {% else %}
-    <link href="{{site.baseurl}}/assets/_patternbot/common/gridifier.min.css" rel="stylesheet">
+    <link href="{{site.baseurl}}/assets/_patternbot/common/gridifier.min.css?v={{page._PatternbotConfig.patternbot.version}}" rel="stylesheet">
   {% endif %}
   {% if page._pattern_data.config._user_typografier %}
-    <link href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.css.source}}/{{page._PatternbotConfig.patternbot.css.typografier}}" rel="stylesheet">
+    <link href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.css.source}}/{{page._PatternbotConfig.patternbot.css.typografier}}?v={{site.time | date:'%s'}}" rel="stylesheet">
   {% else %}
-    <link href="{{site.baseurl}}/assets/_patternbot/common/typografier.min.css" rel="stylesheet">
+    <link href="{{site.baseurl}}/assets/_patternbot/common/typografier.min.css?v={{page._PatternbotConfig.patternbot.version}}" rel="stylesheet">
   {% endif %}
   {% if page._PatternbotData.css.theme %}
-    <link href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.css.source}}/{{page._PatternbotConfig.patternbot.css.theme}}" rel="stylesheet">
+    <link href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.css.source}}/{{page._PatternbotConfig.patternbot.css.theme}}?v={{site.time | date:'%s'}}" rel="stylesheet">
   {% endif %}
-  <link href="{{site.baseurl}}/assets/_patternbot/common/common.min.css" rel="stylesheet">
+  <link href="{{site.baseurl}}/assets/_patternbot/common/common.min.css?v={{page._PatternbotConfig.patternbot.version}}" rel="stylesheet">
   {% for css in page._pattern_data.config._extra_css %}
-    <link href="{{site.baseurl}}/assets/_patternbot/patterns/{{css}}" rel="stylesheet">
+    <link href="{{site.baseurl}}/assets/_patternbot/patterns/{{css}}?v={{page._PatternbotConfig.patternbot.version}}" rel="stylesheet">
   {% endfor %}
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" rel="stylesheet">
   <style>
@@ -69,8 +69,8 @@
     {{content}}
   </div>
 
-  <script src="{{site.baseurl}}/assets/_patternbot/vendor/iframe-resizer-content-window.min.js"></script>
-  <script src="{{site.baseurl}}/assets/_patternbot/vendor/clipboard.min.js"></script>
+  <script src="{{site.baseurl}}/assets/_patternbot/vendor/iframe-resizer-content-window.min.js?v={{page._PatternbotConfig.patternbot.version}}"></script>
+  <script src="{{site.baseurl}}/assets/_patternbot/vendor/clipboard.min.js?v={{page._PatternbotConfig.patternbot.version}}"></script>
   {% include patternbot_pattern_copy_script.html %}
 
 </body>

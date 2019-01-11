@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="{% if page._PatternbotConfig.patternbot.title %}{{page._PatternbotConfig.patternbot.title}} {% endif %}{{page._PatternbotLocale.patternlib.title}} — {% if page._PatternbotConfig.patternbot.description %}{{page._PatternbotConfig.patternbot.description | strip | strip_newlines}}{% else %}{{page._PatternbotLocale.patternlib.description | strip | strip_newlines}}{% endif %}">
   <meta name="generator" content="jekyll_patternbot/{{page._PatternbotConfig.patternbot.version}}">
-  <link href="{{site.baseurl}}/assets/_patternbot/ui/pattern-lib.min.css" rel="stylesheet">
+  <link href="{{site.baseurl}}/assets/_patternbot/ui/pattern-lib.min.css?v={{page._PatternbotConfig.patternbot.version}}" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" rel="stylesheet">
   <style>
     :root {
@@ -181,11 +181,10 @@
 
   </div>
 
-  <script src="{{site.baseurl}}/assets/_patternbot/vendor/iframe-resizer.min.js"></script>
-  <script src="{{site.baseurl}}/assets/_patternbot/vendor/interact.min.js"></script>
-  <script src="{{site.baseurl}}/assets/_patternbot/vendor/clipboard.min.js"></script>
+  <script src="{{site.baseurl}}/assets/_patternbot/vendor/iframe-resizer.min.js?v={{page._PatternbotConfig.patternbot.version}}"></script>
+  <script src="{{site.baseurl}}/assets/_patternbot/vendor/interact.min.js?v={{page._PatternbotConfig.patternbot.version}}"></script>
+  <script src="{{site.baseurl}}/assets/_patternbot/vendor/clipboard.min.js?v={{page._PatternbotConfig.patternbot.version}}"></script>
   {% include patternbot_pattern_copy_script.html %}
-
-  <script src="{{site.baseurl}}/assets/_patternbot/ui/pattern-lib.min.js"></script>
+  <script src="{{site.baseurl}}/assets/_patternbot/ui/pattern-lib.min.js?v={{page._PatternbotConfig.patternbot.version}}"></script>
 </body>
 </html>
