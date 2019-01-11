@@ -10,6 +10,7 @@ patternbot:
     gridifier: "grid.css"
     typografier: "type.css"
     theme: "theme.css"
+    main: "main.css"
   icons:
     source: "images"
     filenames:
