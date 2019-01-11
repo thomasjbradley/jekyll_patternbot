@@ -50,3 +50,6 @@ patterns:
   emphasis-and-edits:
     title: "Emphasis & edits"
     _code: false
+  typesetting:
+    title: "Typesetting"
+    _code: false
