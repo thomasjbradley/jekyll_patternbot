@@ -88,6 +88,11 @@ a {
   opacity: 0;
 }
 
+.masthead-title {
+  color: var(--color-patternbot-interface-accent);
+  font-family: var(--font-patternbot-secondary);
+}
+
 .masthead-m {
   height: 100vh;
   padding-top: 4.1em;
@@ -249,6 +254,11 @@ a {
 
 .pattern {
   padding-top: 3.1em;
+}
+
+.pattern-name {
+  font-family: var(--font-patternbot-secondary), var(--font-patternbot-primary);
+  color: var(--color-patternbot-interface-accent);
 }
 
 .pattern-toolbar {

@@ -12,7 +12,7 @@
     </li>
   </ul>
 
-  <h2 class="patternbot-color-body yotta" style="font-family:var({{include.font.var}});"><span style="color:{% if page._PatternbotConfig.patternbot.colors.accent %}{{page._PatternbotConfig.patternbot.colors.accent | as_hex}}{% else %}var(--color-primary){% endif %}">{{include.font.name_pretty}}</span> is {{include.preposition}} {{include.destination | downcase}} typeface</h2>
+  <h2 class="patternbot-color-body yotta"><span class="patternbot-type-sample-large">{{include.font.name_pretty}}</span> is {{include.preposition}} {{include.destination | downcase}} typeface</h2>
   {% assign pattern_has_rationale = include.key | has_pattern_rationale:'typefaces' %}
   {% if pattern_has_rationale %}
     <div class="patternbot-max-length tera max-length">
@@ -23,10 +23,10 @@
   {% for weight in include.font.weights %}
     {% assign weight_data = weight[1] %}
     {% if weight_data.has_normal %}
-      {% include patternbot_pattern_brand_typeface_weight.html weight=weight_data style="normal" font=include.font.var %}
+      {% include patternbot_pattern_brand_typeface_weight.html weight=weight_data style="normal" font_var=include.font.var %}
     {% endif %}
     {% if weight_data.has_italic %}
-      {% include patternbot_pattern_brand_typeface_weight.html weight=weight_data style="italic" font=include.font.var %}
+      {% include patternbot_pattern_brand_typeface_weight.html weight=weight_data style="italic" font_var=include.font.var %}
     {% endif %}
   {% endfor %}
 </section>

@@ -12,7 +12,6 @@ var patternbot = {};
 
     if (iframe.dataset.injectCss.trim().length > 0) {
       style.innerHTML = iframe.dataset.injectCss.trim();
-      iframe.contentWindow.document.body.classList.add('custom-bg-colors-used');
     }
 
     iframe.contentWindow.document.head.appendChild(style);

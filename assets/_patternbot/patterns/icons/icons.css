@@ -1,10 +1,13 @@
 .patternbot-icon-display {
   color: rgba(var(--color-patternbot-interface), var(--color-patternbot-interface), var(--color-patternbot-interface), .9);
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .patternbot-icon-display > li {
   border-radius: 3px;
   vertical-align: top;
+  width: auto;
 }
 
 .patternbot-icon-display-left,

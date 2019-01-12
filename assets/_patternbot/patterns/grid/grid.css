@@ -12,7 +12,7 @@
 }
 
 .patternbot-grid-display-inner {
-  border: 2px solid var(--color-secondary, rgba(var(--color-patternbot-interface), var(--color-patternbot-interface), var(--color-patternbot-interface), .1));
+  border: 2px solid var(--color-patternbot-interface-accent, --color-secondary, rgba(var(--color-patternbot-interface), var(--color-patternbot-interface), var(--color-patternbot-interface), .1));
 }
 
 .patternbot-grid-wrap {

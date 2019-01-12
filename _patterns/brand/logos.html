@@ -1,7 +1,7 @@
 <section class="text-left">
   <div class="grid">
     <div class="unit [ xs-1 m-1-2 ]">
-      <h1 class="patternbot-color-body patternbot-color-user-or-body yotta text-left" style="color:{% if page._PatternbotConfig.patternbot.colors.accent %}{{page._PatternbotConfig.patternbot.colors.accent | as_hex}}{% else %}var(--color-primary){% endif %}; {% if page._PatternbotData.css.theme.fonts.secondary %}font-family:{{page._PatternbotData.css.theme.fonts.secondary.raw | replace:'"',"'"}};{% endif %}">
+      <h1 class="patternbot-color-body patternbot-brand-company yotta text-left">
         {% if page._PatternbotConfig.patternbot.title %}
           {{page._PatternbotConfig.patternbot.title | strip}}
           <span class="patternbot-sub-heading block giga">{{page._PatternbotLocale.patternlib.title | strip}}</span>

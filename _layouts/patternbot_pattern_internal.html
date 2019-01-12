@@ -34,6 +34,7 @@
         --color-patternbot-interface: {{page._subpattern | get_pattern_interface_color: page._pattern | as_rgb_digit}};
         --color-patternbot-interface-opposite: {{page._subpattern | get_pattern_interface_color_opposite: page._pattern | as_rgb_digit}};
         --color-patternbot-interface-background: {{page._subpattern | get_pattern_background_color: page._pattern | as_hex}};
+        --color-patternbot-interface-accent: {{page._subpattern | get_pattern_interface_color: page._pattern | as_hex}};
       }
       html {
         color: {{page._subpattern | get_pattern_interface_color: page._pattern}};
@@ -43,6 +44,15 @@
         --color-patternbot-interface: {{page._PatternbotConfig.patternbot.colors.background | get_interface_color | as_rgb_digit}};
         --color-patternbot-interface-opposite: {{page._PatternbotConfig.patternbot.colors.background | get_interface_color_opposite | as_rgb_digit}};
         --color-patternbot-interface-background: {{page._PatternbotConfig.patternbot.colors.background | as_hex}};
+        {% if page._PatternbotConfig.patternbot.colors.accent %}
+          --color-patternbot-interface-accent: {{page._PatternbotConfig.patternbot.colors.accent | as_hex}};
+        {% else %}
+          {% if page._PatternbotData.css.theme.colors.primary %}
+            --color-patternbot-interface-accent: {{page._PatternbotData.css.theme.colors.primary[0].hex}};
+          {% else %}
+            --color-patternbot-interface-accent: {{page._PatternbotConfig.patternbot.colors.background | get_interface_color | as_hex}};
+          {% endif %}
+        {% endif %}
       }
       html {
         color: {{page._PatternbotConfig.patternbot.colors.background | get_interface_color}};
@@ -50,13 +60,20 @@
     {% endif %}
     {% if page._PatternbotData.css.theme.fonts.primary %}
       :root {
-        --font-patternbot-primary: {{page._PatternbotData.css.theme.fonts.primary.raw}}, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        --font-patternbot-primary: {{page._PatternbotData.css.theme.fonts.primary.css_name}}, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
       }
       html {
-        font-family:{{page._PatternbotData.css.theme.fonts.primary.raw}}, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        font-family: {{page._PatternbotData.css.theme.fonts.primary.css_name}}, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+      }
+    {% endif %}
+    {% if page._PatternbotData.css.theme.fonts.secondary %}
+      :root {
+        --font-patternbot-secondary: {{page._PatternbotData.css.theme.fonts.secondary.css_name}}, var(--font-patternbot-primary), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
       }
     {% endif %}
   </style>
+
+
   {% if page._PatternbotConfig.patternbot.font_url %}
     <link href="{{page._PatternbotConfig.patternbot.font_url}}" rel="stylesheet">
   {% endif %}

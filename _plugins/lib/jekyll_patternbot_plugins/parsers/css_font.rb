@@ -13,6 +13,7 @@ module JekyllPatternbot
       {
         :name => nil,
         :name_pretty => nil,
+        :css_name => nil,
         :raw => nil,
         :var => nil,
         :weights => nil,
@@ -21,6 +22,7 @@ module JekyllPatternbot
 
     def self.font_weight
       {
+        :css_name => nil,
         :weight => 'normal',
         :has_normal => false,
         :has_italic => false,
@@ -46,6 +48,7 @@ module JekyllPatternbot
         font_weight = self.normalize_font_weight ruleset.get_value 'font-weight'
         weights[font_family_slug][font_weight] = self.font_weight.clone unless weights[font_family_slug].key? font_weight
         weights[font_family_slug][font_weight][:weight] = font_weight
+        weights[font_family_slug][font_weight][:css_name] = ruleset.get_value('font-family').gsub(/\;/, '').strip
         weights[font_family_slug][font_weight][:has_normal] = true if ruleset.get_value('font-style').match /normal/ or ruleset.get_value('font-style').nil?
         weights[font_family_slug][font_weight][:has_italic] = true if ruleset.get_value('font-style').match /italic/
       end
@@ -68,7 +71,10 @@ module JekyllPatternbot
       font[:name_pretty] = font_family
       font[:raw] = val
       font[:var] = dec
-      font[:weights] = available_weights[font_family_slug] if available_weights.key? font_family_slug
+      if available_weights.key? font_family_slug
+        font[:weights] = available_weights[font_family_slug]
+        font[:css_name] = available_weights[font_family_slug].values[0][:css_name]
+      end
       font
     end
 

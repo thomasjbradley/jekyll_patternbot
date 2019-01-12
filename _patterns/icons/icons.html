@@ -5,13 +5,32 @@
       {% assign icon_has_bg = icon | has_pattern_background_color: 'icons', spritesheet.name %}
       {% capture icon_class %}patternbot-icon-{{spritesheet.filename | replace:'.svg', ''}}-{{icon}}{% endcapture %}
       {% assign icon_var_colors = icon | get_var_colors: 'icons', spritesheet.name %}
-      <li class="pad-b-1-2 gutter-1-4 push" style="{% if icon_has_bg %}background-color:{{icon | get_pattern_background_color: 'icons', spritesheet.name | as_hex }}; color:{{icon | get_pattern_interface_color: 'icons', spritesheet.name | as_hex}}{% endif %}">
+      <li class="patternbot-icon pad-b-1-2 gutter-1-4 push push-r-1-4 {% if icon_has_bg %}patternbot-override-color{% endif %}" id="icons-{{spritesheet.filename | replace:'.svg',''}}-{{icon}}">
         {% if icon_var_colors %}
           <style>
             .{{icon_class}} {
               {% for varcol in icon_var_colors %}
                 {{varcol.key}}: {{varcol.val | as_hex}};
               {% endfor %}
+            }
+          </style>
+        {% endif %}
+        {% if icon_has_bg %}
+          <style>
+            #icons-{{spritesheet.filename | replace:'.svg',''}}-{{icon}},
+            #icons-{{spritesheet.filename | replace:'.svg',''}}-{{icon}} * {
+              --color-patternbot-interface: {{icon | get_pattern_interface_color: 'icons', spritesheet.name | as_rgb_digit}};
+              --color-patternbot-interface-opposite: {{icon | get_pattern_interface_color_opposite: 'icons', spritesheet.name | as_rgb_digit}};
+              --color-patternbot-interface-background: {{icon | get_pattern_background_color: 'icons', spritesheet.name | as_hex}};
+              --color-patternbot-interface-accent: {{icon | get_pattern_interface_color: 'icons', spritesheet.name | as_hex}};
+              --color-patternbot-primary: rgba(var(--color-patternbot-interface), var(--color-patternbot-interface), var(--color-patternbot-interface), .9);
+              --color-patternbot-opposite: rgba(var(--color-patternbot-interface-opposite), var(--color-patternbot-interface-opposite), var(--color-patternbot-interface-opposite), .9);
+            }
+
+            #icons-{{spritesheet.filename | replace:'.svg',''}}-{{icon}}.patternbot-override-color,
+            #icons-{{spritesheet.filename | replace:'.svg',''}}-{{icon}} .patternbot-override-color {
+              color: {{icon | get_pattern_interface_color: 'icons', spritesheet.name | as_hex}};
+              background-color: var(--color-patternbot-interface-background);
             }
           </style>
         {% endif %}
@@ -33,32 +52,32 @@
             </i>
           </div>
         </div>
-        <div class="text-center patternbot-color-body">
-          <i class="icon i-24 patternbot-color-body">
+        <div class="text-center">
+          <i class="patternbot-icon-id-icon icon i-24">
             <svg class="{{icon_class}}"><use xlink:href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.icons.source}}/{{spritesheet.filename}}#{{icon}}"></use></svg>
           </i>
           <span class="icon-label ib">
-            <code class="micro" style="{% if icon_has_bg %}background-color:{{icon | get_pattern_interface_color: 'icons', spritesheet.name | as_rgba:'.05'}}; border-color:{{icon | get_pattern_interface_color: 'icons', spritesheet.name | as_rgba:'.05'}}; color:{{icon | get_pattern_interface_color: 'icons', spritesheet.name | as_hex}}{% endif %}">
+            <code class="micro">
               #{{icon}}
             </code>
           </span>
           <span class="icon-label ib">
             <button class="center-contents-vertical patternbot-tool-btn pattern-copy-btn" title="Copy icon: {{icon}}" aria-label="Copy icon: {{icon}}" data-clipboard-text="&lt;i class=&quot;icon i-18&quot;&gt;&lt;svg&gt;&lt;use xlink:href=&quot;{{site.baseurl}}/{{page._PatternbotConfig.patternbot.icons.source}}/{{spritesheet.filename}}#{{icon}}&quot;&gt;&lt;/use&gt;&lt;/svg&gt;&lt;/i&gt;" hidden>
-              <i class="icon i-18 patternbot-color-body">
+              <i class="icon i-18">
                 <svg>
-                  <use xlink:href="#icon-copy" style="{% if icon_has_bg %}fill:{{icon | get_pattern_interface_color: 'icons', spritesheet.name | as_hex}}; stroke:{{icon | get_pattern_interface_color: 'icons', spritesheet.name | as_hex}};{% endif %}"></use>
+                  <use xlink:href="#icon-copy"></use>
                 </svg>
               </i>
             </button>
           </span>
         </div>
         {% if icon_var_colors %}
-          <div class="text-center patternbot-color-body">
+          <div class="text-center">
             <strong class="not-bold italic block micro pad-t-1-8">Variables</strong>
-            <ul class="list-group">
+            <ul class="list-group push-0">
               {% for varcol in icon_var_colors %}
                 <li>
-                  <code class="pico ib" style="{% if icon_has_bg %}background-color:{{icon | get_pattern_interface_color: 'icons', spritesheet.name | as_rgba:'.05'}}; border-color:{{icon | get_pattern_interface_color: 'icons', spritesheet.name | as_rgba:'.05'}}; color:{{icon | get_pattern_interface_color: 'icons', spritesheet.name | as_hex}}{% endif %}">
+                  <code class="pico ib">
                     {{varcol.key}}
                   </code>
                 </li>

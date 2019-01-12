@@ -1,3 +1,8 @@
+.patternbot-brand-company {
+  color: var(--color-patternbot-interface-accent, --color-primary);
+  font-family: var(--font-patternbot-secondary), var(--font-patternbot-primary);
+}
+
 .patternbot-brand-desc * {
   color: var(--color-patternbot-primary);
 }
@@ -59,6 +64,10 @@
 
 .patternbot-color-swatch-labels * {
   color: var(--color-patternbot-primary);
+}
+
+.patternbot-type-sample-large {
+  color: var(--color-patternbot-interface-accent, --color-primary);
 }
 
 @media only screen and (min-width: 38em) {

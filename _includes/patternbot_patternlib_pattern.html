@@ -25,9 +25,27 @@
   {% assign first_pattern_bg = first_pattern_name | get_pattern_background_color:include.pattern.name %}
 {% endif %}
 
-<section class="pattern" id="{{include.pattern.name}}" role="tabpanel" hidden aria-hidden="true" {% unless show_sub_headings %}style="{% if first_pattern_has_bg %}background-color:{{first_pattern_bg | as_hex}}; color:{{first_pattern_bg | get_interface_color | as_rgba:'.9'}};{% endif %}"{% endunless %}>
-  <div class="pattern-toolbar gutter pad-t-1-4 pad-b-1-8 relative" {% unless show_sub_headings %}style="{% if first_pattern_has_bg %}border-color:{{first_pattern_bg | get_interface_color | as_rgba:'.1'}}; color:{{first_pattern_bg | get_interface_color | as_rgba:'.9'}};{% endif %}"{% endunless %}>
-    <h2 class="pattern-name exa push-1-4" style="color:{% if page._PatternbotConfig.patternbot.colors.accent %}{{page._PatternbotConfig.patternbot.colors.accent | as_hex}}{% else %}{{page._PatternbotData.css.theme.colors.primary[0].hex}}{% endif %}; {% if page._PatternbotData.css.theme.fonts.secondary %}font-family:{{page._PatternbotData.css.theme.fonts.secondary.raw | replace:'"',"'"}};{% endif %}">{% if include.pattern.config.title %}{{include.pattern.config.title}}{% else %}{{include.pattern.name | as_title}}{% endif %}</h2>
+{% if first_pattern_has_bg %}
+  <style>
+    #{{include.pattern.name}},
+    #{{include.pattern.name}} * {
+      --color-patternbot-interface: {{first_pattern_bg | get_interface_color | as_rgb_digit}};
+      --color-patternbot-interface-opposite: {{first_pattern_bg | get_interface_color_opposite | as_rgb_digit}};
+      --color-patternbot-interface-background: {{first_pattern_bg | as_hex}};
+      --color-patternbot-interface-accent: {{first_pattern_bg | get_interface_color | as_hex}};
+    }
+
+    #{{include.pattern.name}}.patternbot-override-color,
+    #{{include.pattern.name}} .patternbot-override-color {
+      color: {{first_pattern_bg | get_interface_color | as_hex}};
+      background-color: var(--color-patternbot-interface-background);
+    }
+  </style>
+{% endif %}
+
+<section class="pattern {% unless show_sub_headings %}patternbot-override-color{% endunless %}" id="{{include.pattern.name}}" role="tabpanel" hidden aria-hidden="true">
+  <div class="pattern-toolbar gutter pad-t-1-4 pad-b-1-8 relative">
+    <h2 class="pattern-name exa push-1-4">{% if include.pattern.config.title %}{{include.pattern.config.title}}{% else %}{{include.pattern.name | as_title}}{% endif %}</h2>
     {% if show_sub_headings %}
       <nav class="pattern-nav">
         <ol class="list-group-inline push-1-4 pad-b-1-4">
@@ -62,12 +80,12 @@
   </div>
 
   {% if include.pattern.config.description %}
-    <div class="pattern-desc milli island" {% unless show_sub_headings %}style="{% if first_pattern_has_bg %}border-color:{{first_pattern_bg | get_interface_color | as_rgba:'.5'}}; color:{{first_pattern_bg | get_interface_color| as_rgba:'.9'}};{% endif %}"{% endunless %}>
+    <div class="pattern-desc milli island {% unless show_sub_headings %}patternbot-override-color{% endunless %}">
       <div class="max-length">{{include.pattern.config.description | markdownify | sub_web_dev_tool_urls}}</div>
     </div>
   {% else %}
     {% if first_pattern.description %}
-      <div class="pattern-desc milli island" {% unless show_sub_headings %}style="{% if first_pattern_has_bg %}border-color:{{first_pattern_bg | get_interface_color | as_rgba:'.5'}}; color:{{first_pattern_bg | get_interface_color | as_rgba:'.9'}};{% endif %}"{% endunless %}>
+      <div class="pattern-desc milli island {% unless show_sub_headings %}patternbot-override-color{% endunless %}">
         <div class="max-length">{{first_pattern.description | markdownify | sub_web_dev_tool_urls}}</div>
       </div>
     {% endif %}
@@ -87,9 +105,26 @@
       {% assign pattern_has_bg = true %}
       {% assign pattern_bg = pattern_name | get_pattern_background_color: include.pattern.name %}
     {% endif %}
-    <div class="pattern-details {% if pattern_has_bg %}pattern-details-has-bg{% endif %}" id="{{include.pattern.name}}--{{pattern_name}}" style="{% if pattern_has_bg %}background-color:{{pattern_bg | as_hex}};{% endif %}">
+    {% if pattern_has_bg %}
+      <style>
+        #{{include.pattern.name}}--{{pattern_name}},
+        #{{include.pattern.name}}--{{pattern_name}} * {
+          --color-patternbot-interface: {{pattern_bg | get_interface_color | as_rgb_digit}};
+          --color-patternbot-interface-opposite: {{pattern_bg | get_interface_color_opposite | as_rgb_digit}};
+          --color-patternbot-interface-background: {{pattern_bg | as_hex}};
+          --color-patternbot-interface-accent: {{pattern_bg | get_interface_color | as_hex}};
+        }
+
+        #{{include.pattern.name}}--{{pattern_name}}.patternbot-override-color,
+        #{{include.pattern.name}}--{{pattern_name}} .patternbot-override-color {
+          color: {{pattern_bg | get_interface_color | as_hex}};
+          background-color: var(--color-patternbot-interface-background);
+        }
+      </style>
+    {% endif %}
+    <div class="pattern-details {% if pattern_has_bg %}patternbot-override-color{% endif %}" id="{{include.pattern.name}}--{{pattern_name}}">
       {% if show_sub_headings %}
-        <div class="pattern-toolbar pattern-toolbar-inner relative gutter pad-t-1-4 pad-b-1-4" style="{% if pattern_has_bg %}border-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}}; color:{{pattern_bg | get_interface_color | as_rgba:'.9'}};{% endif %}">
+        <div class="pattern-toolbar pattern-toolbar-inner relative gutter pad-t-1-4 pad-b-1-4">
           <h3 class="pattern-name tera push-1-8">{% if pattern_data.title %}{{pattern_data.title}}{% else %}{{pattern_name | as_title}}{% endif %}</h3>
             <ul class="list-group-inline gutter absolute pin-cr">
               {% if pattern_data._code != false %}
@@ -113,25 +148,25 @@
             </ul>
         </div>
         {% if pattern_data.description %}
-          <div class="pattern-desc milli island" style="{% if pattern_has_bg %}border-color:{{pattern_bg | get_interface_color | as_rgba:'.05'}}; color:{{pattern_bg | get_interface_color | as_rgba:'.9'}};{% endif %}">
+          <div class="pattern-desc milli island">
             <div class="max-length">{{pattern_data.description | markdownify | sub_web_dev_tool_urls}}</div>
           </div>
         {% endif %}
       {% endif %}
 
-      <div class="pattern-examples pad-t-1-2 pad-b-1-2" style="{% if pattern_has_bg %}color:{{pattern_bg | get_interface_color | as_hex}};{% endif %}">
+      <div class="pattern-examples pad-t-1-2 pad-b-1-2">
         <div class="gutter{% if pattern_data._resizable != false %}-2{% endif %} pad-t-1-2 pad-b-1-2">
           <div class="resizeable-pattern relative" style="{% if pattern_data.width %}width:{{pattern_data.width}}px{% endif %}">
             <i class="icon i-32 patternbot-iframe-loading-gears absolute pin-c"><svg><use xlink:href="#patternbot-iframe-loading-gears"></use></svg></i>
             <iframe data-src="/{{page._PatternbotConfig.patternbot.destination}}/patterns/{{include.pattern.name}}/{{pattern_name}}.html" scrolling="no" data-inject-css="{% if pattern_data.padding %}body { padding:{{pattern_data.padding}}; }{% endif %}" {% if pattern_data.height %}data-min-height="{{pattern_data.height}}"{% endif %}></iframe>
             {% if pattern_data._resizable != false %}
               <div class="resizeable-pattern-length">
-                <div class="resize-handle resize-handle-left" style="{% if pattern_has_bg %}border-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}}; color:{{pattern_bg | get_interface_color | as_rgba:'.3'}};{% endif %}">
+                <div class="resize-handle resize-handle-left">
                   <i class="icon i-18">
                     <svg><use xlink:href="#icon-resize-handle"></use></svg>
                   </i>
                 </div>
-                <div class="resize-handle resize-handle-right" style="{% if pattern_has_bg %}border-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}}; color:{{pattern_bg | get_interface_color | as_rgba:'.3'}};{% endif %}">
+                <div class="resize-handle resize-handle-right">
                   <i class="icon i-18">
                     <svg><use xlink:href="#icon-resize-handle"></use></svg>
                   </i>
@@ -143,7 +178,7 @@
 
         {% if pattern_data._code != false %}
           <div class="pattern-code-wrap gutter pad-t-1-2 pad-b-1-2" hidden aria-hidden="true" id="{{include.pattern.name}}-{{pattern_name}}-code-sample" tabindex="-1">
-            <div class="pattern-code relative milli island-1-2" style="{% if pattern_has_bg %}border-color:{{pattern_bg | get_interface_color | as_rgba:'.5'}}; color:{{pattern_bg | get_interface_color | as_rgba:'.9'}};{% endif %}">
+            <div class="pattern-code relative milli island-1-2">
               <button class="center-contents-vertical pattern-tool-btn pattern-copy-btn absolute pin-tr" title="Copy code" aria-label="Copy code" data-clipboard-target="#{{include.pattern.name}}-{{pattern_name}}-code-sample-copy-chunk" hidden>
                 <i class="icon i-18">
                   <svg><use xlink:href="#icon-copy"></use></svg>
@@ -152,24 +187,24 @@
               <code><pre id="{{include.pattern.name}}-{{pattern_name}}-code-sample-copy-chunk">{{pattern_name | pattern_code:include.pattern.name, pattern_data | escape}}</pre></code>
               {% if pattern_data.fields %}
                 <div class="pad-t-1-2">
-                  <hr class="pattern-code-sep push-1-2" style="{% if pattern_has_bg %}border-color:{{pattern_bg | get_interface_color | as_rgba:'.3'}};{% endif %}">
-                  <table class="pattern-code-fields nano push-0" style="{% if pattern_has_bg %}border-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}};{% endif %}">
+                  <hr class="pattern-code-sep push-1-2">
+                  <table class="pattern-code-fields nano push-0">
                     <thead>
                       <tr>
-                        <th class="not-bold pico" scope="col" colspan="7" style="{% if pattern_has_bg %}border-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}};{% endif %}">Field name</th>
-                        <th class="not-bold pico" scope="col" colspan="6" style="{% if pattern_has_bg %}border-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}};{% endif %}">Data type</th>
-                        <th class="not-bold pico" scope="col" colspan="11" style="{% if pattern_has_bg %}border-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}};{% endif %}">Example</th>
+                        <th class="not-bold pico" scope="col" colspan="7">Field name</th>
+                        <th class="not-bold pico" scope="col" colspan="6">Data type</th>
+                        <th class="not-bold pico" scope="col" colspan="11">Example</th>
                       </tr>
                     </thead>
                     <tbody>
                       {% for field in pattern_data.fields %}
                         <tr>
-                          <th scope="row" colspan="7" style="{% if pattern_has_bg %}border-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}};{% endif %}">
-                            <code class="pattern-code-field valign-middle {% if field.required == false %}not-bold{% endif %}" style="{% if pattern_has_bg %}background-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}}; border-color:{{pattern_bg | get_interface_color | as_rgba:'.3'}}; color:{{pattern_bg | get_interface_color | as_rgba:'.9'}};{% endif %}">{{field.name | escape}}</code>
+                          <th scope="row" colspan="7">
+                            <code class="pattern-code-field valign-middle {% if field.required == false %}not-bold{% endif %}">{{field.name | escape}}</code>
                             {% unless field.required == false %}<span class="ib pico not-bold italic valign-middle">required</span>{% endunless %}
                           </th>
-                          <td scope="col" colspan="6" style="{% if pattern_has_bg %}border-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}};{% endif %}">
-                            <code class="pattern-code-field" style="{% if pattern_has_bg %}background-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}}; border-color:{{pattern_bg | get_interface_color | as_rgba:'.3'}}; color:{{pattern_bg | get_interface_color | as_rgba:'.9'}};{% endif %}">
+                          <td scope="col" colspan="6">
+                            <code class="pattern-code-field">
                               {% if field.data %}
                                 object
                               {% else %}
@@ -177,13 +212,13 @@
                               {% endif %}
                             </code>
                           </td>
-                          <td scope="col" colspan="11" style="{% if pattern_has_bg %}border-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}};{% endif %}">
+                          <td scope="col" colspan="11">
                             {% if field.data %}
-                              <code class="pattern-code-field" style="{% if pattern_has_bg %}background-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}}; border-color:{{pattern_bg | get_interface_color | as_rgba:'.3'}}; color:{{pattern_bg | get_interface_color | as_rgba:'.9'}};{% endif %}">{{field.data.type | escape}}</code>
+                              <code class="pattern-code-field">{{field.data.type | escape}}</code>
                             {% else %}
                               {% if field.classes %}
                                 {% for class in field.classes %}
-                                  <code class="pattern-code-field" style="{% if pattern_has_bg %}background-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}}; border-color:{{pattern_bg | get_interface_color | as_rgba:'.3'}}; color:{{pattern_bg | get_interface_color | as_rgba:'.9'}};{% endif %}">{{class | escape}}</code>
+                                  <code class="pattern-code-field">{{class | escape}}</code>
                                 {% endfor %}
                               {% else %}
                                 <span>"{{field.example | escape}}"</span>
