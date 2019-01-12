@@ -56,11 +56,15 @@ module JekyllPatternbot
     end
 
     def self.parse_font_file(font_url)
-      parser = CssParser::Parser.new
-      parser.load_uri!(font_url)
-      font_face_rulesets = parser.find_by_selector('@font-face').map { |rules| CssParser::RuleSet.new(nil, rules) }
-      return nil unless font_face_rulesets
-      self.rule_sets_to_weights font_face_rulesets
+      if font_url
+        parser = CssParser::Parser.new
+        parser.load_uri!(font_url)
+        font_face_rulesets = parser.find_by_selector('@font-face').map { |rules| CssParser::RuleSet.new(nil, rules) }
+        return nil unless font_face_rulesets
+        return self.rule_sets_to_weights font_face_rulesets
+      else
+        return false
+      end
     end
 
     def self.parse_font(dec, val, available_weights)
@@ -71,7 +75,7 @@ module JekyllPatternbot
       font[:name_pretty] = font_family
       font[:raw] = val
       font[:var] = dec
-      if available_weights.key? font_family_slug
+      if available_weights and available_weights.key? font_family_slug
         font[:weights] = available_weights[font_family_slug]
         font[:css_name] = available_weights[font_family_slug].values[0][:css_name]
       end
