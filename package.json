@@ -20,6 +20,7 @@
     "build-css-type": "npm run postcss-patterns -- -o assets/_patternbot/patterns/typography/typography.min.css assets/_patternbot/patterns/typography/typography.css",
     "build-css-grid": "npm run postcss-patterns -- -o assets/_patternbot/patterns/grid/grid.min.css assets/_patternbot/patterns/grid/grid.css",
     "build-css-modules": "npm run postcss-patterns -- -o assets/_patternbot/patterns/modules/modules.min.css assets/_patternbot/patterns/modules/modules.css",
+    "build-css-utilities": "npm run postcss-patterns -- -o assets/_patternbot/patterns/utilities/utilities.min.css assets/_patternbot/patterns/utilities/utilities.css",
     "build-css-icons": "npm run postcss-patterns -- -o assets/_patternbot/patterns/icons/icons.min.css assets/_patternbot/patterns/icons/icons.css",
     "build-css-pattern-lib": "npm run postcss -- -o assets/_patternbot/ui/pattern-lib.min.css assets/_patternbot/ui/pattern-lib.css",
     "build-css": "npm-run-all --parallel build-css-*",

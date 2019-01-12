@@ -23,6 +23,7 @@ module JekyllPatternbot
   require 'jekyll_patternbot_plugins/parsers/typografier'
   require 'jekyll_patternbot_plugins/parsers/css_color'
   require 'jekyll_patternbot_plugins/parsers/css_font'
+  require 'jekyll_patternbot_plugins/parsers/css_utility'
   require 'jekyll_patternbot_plugins/parsers/theme'
   require 'jekyll_patternbot_plugins/parsers/icons'
 

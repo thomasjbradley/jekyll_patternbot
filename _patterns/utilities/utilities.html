@@ -1,0 +1,18 @@
+<div class="patternbot-font-primary text-left milli">
+  <table class="patternbot-utilities-table">
+    <thead>
+      <tr>
+        <th scope="col" colspan="6">Class</th>
+        <th scope="col" colspan="18">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for util in page._PatternbotData.css.theme.utilities %}
+        <tr>
+          <th class="valign-middle" scope="row" colspan="6"><code class="ib valign-middle">{{util.class}}</code></th>
+          <td class="valign-middle" scope="col" colspan="18"><span class="ib valign-middle">{{util.description | escape}}</span></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

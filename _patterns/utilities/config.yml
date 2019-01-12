@@ -1,0 +1,11 @@
+_layout: "patternbot_pattern_internal"
+_extra_css:
+  - 'utilities/utilities.min.css'
+
+patterns:
+  utilities:
+    title: "Utilities"
+    description: "There are many common utility classes available to all patterns & pages that help to quickly style elements without contributing to extra code duplication."
+    _popout_button: false
+    _resizable: false
+    _code: false

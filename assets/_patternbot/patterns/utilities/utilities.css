@@ -1,0 +1,4 @@
+.patternbot-utilities-table th,
+.patternbot-utilities-table td {
+  border-color: rgba(var(--color-patternbot-interface), var(--color-patternbot-interface), var(--color-patternbot-interface), .2);
+}

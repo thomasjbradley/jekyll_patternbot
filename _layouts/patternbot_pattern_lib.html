@@ -112,6 +112,18 @@
               </a>
             </li>
           {% endif %}
+          {% if page._PatternbotData.css.theme.utilities %}
+            <li role="presentation">
+              <a class="gutter pad-t-1-4 pad-b-1-4 block" role="tab" aria-controls="utilities" href="#utilities">
+                <div class="relative">
+                  <span>Utilities</span>
+                  <i class="icon i-18 absolute pin-cr">
+                    <svg><use xlink:href="#icon-active"></use></svg>
+                  </i>
+                </div>
+              </a>
+            </li>
+          {% endif %}
           {% if page._PatternbotData.icons %}
             <li role="presentation">
               <a class="gutter pad-t-1-4 pad-b-1-4 block" role="tab" aria-controls="icons" href="#icons">
