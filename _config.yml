@@ -46,3 +46,7 @@ patternbot:
   rationales:
     # typefaces.primary: "Blah, blah…"
     # colors.secondary: "Blerg, blerg…"
+
+  placeholders:
+    square: '/assets/_patternbot/images/placeholder-1by1.svg'
+    wide: '/assets/_patternbot/images/placeholder-16by9.svg'
