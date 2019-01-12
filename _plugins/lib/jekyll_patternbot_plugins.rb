@@ -30,7 +30,7 @@ module JekyllPatternbot
   require 'jekyll_patternbot_plugins/finders/logos'
   require 'jekyll_patternbot_plugins/finders/icons'
   require 'jekyll_patternbot_plugins/finders/patterns'
-  require 'jekyll_patternbot_plugins/finders/pages'
+  require 'jekyll_patternbot_plugins/finders/sample_pages'
 
   require 'jekyll_patternbot_plugins/hooks/pattern_lib'
 

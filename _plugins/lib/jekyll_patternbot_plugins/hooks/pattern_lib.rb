@@ -37,7 +37,7 @@ module JekyllPatternbot
       :user => pattern_files.user_patterns_info,
     }
 
-    pages = PagesFinder.new
+    pages = SamplePagesFinder.new
     PatternbotData[:pages] = pages.info
 
     # require 'json'

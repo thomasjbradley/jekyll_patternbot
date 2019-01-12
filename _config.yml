@@ -28,8 +28,8 @@ patternbot:
     extensions:
       - ".svg"
       - ".png"
-  pages:
-    source: "pattern_examples"
+  sample_pages:
+    source: "sample_pages"
 
   title: false
   description: false
