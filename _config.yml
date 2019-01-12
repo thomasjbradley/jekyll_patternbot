@@ -11,6 +11,7 @@ patternbot:
     typografier: "type.css"
     theme: "theme.css"
     main: "main.css"
+    utility_tag: "@utility"
   icons:
     source: "images"
     filenames:

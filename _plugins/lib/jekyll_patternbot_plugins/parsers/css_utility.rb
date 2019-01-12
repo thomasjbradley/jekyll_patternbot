@@ -7,7 +7,7 @@ module JekyllPatternbot
       comment_match = false
       File.open(filepath).each do |line|
         if not comment_match
-          comment_match = line.strip.match /\/*\s*\@util(?:ity)?\s+(?<description>[^\*]*)\s*\*\//
+          comment_match = line.strip.match Regexp.new "\\/\\*\s*#{Config['patternbot']['css']['utility_tag'].strip}\s+(?<description>[^\\*]*)\s*\\*\\/"
         end
         if comment_match
           class_match = line.strip.match /\.[\w\d\-\_]+/
