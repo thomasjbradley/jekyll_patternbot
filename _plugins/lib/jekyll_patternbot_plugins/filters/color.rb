@@ -32,15 +32,20 @@ module JekyllPatternbot
 
     def has_pattern_background_color(id, *namespaces)
       namespaces.push(id)
-      Config['patternbot']['colors']['patterns'].key? namespaces.join('.')
+      unless Config['patternbot']['colors']['patterns'].nil?
+        return (Config['patternbot']['colors']['patterns'].is_a?(Hash) and Config['patternbot']['colors']['patterns'].key?(namespaces.join('.')))
+      end
+      return false
     end
 
     def get_pattern_background_color(id, *namespaces)
       bg = ''
       namespaces.push(id)
       key = namespaces.join('.')
-      if Config['patternbot']['colors']['patterns'].key? key
-        bg = Config['patternbot']['colors']['patterns'][key]
+      unless Config['patternbot']['colors']['patterns'].nil?
+        if Config['patternbot']['colors']['patterns'].is_a?(Hash) and Config['patternbot']['colors']['patterns'].key? key
+          bg = Config['patternbot']['colors']['patterns'][key]
+        end
       end
       ColorHelper.color(bg).hex.downcase
     end
@@ -57,12 +62,16 @@ module JekyllPatternbot
       var_colors = []
       namespaces.push(id)
       key_name = namespaces.join('.')
-      Config['patternbot']['colors']['patterns'].each do |key, val|
-        if key.start_with?(key_name + '.')
-          var_colors.push({
-            'key' => key.sub(key_name + '.', ''),
-            'val' => val,
-          })
+      unless Config['patternbot']['colors']['patterns'].nil?
+        if Config['patternbot']['colors']['patterns'].is_a?(Hash)
+          Config['patternbot']['colors']['patterns'].each do |key, val|
+            if key.start_with?(key_name + '.')
+              var_colors.push({
+                'key' => key.sub(key_name + '.', ''),
+                'val' => val,
+              })
+            end
+          end
         end
       end
       if var_colors.length > 0

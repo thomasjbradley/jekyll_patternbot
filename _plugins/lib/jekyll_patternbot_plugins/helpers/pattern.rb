@@ -5,10 +5,6 @@ module JekyllPatternbot
       slug.gsub(/[\-_]/, ' ').gsub(/\s+/, ' ')
     end
 
-    def self.config_valid?(config)
-      config
-    end
-
     def self.title(pattern, subpattern, data, subdata)
       group_title = self.slug_to_words(pattern).unicode_titlecase
       pattern_title = self.slug_to_words(subpattern).unicode_titlecase

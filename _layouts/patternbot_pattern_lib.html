@@ -22,10 +22,10 @@
           --color-patternbot-interface-accent: {{page._PatternbotConfig.patternbot.colors.background | get_interface_color | as_hex}};
         {% endif %}
       {% endif %}
-      {% if page._PatternbotData.css.theme.fonts.primary %}
+      {% if page._PatternbotData.css.theme.fonts.primary.css_name %}
         --font-patternbot-primary: {{page._PatternbotData.css.theme.fonts.primary.css_name}}, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
       {% endif %}
-      {% if page._PatternbotData.css.theme.fonts.secondary %}
+      {% if page._PatternbotData.css.theme.fonts.secondary.css_name %}
         --font-patternbot-secondary: {{page._PatternbotData.css.theme.fonts.secondary.css_name}}, var(--font-patternbot-primary), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
       {% endif %}
     }
@@ -177,7 +177,7 @@
           <ul class="list-group">
             {% for expage in page._PatternbotData.pages %}
               <li>
-                <a class="gutter pad-t-1-4 pad-b-1-4 block page-pop" href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.pages.source}}/{{expage}}" target="_blank">
+                <a class="gutter pad-t-1-4 pad-b-1-4 block page-pop" href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.sample_pages.source}}/{{expage}}" target="_blank">
                   <div class="relative">
                     <span>{{expage | replace:'.html', '' | as_title}}</span>
                     <i class="icon i-18 absolute pin-cr">

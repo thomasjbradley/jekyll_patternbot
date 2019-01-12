@@ -22,8 +22,10 @@ module JekyllPatternbot
 
     def pattern_pages(pattern, data)
       pages = []
-      data[:config]['patterns'].each do |subpattern, subdata|
-        pages.push to_page pattern, data, subpattern, subdata
+      if data[:config].key? 'patterns' and not data[:config]['patterns'].nil?
+        data[:config]['patterns'].each do |subpattern, subdata|
+          pages.push to_page pattern, data, subpattern, subdata
+        end
       end
       pages
     end
@@ -37,9 +39,9 @@ module JekyllPatternbot
       html.data['_PatternbotLocale'] = PatternbotLocale.with_indifferent_access
       html.data['_PatternbotData'] = PatternbotData.with_indifferent_access
       html.data['_pattern'] = pattern
-      html.data['_pattern_data'] = data.with_indifferent_access if data.is_a?(Hash)
+      html.data['_pattern_data'] = data.is_a?(Hash) ? data.with_indifferent_access : {}
       html.data['_subpattern'] = subpattern
-      html.data['_subpattern_data'] = subdata.with_indifferent_access if subdata.is_a?(Hash)
+      html.data['_subpattern_data'] = subdata.is_a?(Hash) ? subdata.with_indifferent_access : {}
       html.content = JekyllHelpers.pattern_tag_with_data(pattern, subpattern, subdata.is_a?(Hash) ? subdata['fields'] : nil)
       html
     end

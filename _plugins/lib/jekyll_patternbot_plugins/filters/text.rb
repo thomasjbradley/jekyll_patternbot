@@ -7,12 +7,17 @@ module JekyllPatternbot
 
     def has_pattern_rationale(id, *namespaces)
       namespaces.push(id)
-      Config['patternbot']['rationales'].key? namespaces.join('.')
+      unless Config['patternbot']['rationales'].nil?
+        return (Config['patternbot']['rationales'].is_a?(Hash) and Config['patternbot']['rationales'].key?(namespaces.join('.')))
+      end
     end
 
     def get_pattern_rationale(id, *namespaces)
       namespaces.push(id)
-      Config['patternbot']['rationales'][namespaces.join('.')]
+      unless Config['patternbot']['rationales'].nil?
+        return Config['patternbot']['rationales'][namespaces.join('.')]
+      end
+      ''
     end
 
     def sub_web_dev_tool_urls(text)

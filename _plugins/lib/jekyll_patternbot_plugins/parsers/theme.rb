@@ -29,8 +29,8 @@ module JekyllPatternbot
       {
         :filename => @filename,
         :filepath => @filepath,
-        :colors => CSSColorParser.parse(data),
-        :fonts => CSSFontParser.parse(Config['patternbot']['font_url'], data),
+        :colors => data ? CSSColorParser.parse(data) : {},
+        :fonts => data ? CSSFontParser.parse(Config['patternbot']['font_url'], data) : {},
         :utilities => CSSUtilityParser.parse(@filepath),
       }
     end

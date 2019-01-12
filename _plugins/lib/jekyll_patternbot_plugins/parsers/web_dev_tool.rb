@@ -11,7 +11,7 @@ module JekyllPatternbot
     end
 
     def data
-      if @data.nil?
+      if @data.nil? and File.file? @filepath
         @data = File.read(@filepath)
         @url_matches = @data.match(/https:\/\/(?<tool>modulifier|gridifier|typografier)\.web-dev\.tools\/#(?<url>[^\s]+)/)
         @url = @url_matches[0]

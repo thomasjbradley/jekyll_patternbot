@@ -12,7 +12,7 @@
     </li>
   </ul>
 
-  <h2 class="patternbot-color-body yotta"><span class="patternbot-type-sample-large">{{include.font.name_pretty}}</span> is {{include.preposition}} {{include.destination | downcase}} typeface</h2>
+  <h2 class="patternbot-color-body yotta"><span class="patternbot-type-sample-large">{{include.font.name_pretty}}</span> is {{include.preposition}} {{include.title | downcase}} typeface</h2>
   {% assign pattern_has_rationale = include.key | has_pattern_rationale:'typefaces' %}
   {% if pattern_has_rationale %}
     <div class="patternbot-max-length tera max-length">

@@ -37,9 +37,9 @@ module JekyllPatternbot
       html.data['_PatternbotLocale'] = PatternbotLocale.with_indifferent_access
       html.data['_PatternbotData'] = PatternbotData.with_indifferent_access
       html.data['_pattern'] = pattern
-      html.data['_pattern_data'] = data.with_indifferent_access if data.is_a?(Hash)
+      html.data['_pattern_data'] = data.is_a?(Hash) ? data.with_indifferent_access : {}
       html.data['_subpattern'] = subpattern
-      html.data['_subpattern_data'] = subdata.with_indifferent_access if subdata.is_a?(Hash)
+      html.data['_subpattern_data'] = subdata.is_a?(Hash) ? subdata.with_indifferent_access : {}
       html.content = File.read File.expand_path "#{subpattern}.html", data[:source]
       html
     end

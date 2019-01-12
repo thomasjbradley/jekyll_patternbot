@@ -10,6 +10,10 @@ module JekyllPatternbot
       :pages => [],
     }
 
+    # File.open('/Users/thomasjbradley/Desktop/patternbot-config.json', 'w') do |f|
+    #   f.write(JSON.pretty_generate(Config))
+    # end
+
     modulifier = ModulifierParser.new(Config['patternbot']['css']['modulifier'])
     PatternbotData[:css][:modulifier] = modulifier.info if modulifier.exists?
 
@@ -40,9 +44,8 @@ module JekyllPatternbot
     pages = SamplePagesFinder.new
     PatternbotData[:pages] = pages.info
 
-    # require 'json'
     # File.open('/Users/thomasjbradley/Desktop/patternbot.json', 'w') do |f|
-      # f.write(JSON.pretty_generate(PatternbotData))
+    #   f.write(JSON.pretty_generate(PatternbotData))
     # end
   end
 
