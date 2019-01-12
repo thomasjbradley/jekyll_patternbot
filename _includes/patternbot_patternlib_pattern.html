@@ -165,18 +165,29 @@
                       {% for field in pattern_data.fields %}
                         <tr>
                           <th scope="row" colspan="7" style="{% if pattern_has_bg %}border-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}};{% endif %}">
-                            <kbd class="pattern-code-field" style="{% if pattern_has_bg %}background-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}}; border-color:{{pattern_bg | get_interface_color | as_rgba:'.3'}}; color:{{pattern_bg | get_interface_color | as_rgba:'.9'}};{% endif %}">{{field.name | escape}}</kbd>
+                            <code class="pattern-code-field valign-middle {% if field.required == false %}not-bold{% endif %}" style="{% if pattern_has_bg %}background-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}}; border-color:{{pattern_bg | get_interface_color | as_rgba:'.3'}}; color:{{pattern_bg | get_interface_color | as_rgba:'.9'}};{% endif %}">{{field.name | escape}}</code>
+                            {% unless field.required == false %}<span class="ib pico not-bold italic valign-middle">required</span>{% endunless %}
                           </th>
                           <td scope="col" colspan="6" style="{% if pattern_has_bg %}border-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}};{% endif %}">
-                            <code class="pattern-code-field" style="{% if pattern_has_bg %}background-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}}; border-color:{{pattern_bg | get_interface_color | as_rgba:'.3'}}; color:{{pattern_bg | get_interface_color | as_rgba:'.9'}};{% endif %}">{{field.type | escape}}</code>
+                            <code class="pattern-code-field" style="{% if pattern_has_bg %}background-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}}; border-color:{{pattern_bg | get_interface_color | as_rgba:'.3'}}; color:{{pattern_bg | get_interface_color | as_rgba:'.9'}};{% endif %}">
+                              {% if field.data %}
+                                object
+                              {% else %}
+                                {{field.type | escape}}
+                              {% endif %}
+                            </code>
                           </td>
                           <td scope="col" colspan="11" style="{% if pattern_has_bg %}border-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}};{% endif %}">
-                            {% if field.classes %}
-                              {% for class in field.classes %}
-                                <code class="pattern-code-field" style="{% if pattern_has_bg %}background-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}}; border-color:{{pattern_bg | get_interface_color | as_rgba:'.3'}}; color:{{pattern_bg | get_interface_color | as_rgba:'.9'}};{% endif %}">{{class}}</code>
-                              {% endfor %}
+                            {% if field.data %}
+                              <code class="pattern-code-field" style="{% if pattern_has_bg %}background-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}}; border-color:{{pattern_bg | get_interface_color | as_rgba:'.3'}}; color:{{pattern_bg | get_interface_color | as_rgba:'.9'}};{% endif %}">{{field.data.type | escape}}</code>
                             {% else %}
-                              <span class="italic">{{field.example | escape}}</span>
+                              {% if field.classes %}
+                                {% for class in field.classes %}
+                                  <code class="pattern-code-field" style="{% if pattern_has_bg %}background-color:{{pattern_bg | get_interface_color | as_rgba:'.1'}}; border-color:{{pattern_bg | get_interface_color | as_rgba:'.3'}}; color:{{pattern_bg | get_interface_color | as_rgba:'.9'}};{% endif %}">{{class | escape}}</code>
+                                {% endfor %}
+                              {% else %}
+                                <span>"{{field.example | escape}}"</span>
+                              {% endif %}
                             {% endif %}
                           </td>
                         </tr>

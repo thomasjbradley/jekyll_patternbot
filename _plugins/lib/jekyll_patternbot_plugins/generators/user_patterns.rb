@@ -40,7 +40,7 @@ module JekyllPatternbot
       html.data['_pattern_data'] = data.with_indifferent_access if data.is_a?(Hash)
       html.data['_subpattern'] = subpattern
       html.data['_subpattern_data'] = subdata.with_indifferent_access if subdata.is_a?(Hash)
-      html.content = JekyllHelpers.pattern_tag(pattern, subpattern, subdata.is_a?(Hash) ? subdata['fields'] : nil)
+      html.content = JekyllHelpers.pattern_tag_with_data(pattern, subpattern, subdata.is_a?(Hash) ? subdata['fields'] : nil)
       html
     end
 
