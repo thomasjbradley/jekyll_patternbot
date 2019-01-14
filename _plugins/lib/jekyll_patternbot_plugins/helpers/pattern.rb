@@ -6,6 +6,7 @@ module JekyllPatternbot
     end
 
     def self.normalize_filename(filename)
+      return filename unless filename
       if Config['permalink'].match? /pretty/ or not Config['permalink'].match? /\:output_ext/
         return "#{filename.sub(/\.html/, '')}/index.html"
       end
