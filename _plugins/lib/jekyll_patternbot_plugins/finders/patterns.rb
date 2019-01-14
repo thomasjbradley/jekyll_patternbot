@@ -3,9 +3,9 @@ module JekyllPatternbot
 
     def initialize
       @internal_source = File.expand_path '../../../../_patterns', __dir__
-      @internal_patterns = FileHelpers.list_dirs @internal_source
+      @internal_patterns = FileHelper.list_dirs @internal_source
       @user_source = File.expand_path Config['patternbot']['source']
-      @user_patterns = FileHelpers.list_dirs @user_source if File.directory? @user_source
+      @user_patterns = FileHelper.list_dirs @user_source if File.directory? @user_source
     end
 
     def user_config(patternpath)
@@ -25,7 +25,7 @@ module JekyllPatternbot
 
     def html_files(patternpath)
       files = {}
-      all_files = FileHelpers.list_files_with_ext patternpath, 'html'
+      all_files = FileHelper.list_files_with_ext patternpath, 'html'
       return files unless all_files
       for file in all_files
         files[File.basename(file, '.*')] = nil

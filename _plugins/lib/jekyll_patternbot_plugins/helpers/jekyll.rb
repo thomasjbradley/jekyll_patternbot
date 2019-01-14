@@ -1,5 +1,5 @@
 module JekyllPatternbot
-  module JekyllHelpers
+  module JekyllHelper
 
     def self._pattern_data_source_var_name(field)
       "patternbot_temp_var_#{field['name']}"

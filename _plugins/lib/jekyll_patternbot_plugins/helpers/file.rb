@@ -1,5 +1,5 @@
 module JekyllPatternbot
-  module FileHelpers
+  module FileHelper
 
     def self.strip(path)
       path.sub "#{Config['patternbot']['source']}/", ''

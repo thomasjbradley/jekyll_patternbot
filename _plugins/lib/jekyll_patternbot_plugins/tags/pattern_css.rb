@@ -5,13 +5,13 @@ module JekyllPatternbot
     def self.css
       css = {}
       css_files.each do |file|
-        css[FileHelpers.strip file] = File.read(file)
+        css[FileHelper.strip file] = File.read(file)
       end
       css
     end
 
     def self.css_files
-      FileHelpers.list_files_with_ext Config['patternbot']['source'], 'css'
+      FileHelper.list_files_with_ext Config['patternbot']['source'], 'css'
     end
 
   end
