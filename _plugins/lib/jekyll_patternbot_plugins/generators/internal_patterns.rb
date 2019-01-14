@@ -22,6 +22,7 @@ module JekyllPatternbot
 
     def pattern_pages(pattern, data)
       pages = []
+      return pages unless data[:config].key? 'patterns'
       data[:config]['patterns'].each do |subpattern, subdata|
         pages.push to_page pattern, data, subpattern, subdata
       end

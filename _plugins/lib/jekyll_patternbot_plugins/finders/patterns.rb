@@ -8,7 +8,7 @@ module JekyllPatternbot
       @user_patterns = FileHelpers.list_dirs @user_source if File.directory? @user_source
     end
 
-    def pattern_config(patternpath)
+    def user_config(patternpath)
       config_path = File.expand_path Config['patternbot']['config'], patternpath
       return {} unless File.file? config_path
       begin
@@ -21,6 +21,24 @@ module JekyllPatternbot
       else
         return config_data
       end
+    end
+
+    def html_files(patternpath)
+      files = {}
+      all_files = FileHelpers.list_files_with_ext patternpath, 'html'
+      return files unless all_files
+      for file in all_files
+        files[File.basename(file, '.*')] = nil
+      end
+      files
+    end
+
+    def pattern_config(patternpath)
+      config_data = {
+        'patterns' => html_files(patternpath)
+      }
+      config_data.deep_merge! user_config patternpath
+      config_data
     end
 
     def patterns_info(source, patterns_names)
