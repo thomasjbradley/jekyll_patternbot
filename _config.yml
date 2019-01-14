@@ -30,7 +30,7 @@ patternbot:
       - ".svg"
       - ".png"
   sample_pages:
-    source: "sample_pages"
+    source: "sample-pages"
 
   title: false
   description: false
