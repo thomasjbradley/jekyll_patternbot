@@ -5,6 +5,10 @@ module JekyllPatternbot
       JekyllHelpers.pattern_tag(pattern, subpattern, subdata.is_a?(Hash) ? subdata['fields'] : nil)
     end
 
+    def normalize_filename(filename)
+      PatternHelper.normalize_filename filename
+    end
+
   end
 end
 

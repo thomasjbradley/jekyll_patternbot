@@ -5,6 +5,16 @@ module JekyllPatternbot
       slug.gsub(/[\-_]/, ' ').gsub(/\s+/, ' ')
     end
 
+    def self.normalize_filename(filename)
+      if Config['permalink'].match? /pretty/ or not Config['permalink'].match? /\:output_ext/
+        return "#{filename.sub(/\.html/, '')}/index.html"
+      end
+      if not filename.match? /\.html/
+        return "#{filename}.html"
+      end
+      filename
+    end
+
     def self.title(pattern, subpattern, data, subdata)
       group_title = self.slug_to_words(pattern).unicode_titlecase
       pattern_title = self.slug_to_words(subpattern).unicode_titlecase

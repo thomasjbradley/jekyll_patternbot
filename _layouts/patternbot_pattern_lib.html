@@ -177,7 +177,7 @@
           <ul class="list-group">
             {% for expage in page._PatternbotData.pages %}
               <li>
-                <a class="gutter pad-t-1-4 pad-b-1-4 block page-pop" href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.sample_pages.source}}/{{expage}}" target="_blank">
+                <a class="gutter pad-t-1-4 pad-b-1-4 block page-pop" href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.sample_pages.source}}/{{expage | normalize_filename}}" target="_blank">
                   <div class="relative">
                     <span>{{expage | replace:'.html', '' | as_title}}</span>
                     <i class="icon i-18 absolute pin-cr">
