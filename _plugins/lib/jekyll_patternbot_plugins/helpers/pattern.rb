@@ -10,7 +10,7 @@ module JekyllPatternbot
       if Config['permalink'].match? /pretty/ or not Config['permalink'].match? /\:output_ext/
         return "#{filename.sub(/\.html/, '')}/index.html"
       end
-      if not filename.match? /\.html/
+      unless filename.match? /\.html/
         return "#{filename}.html"
       end
       filename

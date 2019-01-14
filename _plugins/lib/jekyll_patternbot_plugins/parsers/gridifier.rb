@@ -5,7 +5,7 @@ module JekyllPatternbot
       grid_settings = []
       url_info = extract_url_info
 
-      return nil if not url_info
+      return nil unless url_info
 
       url_info.split(/\;/).each do |mq_string|
         mq = {}
