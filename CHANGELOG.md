@@ -5,6 +5,26 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## [Unreleased]
+
+### Added
+
+- Added support for pretty permalinks.
+- Added internal pattern post processors to remove patterns when they aren’t included in the user’s code.
+
+### Changed
+
+- Changed the default folder location for sample pages to have a hyphen instead of underscore.
+- Patterns aren’t required to be listed in `config.patterns` any more, having just the `.html` file is enough.
+- Renamed `FileHelpers` & `JekyllHelpers` to be not plural for consistency.
+- Changed all my very un-Ruby `if not` statements into `unless` statements.
+
+### Fixed
+
+- Errors are now thrown, coloured, when Patternbot can’t find specific files.
+
+---
+
 ## [0.10.0] — 2019-01-12
 
 ### Added
