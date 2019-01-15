@@ -34,10 +34,11 @@ module JekyllPatternbot
     end
 
     def pattern_config(patternpath)
-      config_data = {
+      config_data = user_config(patternpath)
+      files_config = {
         'patterns' => html_files(patternpath)
       }
-      config_data.deep_merge! user_config patternpath
+      config_data.deep_merge! files_config
       config_data
     end
 
