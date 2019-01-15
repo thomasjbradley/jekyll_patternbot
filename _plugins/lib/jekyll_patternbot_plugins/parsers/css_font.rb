@@ -84,6 +84,7 @@ module JekyllPatternbot
 
     def self.parse(font_url, data)
       unless PatternbotCache.key?(font_url)
+        PatternbotLogger.warn("Patternbot downloaded CSS for fonts from the remote URL: #{font_url}")
         fonts = self.base.clone
         available_weights = self.parse_font_file(font_url)
         data.each do |dec, val|
@@ -94,6 +95,8 @@ module JekyllPatternbot
           end
         end
         PatternbotCache[font_url] = fonts
+      else
+        PatternbotLogger.info("Patternbot used a cached version of the font CSS originally located at: #{font_url}")
       end
       PatternbotCache[font_url]
     end
