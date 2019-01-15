@@ -22,6 +22,7 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 
 - Errors are now thrown, coloured, when Patternbot can’t find specific files.
+- Fixed some errors when running `jekyll serve`
 
 ---
 

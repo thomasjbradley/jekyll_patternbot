@@ -31,6 +31,8 @@ patternbot:
       - ".png"
   sample_pages:
     source: "sample-pages"
+  js:
+    source: "js"
 
   title: false
   description: false

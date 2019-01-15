@@ -1,16 +1,15 @@
 module JekyllPatternbot
+  PatternbotLogger = Logger.new STDERR
+  PatternbotCache = {}
+  PatternbotData = {
+    :css => {},
+    :logos => false,
+    :icons => false,
+    :patterns => {},
+    :pages => [],
+  }
 
   Jekyll::Hooks.register :site, :post_read do |site|
-    PatternbotLogger = Logger.new STDERR
-    PatternbotCache = {}
-    PatternbotData = {
-      :css => {},
-      :logos => false,
-      :icons => false,
-      :patterns => {},
-      :pages => [],
-    }
-
     PatternbotLogger.formatter = proc do |severity, datetime, progname, msg|
       "ERROR: #{datetime}: #{msg}\n"
     end
@@ -20,24 +19,26 @@ module JekyllPatternbot
     # end
 
     modulifier = ModulifierParser.new(Config['patternbot']['css']['modulifier'])
-    PatternbotData[:css][:modulifier] = modulifier.info if modulifier.exists?
+    PatternbotData[:css][:modulifier] = modulifier.exists? ? modulifier.info : nil
 
     gridifier = GridifierParser.new(Config['patternbot']['css']['gridifier'])
-    PatternbotData[:css][:gridifier] = gridifier.info if gridifier.exists?
+    PatternbotData[:css][:gridifier] = gridifier.exists? ? gridifier.info : nil
 
     typografier = TypografierParser.new(Config['patternbot']['css']['typografier'])
-    PatternbotData[:css][:typografier] = typografier.info if typografier.exists?
+    PatternbotData[:css][:typografier] = typografier.exists? ? typografier.info : nil
 
     theme = ThemeParser.new(Config['patternbot']['css']['theme'])
-    PatternbotData[:css][:theme] = theme.info if theme.exists?
+    PatternbotData[:css][:theme] = theme.exists? ? theme.info : nil
 
     logos = LogosFinder.new(Config['patternbot']['logos'])
-    PatternbotData[:logos] = logos.info if logos.exists?
+    PatternbotData[:logos] = logos.exists? ? logos.info : nil
 
     icon_files = IconsFinder.new(Config['patternbot']['icons'])
     if icon_files.exists?
       icons = IconsParser.new(Config['patternbot']['icons'], icon_files.info)
       PatternbotData[:icons] = icons.info
+    else
+      PatternbotData[:icons] = nil
     end
 
     pattern_files = PatternsFinder.new
