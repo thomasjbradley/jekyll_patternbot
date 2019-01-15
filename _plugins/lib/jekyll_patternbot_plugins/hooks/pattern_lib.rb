@@ -44,6 +44,9 @@ module JekyllPatternbot
     pages = SamplePagesFinder.new
     PatternbotData[:pages] = pages.info
 
+    brand_processor = BrandProcessor.new.process
+    modules_processor = ModulesProcessor.new.process
+
     # File.open('/Users/thomasjbradley/Desktop/patternbot.json', 'w') do |f|
     #   f.write(JSON.pretty_generate(PatternbotData))
     # end

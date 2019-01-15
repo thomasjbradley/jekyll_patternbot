@@ -34,6 +34,9 @@ module JekyllPatternbot
   require 'jekyll_patternbot_plugins/finders/patterns'
   require 'jekyll_patternbot_plugins/finders/sample_pages'
 
+  require 'jekyll_patternbot_plugins/processors/brand'
+  require 'jekyll_patternbot_plugins/processors/modules'
+
   require 'jekyll_patternbot_plugins/hooks/pattern_lib'
 
   require 'jekyll_patternbot_plugins/tags/pattern'

@@ -8,7 +8,7 @@ description: |
   [Modulifier](++modulifier-settings-url++) generates a series of simple, default CSS components that can be used throughout the site, or as basic building blocks for more complex patterns. [See the documentation for all available classes.](https://learn-the-web.algonquindesign.ca/topics/modulifier-cheat-sheet/)
 
 patterns:
-  list-group:
+  list-groups:
     title: "List groups"
     description: |
       The list group system provides two classes: one for a vertical, stacking group of list items; and another for a horizontal, side-by-side group of list items.
@@ -22,7 +22,7 @@ patterns:
     _popout_button: false
     _code: false
     width: 650
-  media-object:
+  media-objects:
     title: "Media objects"
     description: |
       A simple pattern that provides and image beside some text—good for comments with avatars and many other situations. Will usually be combined into larger patterns.
