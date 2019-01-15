@@ -2,16 +2,16 @@ module JekyllPatternbot
 
   module PatternJS
 
+    def self.js_files
+      FileHelper.list_files_with_ext Config['patternbot']['source'], 'js'
+    end
+
     def self.js
       js = {}
       js_files.each do |file|
         js[FileHelper.strip file] = File.read(file)
       end
       js
-    end
-
-    def self.js_files
-      FileHelper.list_files_with_ext Config['patternbot']['source'], 'js'
     end
 
   end
