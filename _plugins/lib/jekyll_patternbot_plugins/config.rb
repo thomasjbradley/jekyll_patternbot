@@ -1,5 +1,6 @@
 module JekyllPatternbot
   Config = YAML.load_file File.expand_path('../../../_config.yml', __dir__)
+  class << self; attr_accessor :PatternbotLogger; end
   class << self; attr_accessor :PatternbotCache; end
   class << self; attr_accessor :PatternbotLocale; end
   class << self; attr_accessor :PatternbotData; end

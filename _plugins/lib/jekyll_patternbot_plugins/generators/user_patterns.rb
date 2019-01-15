@@ -31,6 +31,7 @@ module JekyllPatternbot
     end
 
     def to_page(pattern, data, subpattern, subdata)
+      source_dir = File.expand_path File.expand_path pattern, Config['patternbot']['source']
       dir = Config['patternbot']['destination'] + '/patterns/' + pattern
       html = Jekyll::PageWithoutAFile.new(@site, @site.source, dir, "#{subpattern}.html")
       html.data['layout'] = 'patternbot_pattern_user'
@@ -42,6 +43,11 @@ module JekyllPatternbot
       html.data['_pattern_data'] = data.is_a?(Hash) ? data.with_indifferent_access : {}
       html.data['_subpattern'] = subpattern
       html.data['_subpattern_data'] = subdata.is_a?(Hash) ? subdata.with_indifferent_access : {}
+
+      unless File.file? File.expand_path "#{subpattern}.html", source_dir
+        PatternbotLogger.fatal "Patternbot cannot find the associated HTML file for the “#{subpattern}” pattern listed inside the “#{pattern}” config.yml file.".red
+      end
+
       html.content = JekyllHelper.pattern_tag_with_data(pattern, subpattern, subdata.is_a?(Hash) ? subdata['fields'] : nil)
       html
     end

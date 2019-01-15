@@ -18,6 +18,7 @@ Gem::Specification.new do |spec|
   end
 
   spec.add_runtime_dependency 'jekyll', '~> 3.8'
+  spec.add_runtime_dependency 'colorator'
   spec.add_runtime_dependency 'babosa'
   spec.add_runtime_dependency 'deep_merge'
   spec.add_runtime_dependency 'unicode_titlecase'

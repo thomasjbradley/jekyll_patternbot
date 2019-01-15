@@ -41,7 +41,13 @@ module JekyllPatternbot
       html.data['_pattern_data'] = data.is_a?(Hash) ? data.with_indifferent_access : {}
       html.data['_subpattern'] = subpattern
       html.data['_subpattern_data'] = subdata.is_a?(Hash) ? subdata.with_indifferent_access : {}
-      html.content = File.read File.expand_path "#{subpattern}.html", data[:source]
+
+      begin
+        html.content = File.read File.expand_path "#{subpattern}.html", data[:source]
+      rescue
+        PatternbotLogger.fatal "Patternbot cannot find the associated HTML file for the “#{subpattern}” pattern listed inside the “#{pattern}” config.yml file.".red
+      end
+
       html
     end
 
