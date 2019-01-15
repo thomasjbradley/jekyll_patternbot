@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   end
 
-  spec.require_paths = ["lib"]
+  spec.require_paths = ['_plugins']
 
   spec.add_runtime_dependency 'jekyll', '~> 3.8'
   spec.add_runtime_dependency 'colorator'
@@ -27,7 +27,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'css_parser'
   spec.add_runtime_dependency 'color_contrast_calc'
   spec.add_runtime_dependency 'indifference'
-  spec.add_runtime_dependency 'jekyll_patternbot_plugins'
 
   spec.add_development_dependency 'bundler', '~> 1.17'
   spec.add_development_dependency 'rake', '~> 10.0'

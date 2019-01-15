@@ -3,7 +3,12 @@ module JekyllPatternbot
 
     def self.color(val)
       the_color = val
-      if val.match(/^\-\-/) and PatternbotData[:css] and PatternbotData[:css][:theme] and PatternbotData[:css][:theme][:colors][:raw].key? val
+      if (val.match(/^\-\-/) and
+        PatternbotData.key? :css and
+        PatternbotData[:css].key? :theme and
+        PatternbotData[:css][:theme].key? :colors and
+        PatternbotData[:css][:theme][:colors].key? :raw and
+        PatternbotData[:css][:theme][:colors][:raw].key? val)
         the_color = PatternbotData[:css][:theme][:colors][:raw][val]
       end
       if the_color.match? /^rgb/

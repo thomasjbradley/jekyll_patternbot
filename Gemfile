@@ -13,8 +13,4 @@ gem 'css_parser'
 gem 'color_contrast_calc'
 gem 'indifference'
 
-group :jekyll_plugins do
-  gem 'jekyll_patternbot_plugins', :path => File.expand_path('_plugins/', __dir__)
-end
-
 gemspec

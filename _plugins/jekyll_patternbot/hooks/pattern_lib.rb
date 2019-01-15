@@ -15,26 +15,26 @@ module JekyllPatternbot
     # end
 
     modulifier = ModulifierParser.new(Config['patternbot']['css']['modulifier'])
-    PatternbotData[:css][:modulifier] = modulifier.exists? ? modulifier.info : nil
+    PatternbotData[:css][:modulifier] = modulifier.exists? ? modulifier.info : {}
 
     gridifier = GridifierParser.new(Config['patternbot']['css']['gridifier'])
-    PatternbotData[:css][:gridifier] = gridifier.exists? ? gridifier.info : nil
+    PatternbotData[:css][:gridifier] = gridifier.exists? ? gridifier.info : {}
 
     typografier = TypografierParser.new(Config['patternbot']['css']['typografier'])
-    PatternbotData[:css][:typografier] = typografier.exists? ? typografier.info : nil
+    PatternbotData[:css][:typografier] = typografier.exists? ? typografier.info : {}
 
     theme = ThemeParser.new(Config['patternbot']['css']['theme'])
-    PatternbotData[:css][:theme] = theme.exists? ? theme.info : nil
+    PatternbotData[:css][:theme] = theme.exists? ? theme.info : {}
 
     logos = LogosFinder.new(Config['patternbot']['logos'])
-    PatternbotData[:logos] = logos.exists? ? logos.info : nil
+    PatternbotData[:logos] = logos.exists? ? logos.info : {}
 
     icon_files = IconsFinder.new(Config['patternbot']['icons'])
     if icon_files.exists?
       icons = IconsParser.new(Config['patternbot']['icons'], icon_files.info)
       PatternbotData[:icons] = icons.info
     else
-      PatternbotData[:icons] = nil
+      PatternbotData[:icons] = []
     end
 
     pattern_files = PatternsFinder.new

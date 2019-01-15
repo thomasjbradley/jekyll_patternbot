@@ -88,7 +88,7 @@
               </div>
             </a>
           </li>
-          {% if page._PatternbotData.css.typografier %}
+          {% if page._PatternbotData.css.typografier contains 'url' %}
             <li role="presentation">
               <a class="gutter pad-t-1-4 pad-b-1-4 block" role="tab" aria-controls="typography" href="#typography">
                 <div class="relative">
@@ -100,7 +100,7 @@
               </a>
             </li>
           {% endif %}
-          {% if page._PatternbotData.css.gridifier %}
+          {% if page._PatternbotData.css.gridifier contains 'url' %}
             <li role="presentation">
               <a class="gutter pad-t-1-4 pad-b-1-4 block" role="tab" aria-controls="grid" href="#grid">
                 <div class="relative">
@@ -112,7 +112,7 @@
               </a>
             </li>
           {% endif %}
-          {% if page._PatternbotData.css.modulifier %}
+          {% if page._PatternbotData.css.modulifier contains 'url' %}
             <li role="presentation">
               <a class="gutter pad-t-1-4 pad-b-1-4 block" role="tab" aria-controls="modules" href="#modules">
                 <div class="relative">
@@ -136,7 +136,7 @@
               </a>
             </li>
           {% endif %}
-          {% if page._PatternbotData.icons %}
+          {% unless page._PatternbotData.icons == empty %}
             <li role="presentation">
               <a class="gutter pad-t-1-4 pad-b-1-4 block" role="tab" aria-controls="icons" href="#icons">
                 <div class="relative">
@@ -147,7 +147,7 @@
                 </div>
               </a>
             </li>
-          {% endif %}
+          {% endunless %}
           {% for pattern in page._PatternbotData.patterns.user %}
             {% assign pattern_data = pattern[1] %}
             {% unless pattern.config.hide_nav %}

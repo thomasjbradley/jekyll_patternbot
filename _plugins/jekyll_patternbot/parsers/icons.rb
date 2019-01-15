@@ -17,7 +17,6 @@ module JekyllPatternbot
 
     def info
       for file in @icon_files
-        icons = []
         data = File.read filepath file[:filename]
         file[:icons] = symbols data
       end

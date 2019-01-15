@@ -2,7 +2,7 @@ module JekyllPatternbot
   class PatternsFinder
 
     def initialize
-      @internal_source = File.expand_path '../../../../_patterns', __dir__
+      @internal_source = File.expand_path '../../../_patterns', __dir__
       @internal_patterns = FileHelper.list_dirs @internal_source
       @user_source = File.expand_path Config['patternbot']['source']
       @user_patterns = FileHelper.list_dirs @user_source if File.directory? @user_source
