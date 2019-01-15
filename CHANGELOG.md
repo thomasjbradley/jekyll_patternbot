@@ -5,6 +5,18 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## [0.12.0] — 2019-01-15
+
+### Changed
+
+- Transitioned from nested Gems to a single Gem that includes the theme & plugins.
+
+### Fixed
+
+- Fixed a bunch of bugs when different pattern library elements were missing.
+
+---
+
 ## [0.11.0] — 2019-01-15
 
 ### Added
