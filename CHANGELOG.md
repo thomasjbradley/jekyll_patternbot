@@ -5,12 +5,13 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## [0.11.0] — 2019-01-14
+## [0.11.0] — 2019-01-15
 
 ### Added
 
 - Added support for pretty permalinks.
 - Added internal pattern post processors to remove patterns when they aren’t included in the user’s code.
+- Messages are displayed in console related to remote font URLs: whether a cached or remotely downloaded version was used.
 
 ### Changed
 
