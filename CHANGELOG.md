@@ -5,7 +5,7 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## [Unreleased]
+## [0.11.0] — 2019-01-14
 
 ### Added
 
