@@ -2,6 +2,7 @@
 
 require 'open-uri'
 require 'jekyll'
+require 'rxrb'
 require 'babosa'
 require 'deep_merge'
 require 'yaml'
@@ -14,6 +15,8 @@ module JekyllPatternbot
   require 'jekyll_patternbot_plugins/config'
 
   require 'jekyll_patternbot_plugins/loggers/patternbot'
+
+  require 'jekyll_patternbot_plugins/validators/pattern_config'
 
   require 'jekyll_patternbot_plugins/helpers/file'
   require 'jekyll_patternbot_plugins/helpers/color'

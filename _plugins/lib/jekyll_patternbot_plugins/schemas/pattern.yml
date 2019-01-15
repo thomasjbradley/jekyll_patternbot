@@ -1,0 +1,27 @@
+type: "//rec"
+optional:
+  title: "//str"
+  description: "//str"
+
+  _layout: "//str"
+  _extra_css:
+    type: "//arr"
+    contents: "//str"
+  _user_modulifier: "//bool"
+  _user_gridifier: "//bool"
+  _user_typografier: "//bool"
+
+  patterns:
+    type: "//rec"
+    rest:
+      type: "//rec"
+      optional:
+        title: "//str"
+      #   description: "//str"
+      #   padding: "//str"
+      #   background: "//str"
+      #   width: "//int"
+
+      #   _popout_button: "//bool"
+      #   _resizable: "//bool"
+      #   _code: "//bool"

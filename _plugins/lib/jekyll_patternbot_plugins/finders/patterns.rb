@@ -9,18 +9,29 @@ module JekyllPatternbot
     end
 
     def user_config(patternpath)
+      validator = PatternConfigValidator.new
       config_path = File.expand_path Config['patternbot']['config'], patternpath
+
       return {} unless File.file? config_path
+
       begin
         config_data = YAML.load_file config_path
       rescue
         return {}
       end
+
       if config_data.nil? or config_data == false
         return {}
-      else
-        return config_data
       end
+
+      begin
+        validator.check! config_data
+      rescue Exception => e
+        puts e.inspect
+        return {}
+      end
+
+      return config_data
     end
 
     def html_files(patternpath)
