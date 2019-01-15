@@ -45,7 +45,7 @@ module JekyllPatternbot
       begin
         html.content = File.read File.expand_path "#{subpattern}.html", data[:source]
       rescue
-        PatternbotLogger.fatal "Patternbot cannot find the associated HTML file for the “#{subpattern}” pattern listed inside the “#{pattern}” config.yml file.".red
+        PatternbotLogger.fatal "Patternbot cannot find the associated HTML file for the “#{subpattern}” pattern listed inside the “#{pattern}” config.yml file."
       end
 
       html

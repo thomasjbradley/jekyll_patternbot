@@ -13,6 +13,8 @@ require 'color_contrast_calc'
 module JekyllPatternbot
   require 'jekyll_patternbot_plugins/config'
 
+  require 'jekyll_patternbot_plugins/loggers/patternbot'
+
   require 'jekyll_patternbot_plugins/helpers/file'
   require 'jekyll_patternbot_plugins/helpers/color'
   require 'jekyll_patternbot_plugins/helpers/jekyll'

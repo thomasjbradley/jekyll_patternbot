@@ -1,5 +1,5 @@
 module JekyllPatternbot
-  PatternbotLogger = Logger.new STDERR
+  PatternbotLogger = PatternbotConsoleLogger.new
   PatternbotCache = {}
   PatternbotData = {
     :css => {},
@@ -10,10 +10,6 @@ module JekyllPatternbot
   }
 
   Jekyll::Hooks.register :site, :post_read do |site|
-    PatternbotLogger.formatter = proc do |severity, datetime, progname, msg|
-      "ERROR: #{datetime}: #{msg}\n"
-    end
-
     # File.open('/Users/thomasjbradley/Desktop/patternbot-config.json', 'w') do |f|
     #   f.write(JSON.pretty_generate(Config))
     # end
