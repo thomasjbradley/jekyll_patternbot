@@ -5,6 +5,14 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## [0.14.0] — 2019-01-15
+
+### Fixed
+
+- Added the missing `vendor` libraries from within the `assets/_patternbot` folder that were accidentally ignored.
+
+---
+
 ## [0.13.0] — 2019-01-15
 
 ### Fixed
