@@ -5,6 +5,14 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## [0.17.0] — 2019-01-16
+
+### Fixed
+
+- Added more checking for missing fonts and colours inside `theme.css`
+
+---
+
 ## [0.16.0] — 2019-01-16
 
 ### Added
