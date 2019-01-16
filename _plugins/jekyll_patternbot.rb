@@ -10,6 +10,7 @@ require 'css_parser'
 require 'color_contrast_calc'
 
 module JekyllPatternbot
+  require_relative '../version.rb'
   require 'jekyll_patternbot/config'
 
   require 'jekyll_patternbot/loggers/patternbot'
