@@ -33,6 +33,7 @@ patternbot:
     source: "sample-pages"
   js:
     source: "js"
+    main: "main.js"
 
   title: false
   description: false

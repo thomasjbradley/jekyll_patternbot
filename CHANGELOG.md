@@ -5,6 +5,18 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## [0.16.0] — 2019-01-16
+
+### Added
+
+- Added the ability to output the `main.js` file to the bottom of all user patterns in the library.
+
+### Fixed
+
+- Prevented erroneous requests for the `theme.css` when it doesn’t exist.
+
+---
+
 ## [0.15.0] — 2019-01-16
 
 ### Fixed

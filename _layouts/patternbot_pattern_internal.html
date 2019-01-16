@@ -19,9 +19,9 @@
   {% else %}
     <link href="{{site.baseurl}}/assets/_patternbot/common/typografier.min.css?v={{page._PatternbotConfig.patternbot.version}}" rel="stylesheet">
   {% endif %}
-  {% if page._PatternbotData.css.theme %}
+  {% unless page._PatternbotData.css.theme == empty %}
     <link href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.css.source}}/{{page._PatternbotConfig.patternbot.css.theme}}?v={{site.time | date:'%s'}}" rel="stylesheet">
-  {% endif %}
+  {% endunless %}
   <link href="{{site.baseurl}}/assets/_patternbot/common/common.min.css?v={{page._PatternbotConfig.patternbot.version}}" rel="stylesheet">
   {% for css in page._pattern_data.config._extra_css %}
     <link href="{{site.baseurl}}/assets/_patternbot/patterns/{{css}}?v={{page._PatternbotConfig.patternbot.version}}" rel="stylesheet">

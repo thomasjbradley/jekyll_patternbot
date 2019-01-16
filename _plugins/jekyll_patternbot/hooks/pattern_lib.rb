@@ -3,6 +3,7 @@ module JekyllPatternbot
   PatternbotCache = {}
   PatternbotData = {
     :css => {},
+    :js => {},
     :logos => false,
     :icons => false,
     :patterns => {},
@@ -35,6 +36,18 @@ module JekyllPatternbot
       PatternbotData[:icons] = icons.info
     else
       PatternbotData[:icons] = []
+    end
+
+    if File.exists? File.expand_path(Config['patternbot']['css']['main'], Config['patternbot']['css']['source'])
+      PatternbotData[:css][:main] = true
+    else
+      PatternbotData[:css][:main] = false
+    end
+
+    if File.exists? File.expand_path(Config['patternbot']['js']['main'], Config['patternbot']['js']['source'])
+      PatternbotData[:js][:main] = true
+    else
+      PatternbotData[:js][:main] = false
     end
 
     pattern_files = PatternsFinder.new
