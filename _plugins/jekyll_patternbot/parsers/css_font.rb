@@ -55,6 +55,19 @@ module JekyllPatternbot
       weights
     end
 
+    def self.default_weights(font)
+      weights = {
+        'normal' => self.font_weight.clone,
+        'bold' => self.font_weight.clone,
+      }
+      weights['normal'][:css_name] = font[:css_name]
+      weights['normal'][:has_normal] = true
+      weights['normal'][:has_italic] = true
+      weights['bold'][:css_name] = font[:css_name]
+      weights['bold'][:has_normal] = true
+      weights
+    end
+
     def self.parse_font_file(font_url)
       if font_url
         parser = CssParser::Parser.new
@@ -75,34 +88,39 @@ module JekyllPatternbot
       font[:name_pretty] = font_family
       font[:raw] = val
       font[:var] = dec
+      font[:css_name] = font_family
       if available_weights and available_weights.key? font_family_slug
         font[:weights] = available_weights[font_family_slug]
         font[:css_name] = available_weights[font_family_slug].values[0][:css_name]
       end
+      font[:weights] = self.default_weights(font) unless font[:weights]
       font
     end
 
-    def self.parse(font_url, data)
-      unless PatternbotCache.key?(font_url)
-        if font_url != false
-          PatternbotLogger.warn("Patternbot downloaded CSS for fonts from the remote URL: #{font_url}")
-        end
-        fonts = self.base.clone
-        available_weights = self.parse_font_file(font_url)
-        data.each do |dec, val|
-          if self.is_font? dec
-            fonts[:primary] = self.parse_font(dec, val, available_weights) if dec.match(/\-\-font\-primary/)
-            fonts[:secondary] = self.parse_font(dec, val, available_weights) if dec.match(/\-\-font\-secondary/)
-            fonts[:accent].push self.parse_font(dec, val, available_weights) unless dec.match(/\-\-font\-(primary|secondary)/)
-          end
-        end
-        PatternbotCache[font_url] = fonts
-      else
-        if font_url != false
-          PatternbotLogger.info("Patternbot used a cached version of the font CSS originally located at: #{font_url}")
+    def self.parse_fonts(data, available_weights=false)
+      fonts = self.base.clone
+      data.each do |dec, val|
+        if self.is_font? dec
+          fonts[:primary] = self.parse_font(dec, val, available_weights) if dec.match(/^\-\-font\-primary/)
+          fonts[:secondary] = self.parse_font(dec, val, available_weights) if dec.match(/^\-\-font\-secondary/)
+          fonts[:accent].push self.parse_font(dec, val, available_weights) unless dec.match(/^\-\-font\-(primary|secondary)/)
         end
       end
-      PatternbotCache[font_url]
+      fonts
+    end
+
+    def self.parse(font_url, data)
+      unless font_url
+        return self.parse_fonts data
+      else
+        unless PatternbotCache.key?(font_url)
+          PatternbotCache[font_url] = self.parse_font_file(font_url)
+          PatternbotLogger.warn("Patternbot downloaded CSS for fonts from the remote URL: #{font_url}")
+        else
+          PatternbotLogger.info("Patternbot used a cached version of the font CSS originally located at: #{font_url}")
+        end
+        return self.parse_fonts data, PatternbotCache[font_url]
+      end
     end
 
   end
