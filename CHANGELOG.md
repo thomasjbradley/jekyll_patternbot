@@ -5,6 +5,14 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## [0.13.0] — 2019-01-15
+
+### Fixed
+
+- Fixed a bug with remotely installed Gems—it couldn’t find the version file.
+
+---
+
 ## [0.12.0] — 2019-01-15
 
 ### Changed
