@@ -14,16 +14,18 @@
 
 {% assign first_pattern_has_bg = false %}
 {% assign first_pattern_bg = false %}
-{% if first_pattern.background %}
-  {% assign first_pattern_has_bg = true %}
-  {% assign first_pattern_bg = first_pattern.background %}
-{% endif %}
-
-{% assign internal_first_pattern_has_bg = first_pattern_name | has_pattern_background_color:include.pattern.name %}
-{% if internal_first_pattern_has_bg %}
-  {% assign first_pattern_has_bg = true %}
-  {% assign first_pattern_bg = first_pattern_name | get_pattern_background_color:include.pattern.name %}
-{% endif %}
+{% assign internal_pattern_has_bg = false %}
+{% unless show_sub_headings %}
+  {% if first_pattern.background %}
+    {% assign first_pattern_has_bg = true %}
+    {% assign first_pattern_bg = first_pattern.background %}
+  {% endif %}
+  {% assign internal_first_pattern_has_bg = first_pattern_name | has_pattern_background_color:include.pattern.name %}
+  {% if internal_first_pattern_has_bg %}
+    {% assign first_pattern_has_bg = true %}
+    {% assign first_pattern_bg = first_pattern_name | get_pattern_background_color:include.pattern.name %}
+  {% endif %}
+{% endunless %}
 
 {% if first_pattern_has_bg %}
   <style>

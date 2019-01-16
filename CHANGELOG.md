@@ -5,6 +5,14 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## [0.21.0] — 2019-01-16
+
+### Fixed
+
+- Fixed the heading colours for patterns when their first pattern had a background.
+
+---
+
 ## [0.20.0] — 2019-01-16
 
 ### Fixed
