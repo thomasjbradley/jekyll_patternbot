@@ -8,7 +8,7 @@ module JekyllPatternbot
     end
 
     def remove_typefaces
-      unless PatternbotData[:css].key? :theme and PatternbotData[:css][:theme].key? :fonts
+      unless PatternbotData[:css].key? :theme and PatternbotData[:css][:theme].key? :fonts and PatternbotData[:css][:theme][:fonts].key :primary
         PatternbotData[:patterns][:internal]['brand'][:config]['patterns'].delete 'typefaces'
       end
     end

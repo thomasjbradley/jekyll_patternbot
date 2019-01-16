@@ -5,6 +5,14 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## [0.15.0] — 2019-01-16
+
+### Fixed
+
+- Hide a few patterns that shouldn’t be shown in brand when the `theme.css` file is missing specific features.
+
+---
+
 ## [0.14.0] — 2019-01-15
 
 ### Fixed
