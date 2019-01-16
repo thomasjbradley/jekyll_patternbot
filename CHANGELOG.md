@@ -5,6 +5,20 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## [0.18.0] — 2019-01-16
+
+### Changed
+
+- Fonts now display default weights and styles, for situations where they are default system fonts.
+
+### Fixed
+
+- Fixed the font caching to only cache when downloading remote fonts, and only cache the weight information.
+- Fixed the brand pattern display to hide & show “Colors” and “Typefaces” more reliably.
+- Fixed the italic pattern to properly show the typeface’s italic style.
+
+---
+
 ## [0.17.0] — 2019-01-16
 
 ### Fixed
