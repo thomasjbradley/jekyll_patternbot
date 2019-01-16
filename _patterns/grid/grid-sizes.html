@@ -32,9 +32,9 @@
           </li>
         {% else %}
           {% for i in (1..columns) %}
-            <li style="width: calc(100% / {{i}})">
+            <li style="width: calc(100% / {{columns}})">
               <div class="patternbot-grid-display-inner island-1-4">
-                <code class="micro">.{{mq.prefix}}-1-{{i}}</code>
+                <code class="micro">.{{mq.prefix}}-1-{{columns}}</code>
               </div>
             </li>
           {% endfor %}

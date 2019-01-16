@@ -5,6 +5,14 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## [0.20.0] — 2019-01-16
+
+### Fixed
+
+- Fix a bug in the grid display: it wasn’t putting the proper width fractions.
+
+---
+
 ## [0.19.0] — 2019-01-16
 
 ### Fixed
