@@ -124,7 +124,7 @@
               </a>
             </li>
           {% endif %}
-          {% unless page._PatternbotData.css.theme.utilities == empty %}
+          {% if page._PatternbotData.css.theme.utilities and page._PatternbotData.css.theme.utilities != empty %}
             <li role="presentation">
               <a class="gutter pad-t-1-4 pad-b-1-4 block" role="tab" aria-controls="utilities" href="#utilities">
                 <div class="relative">
@@ -135,7 +135,7 @@
                 </div>
               </a>
             </li>
-          {% endunless %}
+          {% endif %}
           {% unless page._PatternbotData.icons == empty %}
             <li role="presentation">
               <a class="gutter pad-t-1-4 pad-b-1-4 block" role="tab" aria-controls="icons" href="#icons">

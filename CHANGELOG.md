@@ -5,6 +5,14 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## [0.19.0] — 2019-01-16
+
+### Fixed
+
+- The “Utilities” section was showing when there was no theme file.
+
+---
+
 ## [0.18.0] — 2019-01-16
 
 ### Changed
