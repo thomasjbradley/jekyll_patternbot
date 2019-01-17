@@ -30,7 +30,7 @@ Edit your `Gemfile` and add these lines to the bottom:
 gem "jekyll"
 
 group :jekyll_plugins do
-  gem "jekyll_patternbot", :path => '/www/jekyll_patternbot/'
+  gem "jekyll_patternbot"
 end
 ```
 
@@ -48,7 +48,7 @@ Enter a current Ruby version number into the file, `2.5.3` is a recent version y
 
 ### 3. Configure Jekyll
 
-Finally we need to configure Jekyll to use Patternbot. It’s already using the Patternbot plugins, as defined in our `Gemfile` but we need to specify the Patternbot theme too.
+Finally we need to configure Jekyll to use Patternbot. It’s already using the Patternbot plugins, as defined in our `Gemfile`, but we need to specify the Patternbot theme too.
 
 In your code editor, **create a new file `_config.yml`**
 
@@ -66,6 +66,6 @@ theme: jekyll_patternbot
 
 ## Hosting Jekyll Patternbot
 
-*Although GitHub supports Jekyll its list of allowed plugins is very strict—which means Patternbot cannot run on GitHub Pages.*
+*Although GitHub supports Jekyll, its list of allowed plugins is very strict—which means Patternbot cannot run on GitHub Pages.*
 
 I suggest using [Netlify](https://www.netlify.com/) as a substitute to GitHub hosting for your projects that use Jekyll Patternbot.
