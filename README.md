@@ -1,39 +1,71 @@
-# Jekyll::Patternbot
+# ![](.readme/patternbot-logo.png) Jekyll Patternbot
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/jekyll/patternbot`. To experiment with that code, run `bin/console` for an interactive prompt.
+*Your pompous and persnickety patterning robot.*
 
-TODO: Delete this and the text above, and describe your gem
+---
 
-## Installation
+There are lots of fantastic tools for creating style guides and pattern libraries—but they all have a lot of embedded knowledge (command line, Gulp, Grunt, PHP, Handlebars, SASS, etc.)
 
-Add this line to your application's Gemfile:
+It’s just too much *stuff* for my students. I don’t want them to have to learn the tool, I want them to use a tool and get on with designing.
+
+My aim is not to replace the wonderful tools that exist, but simplify them into a very minimal package that can get the students familiarized with using style guides without having to learn all the extra stuff.
+
+**This is actually my second version of making a pattern library app: the first was a GUI.** But after working with students for a while & teaching & understanding their knowledge sphere, I’ve switched to a Jekyll plugin. It’s better at scaffolding their knowledge into future terms and opens up lots learning opportunities within the Jekyll ecosystem.
+
+---
+
+## Installation & setup
+
+**First make sure you have Ruby, RubyGems & Bundler installed. [☛ See this lesson for help with installing the tools.](https://learn-the-web.algonquindesign.ca/courses/web-dev-4/install-more-developer-tools/)**
+
+After cloning your GitHub repo, press `Open in Terminal` from within GitHub Desktop.
+
+### 1. Add a Gemfile
+
+**Within Terminal type: `bundle init`**—this will create a new file in your folder named `Gemfile`
+
+Edit your `Gemfile` and add these lines to the bottom:
 
 ```ruby
-gem 'jekyll_patternbot'
+gem "jekyll"
+
+group :jekyll_plugins do
+  gem "jekyll_patternbot", :path => '/www/jekyll_patternbot/'
+end
 ```
 
-And then execute:
+Then pop back over to **Terminal and run this command: `bundle install`**
 
-    $ bundle
+### 2. Add a Ruby version
 
-Or install it yourself as:
+In your code editor create a new file named `.ruby-version`
 
-    $ gem install jekyll_patternbot
+Enter a current Ruby version number into the file, `2.5.3` is a recent version you can use.
 
-## Usage
+```
+2.5.3
+```
 
-TODO: Write usage instructions here
+### 3. Configure Jekyll
 
-## Development
+Finally we need to configure Jekyll to use Patternbot. It’s already using the Patternbot plugins, as defined in our `Gemfile` but we need to specify the Patternbot theme too.
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+In your code editor, **create a new file `_config.yml`**
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+Add this to your Jekyll `_config.yml` file:
 
-## Contributing
+```yml
+permalink: pretty
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/jekyll_patternbot.
+theme: jekyll_patternbot
+```
 
-## License
+*The `permalink: pretty` isn’t necessary—but I always like to have nice permalinks in my websites.*
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+---
+
+## Hosting Jekyll Patternbot
+
+*Although GitHub supports Jekyll its list of allowed plugins is very strict—which means Patternbot cannot run on GitHub Pages.*
+
+I suggest using [Netlify](https://www.netlify.com/) as a substitute to GitHub hosting for your projects that use Jekyll Patternbot.
