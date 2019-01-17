@@ -115,9 +115,9 @@ module JekyllPatternbot
       else
         unless PatternbotCache.key?(font_url)
           PatternbotCache[font_url] = self.parse_font_file(font_url)
-          PatternbotLogger.warn("Patternbot downloaded CSS for fonts from the remote URL: #{font_url}")
-        else
-          PatternbotLogger.info("Patternbot used a cached version of the font CSS originally located at: #{font_url}")
+          # PatternbotLogger.warn("Patternbot downloaded CSS for fonts from the remote URL: #{font_url}")
+        # else
+          # PatternbotLogger.info("Patternbot used a cached version of the font CSS originally located at: #{font_url}")
         end
         return self.parse_fonts data, PatternbotCache[font_url]
       end
