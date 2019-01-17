@@ -19,16 +19,17 @@ Gem::Specification.new do |spec|
 
   spec.require_paths = ['_plugins']
 
+  spec.required_ruby_version = '~> 2'
+
   spec.add_runtime_dependency 'jekyll', '~> 3.8'
-  spec.add_runtime_dependency 'colorator'
-  spec.add_runtime_dependency 'babosa'
-  spec.add_runtime_dependency 'deep_merge'
-  spec.add_runtime_dependency 'unicode_titlecase'
-  spec.add_runtime_dependency 'css_parser'
-  spec.add_runtime_dependency 'color_contrast_calc'
-  spec.add_runtime_dependency 'indifference'
+  spec.add_runtime_dependency 'colorator', '~> 1'
+  spec.add_runtime_dependency 'babosa', '~> 1'
+  spec.add_runtime_dependency 'deep_merge', '~> 1'
+  spec.add_runtime_dependency 'unicode_titlecase', '~> 0.0'
+  spec.add_runtime_dependency 'css_parser', '~> 1'
+  spec.add_runtime_dependency 'color_contrast_calc', '~> 0.5'
+  spec.add_runtime_dependency 'indifference', '~> 0.0'
 
   spec.add_development_dependency 'bundler', '~> 1.17'
   spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'rspec', '~> 3.0'
 end
