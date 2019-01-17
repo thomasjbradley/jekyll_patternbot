@@ -5,6 +5,21 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## [Unreleased]
+
+### Added
+
+- Added the ability to document utility variables within the `theme.css` file.
+
+### Fixed
+
+- The Logger now outputs to `STDOUT` by default instead of `STDERR`
+- When a field data type isn’t specified, a empty dash is output.
+- Prevented the pattern description from being repeated.
+- Fixed a responsive layout but in the utilities table on small screens.
+
+---
+
 ## [0.21.0] — 2019-01-16
 
 ### Fixed
