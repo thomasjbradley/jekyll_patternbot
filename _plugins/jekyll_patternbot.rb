@@ -27,6 +27,7 @@ module JekyllPatternbot
   require 'jekyll_patternbot/parsers/css_color'
   require 'jekyll_patternbot/parsers/css_font'
   require 'jekyll_patternbot/parsers/css_utility'
+  require 'jekyll_patternbot/parsers/css_var'
   require 'jekyll_patternbot/parsers/theme'
   require 'jekyll_patternbot/parsers/icons'
 
@@ -38,6 +39,7 @@ module JekyllPatternbot
 
   require 'jekyll_patternbot/processors/brand'
   require 'jekyll_patternbot/processors/modules'
+  require 'jekyll_patternbot/processors/utilities'
 
   require 'jekyll_patternbot/hooks/pattern_lib'
 

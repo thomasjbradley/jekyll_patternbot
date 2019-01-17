@@ -124,7 +124,15 @@
               </a>
             </li>
           {% endif %}
+          {% assign has_utilities = false %}
+          {% assign has_vars = false %}
           {% if page._PatternbotData.css.theme.utilities and page._PatternbotData.css.theme.utilities != empty %}
+            {% assign has_utilities = true %}
+          {% endif %}
+          {% if page._PatternbotData.css.theme.vars and page._PatternbotData.css.theme.vars != empty %}
+            {% assign has_vars = true %}
+          {% endif %}
+          {% if has_utilities or has_vars %}
             <li role="presentation">
               <a class="gutter pad-t-1-4 pad-b-1-4 block" role="tab" aria-controls="utilities" href="#utilities">
                 <div class="relative">

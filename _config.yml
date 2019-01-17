@@ -12,6 +12,7 @@ patternbot:
     theme: "theme.css"
     main: "main.css"
     utility_tag: "@utility"
+    var_tag: "@var"
   icons:
     source: "images"
     filenames:

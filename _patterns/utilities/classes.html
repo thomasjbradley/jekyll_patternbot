@@ -9,7 +9,7 @@
     <tbody>
       {% for util in page._PatternbotData.css.theme.utilities %}
         <tr>
-          <th class="valign-middle" scope="row" colspan="6"><code class="ib valign-middle">{{util.class}}</code></th>
+          <th class="valign-middle" scope="row" colspan="6"><code class="ib valign-middle">{{util.class | escape}}</code></th>
           <td class="valign-middle" scope="col" colspan="18"><span class="ib valign-middle">{{util.description | escape}}</span></td>
         </tr>
       {% endfor %}
