@@ -30,6 +30,8 @@ patternbot:
     extensions:
       - ".svg"
       - ".png"
+  layouts:
+    # default: "Blah, blah…"
   sample_pages:
     source: "sample-pages"
   js:

@@ -34,6 +34,7 @@ module JekyllPatternbot
   require 'jekyll_patternbot/finders/finder'
   require 'jekyll_patternbot/finders/logos'
   require 'jekyll_patternbot/finders/icons'
+  require 'jekyll_patternbot/finders/layouts'
   require 'jekyll_patternbot/finders/patterns'
   require 'jekyll_patternbot/finders/sample_pages'
 

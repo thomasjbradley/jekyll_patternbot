@@ -1,0 +1,20 @@
+<div class="patternbot-font-primary text-left milli">
+  <div class="pattern-utilities-scrollable scrollable">
+    <table class="patternbot-utilities-table">
+      <thead>
+        <tr>
+          <th scope="col" colspan="6">Layout</th>
+          <th scope="col" colspan="18">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for layout in page._PatternbotData.layouts %}
+          <tr>
+            <th class="valign-middle" scope="row" colspan="6"><code class="ib valign-middle">{{layout.name | escape}}</code></th>
+            <td class="valign-middle" scope="col" colspan="18"><span class="ib valign-middle">{{layout.description | default: '—' | escape}}</span></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>

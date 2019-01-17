@@ -1,0 +1,11 @@
+_layout: "patternbot_pattern_internal"
+_extra_css:
+  - 'utilities/utilities.min.css'
+
+patterns:
+  layouts:
+    title: "Layouts"
+    description: "Below is a reference of all the layouts available for pages within the website."
+    _popout_button: false
+    _resizable: false
+    _code: false

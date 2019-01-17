@@ -144,6 +144,18 @@
               </a>
             </li>
           {% endif %}
+          {% unless page._PatternbotData.layouts == empty %}
+            <li role="presentation">
+              <a class="gutter pad-t-1-4 pad-b-1-4 block" role="tab" aria-controls="layouts" href="#layouts">
+                <div class="relative">
+                  <span>Layouts</span>
+                  <i class="icon i-18 absolute pin-cr">
+                    <svg><use xlink:href="#icon-active"></use></svg>
+                  </i>
+                </div>
+              </a>
+            </li>
+          {% endunless %}
           {% unless page._PatternbotData.icons == empty %}
             <li role="presentation">
               <a class="gutter pad-t-1-4 pad-b-1-4 block" role="tab" aria-controls="icons" href="#icons">

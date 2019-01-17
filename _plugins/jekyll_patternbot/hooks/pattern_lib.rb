@@ -4,8 +4,9 @@ module JekyllPatternbot
   PatternbotData = {
     :css => {},
     :js => {},
-    :logos => false,
-    :icons => false,
+    :logos => {},
+    :icons => [],
+    :layouts => [],
     :patterns => {},
     :pages => [],
   }
@@ -49,6 +50,9 @@ module JekyllPatternbot
     else
       PatternbotData[:js][:main] = false
     end
+
+    layouts = LayoutsFinder.new
+    PatternbotData[:layouts] = layouts.info
 
     pattern_files = PatternsFinder.new
     PatternbotData[:patterns] = {
