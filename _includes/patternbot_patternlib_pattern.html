@@ -206,13 +206,17 @@
                             {% unless field.required == false %}<span class="ib pico not-bold italic valign-middle">required</span>{% endunless %}
                           </th>
                           <td scope="col" colspan="6">
-                            <code class="pattern-code-field">
-                              {% if field.data %}
-                                object
-                              {% else %}
-                                {{field.type | escape}}
-                              {% endif %}
-                            </code>
+                            {% if field.data or field.type %}
+                              <code class="pattern-code-field">
+                                {% if field.data %}
+                                  object
+                                {% else %}
+                                  {{field.type | escape}}
+                                {% endif %}
+                              </code>
+                            {% else %}
+                              <span>—</span>
+                            {% endif %}
                           </td>
                           <td scope="col" colspan="11">
                             {% if field.data %}
