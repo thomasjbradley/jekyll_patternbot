@@ -2,7 +2,8 @@ module JekyllPatternbot
   class PatternbotConsoleLogger
 
     def initialize
-      @logger = Logger.new STDERR
+      @logger = Logger.new STDOUT
+      @logger.level = Logger::INFO
       @logger.formatter = proc do |severity, datetime, progname, msg|
         "PATTERNBOT — #{datetime}: #{msg}\n"
       end
