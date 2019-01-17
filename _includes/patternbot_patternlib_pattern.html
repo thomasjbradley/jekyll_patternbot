@@ -86,11 +86,13 @@
       <div class="max-length">{{include.pattern.config.description | markdownify | sub_web_dev_tool_urls}}</div>
     </div>
   {% else %}
-    {% if first_pattern.description %}
-      <div class="pattern-desc milli island {% unless show_sub_headings %}patternbot-override-color{% endunless %}">
-        <div class="max-length">{{first_pattern.description | markdownify | sub_web_dev_tool_urls}}</div>
-      </div>
-    {% endif %}
+    {% unless show_sub_headings %}
+      {% if first_pattern.description %}
+        <div class="pattern-desc milli island {% unless show_sub_headings %}patternbot-override-color{% endunless %}">
+          <div class="max-length">{{first_pattern.description | markdownify | sub_web_dev_tool_urls}}</div>
+        </div>
+      {% endif %}
+    {% endunless %}
   {% endif %}
 
   {% for pattern in include.pattern.config.patterns %}
