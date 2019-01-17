@@ -5,6 +5,14 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## [1.0.2] — 2019-01-16
+
+### Fixed
+
+- Re-add font URL cache messages to see if the Netlify build works.
+
+---
+
 ## [1.0.1] — 2019-01-16
 
 ### Fixed
