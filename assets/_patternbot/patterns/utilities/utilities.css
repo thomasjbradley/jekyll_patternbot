@@ -1,4 +1,16 @@
+.patternbot-utilities-table {
+  min-width: 50em;
+}
+
 .patternbot-utilities-table th,
 .patternbot-utilities-table td {
   border-color: rgba(var(--color-patternbot-interface), var(--color-patternbot-interface), var(--color-patternbot-interface), .2);
+}
+
+@media only screen and (min-width: 65em) {
+
+  .pattern-utilities-scrollable {
+    overflow: hidden
+  }
+
 }
