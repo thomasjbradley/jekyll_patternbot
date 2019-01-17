@@ -10,6 +10,11 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 
 - Added the ability to document utility variables within the `theme.css` file.
+- Added the ability to document layouts within the pattern library.
+
+### Changed
+
+- Fixed the dependency versions to specific numbers.
 
 ### Fixed
 
