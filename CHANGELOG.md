@@ -5,6 +5,14 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## [1.0.3] — 2019-01-19
+
+### Fixed
+
+- Fixed a bug where errors were displayed when the Web Dev Tool CSS files existed but were empty.
+
+---
+
 ## [1.0.2] — 2019-01-16
 
 ### Fixed

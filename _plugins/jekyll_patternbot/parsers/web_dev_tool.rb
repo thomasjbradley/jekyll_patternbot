@@ -13,8 +13,14 @@ module JekyllPatternbot
     def data
       if @data.nil? and File.file? @filepath
         @data = File.read(@filepath)
-        @url_matches = @data.match(/https:\/\/(?<tool>modulifier|gridifier|typografier)\.web-dev\.tools\/#(?<url>[^\s]+)/)
-        @url = @url_matches[0]
+        if @data != ""
+          @url_matches = @data.match(/https:\/\/(?<tool>modulifier|gridifier|typografier)\.web-dev\.tools\/#(?<url>[^\s]+)/)
+          @url = @url_matches[0] if @url_matches
+        else
+          @data = nil
+          @url_matches = false
+          @url = ''
+        end
       end
       @data
     end
@@ -29,12 +35,15 @@ module JekyllPatternbot
 
     def info
       data
-      {
+      the_info = {
         :filename => @filename,
         :filepath => @filepath,
-        :url => @url,
         :settings => settings,
       }
+      if @url and @url != ''
+        the_info[:url] = @url
+      end
+      the_info
     end
 
   end
