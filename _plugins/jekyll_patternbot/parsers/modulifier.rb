@@ -6,5 +6,9 @@ module JekyllPatternbot
       url_info.split(/\;/) if url_info
     end
 
+    def utility_classes
+      WebDevToolParser.utility_classes_for_tool('modules')
+    end
+
   end
 end

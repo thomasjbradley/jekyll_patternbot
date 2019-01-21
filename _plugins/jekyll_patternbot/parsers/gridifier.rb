@@ -18,5 +18,9 @@ module JekyllPatternbot
       grid_settings
     end
 
+    def utility_classes
+      WebDevToolParser.utility_classes_for_tool('grid')
+    end
+
   end
 end

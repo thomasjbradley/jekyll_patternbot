@@ -1,0 +1,28 @@
+<div class="patternbot-font-primary text-left milli">
+  <div class="pattern-utilities-scrollable scrollable">
+    <table class="patternbot-utilities-table">
+      <thead>
+        <tr>
+          <th scope="col" colspan="6">Class</th>
+          <th scope="col" colspan="18">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for util in include.classes %}
+          <tr>
+            <th class="valign-middle" scope="row" colspan="6">
+              {% if util.classes %}
+                {% for class in util.classes %}
+                <code class="ib valign-middle">{{class | escape}}</code>
+                {% endfor %}
+              {% else %}
+                <code class="ib valign-middle">{{util.class | escape}}</code>
+              {% endif %}
+            </th>
+            <td class="valign-middle" scope="col" colspan="18"><span class="ib valign-middle">{{util.description | escape}}</span></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>

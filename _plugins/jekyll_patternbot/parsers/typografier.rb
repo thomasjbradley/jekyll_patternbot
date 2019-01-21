@@ -17,5 +17,9 @@ module JekyllPatternbot
       type_settings
     end
 
+    def utility_classes
+      WebDevToolParser.utility_classes_for_tool('typography')
+    end
+
   end
 end

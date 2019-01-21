@@ -1,0 +1,28 @@
+# Direct copy from: https://learn-the-web.algonquindesign.ca/topics/typografier-cheat-sheet/
+
+- classes:
+    - '.text-left'
+    - '.text-right'
+    - '.text-center'
+  description: 'Text alignment classes.'
+- classes:
+    - '.bold'
+    - '.italic'
+    - '.not-bold'
+    - '.not-italic'
+    - '.normal'
+  description: 'Font style and weight classes.'
+- classes:
+    - '.text-upper'
+    - '.text-lower'
+  description: 'Font capitalization classes: all uppercase & all lowercase.'
+- class: '.hang-punc'
+  description: 'Add to an element at the beginning of a line to make the character hang in the margin.'
+- class: '.wrapper'
+  description: 'Sets the max-width of an element to 52em—which is a fairly good line-length for a website body.'
+- class: '.wrapper-no-center'
+  description: 'Same as wrapper but doesn’t auto center.'
+- class: '.max-length'
+  description: 'Sets the max-width of an element to 36em—which is a fairly good line-length for text content.'
+- class: '.max-length-no-center'
+  description: 'Same as max-length but doesn’t auto center.'
