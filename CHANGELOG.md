@@ -10,6 +10,7 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 
 - Fix the class names for some of the vertical spacing classes: they didn’t match real Typografier class names.
+- Fixed a bug when `<h2>` tags were targetted, the font family in the font display changed incorrectly.
 
 ---
 
