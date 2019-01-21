@@ -13,21 +13,21 @@ module JekyllPatternbot
 
     def remove_media_objects
       begin PatternbotData.dig(:css, :modulifier, :settings)
-        unless PatternbotData[:css][:modulifier][:settings].kind_of?(Array) and PatternbotData[:css][:modulifier][:settings].include? 'media-objects'
-          PatternbotData[:patterns][:internal]['modules'][:config]['patterns'].delete 'media-objects'
+        unless PatternbotData[:css][:modulifier][:settings].kind_of?(Array) and PatternbotData[:css][:modulifier][:settings].include? 'media-object'
+          PatternbotData[:patterns][:internal]['modules'][:config]['patterns'].delete 'media-object'
         end
       rescue
-        PatternbotData[:patterns][:internal]['modules'][:config]['patterns'].delete 'media-objects'
+        PatternbotData[:patterns][:internal]['modules'][:config]['patterns'].delete 'media-object'
       end
     end
 
     def remove_list_group
       begin PatternbotData.dig(:css, :modulifier, :settings)
-        unless PatternbotData[:css][:modulifier][:settings].kind_of?(Array) and PatternbotData[:css][:modulifier][:settings].include? 'list-groups'
-          PatternbotData[:patterns][:internal]['modules'][:config]['patterns'].delete 'list-groups'
+        unless PatternbotData[:css][:modulifier][:settings].kind_of?(Array) and PatternbotData[:css][:modulifier][:settings].include? 'list-group'
+          PatternbotData[:patterns][:internal]['modules'][:config]['patterns'].delete 'list-group'
         end
       rescue
-        PatternbotData[:patterns][:internal]['modules'][:config]['patterns'].delete 'list-groups'
+        PatternbotData[:patterns][:internal]['modules'][:config]['patterns'].delete 'list-group'
       end
     end
 
