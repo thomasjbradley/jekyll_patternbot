@@ -5,6 +5,14 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## [Unreleased]
+
+### Fixed
+
+- Fix the class names for some of the vertical spacing classes: they didn’t match real Typografier class names.
+
+---
+
 ## [1.0.3] — 2019-01-19
 
 ### Fixed
