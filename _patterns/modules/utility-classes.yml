@@ -1,0 +1,196 @@
+# Direct copy from: https://learn-the-web.algonquindesign.ca/topics/modulifier-cheat-sheet/
+
+images:
+  - class: '.img-flex'
+    description: 'Make images 100% the width of their container.'
+  - class: '.image-replacement'
+    description: 'A class (and a shorter version `.ir`) that will hide all the text inside an element and allow only the background-image to show.'
+  - class: '.embed'
+    description: 'The wrapper class for making responsive embedded resources like images and videos.'
+  - class: '.embed-item'
+    description: 'The class to be added directly to the embedded image or video.'
+
+embed_sizes:
+  - class: '.embed-1by1'
+    description: 'Square.'
+  - class: '.embed-4by3'
+    description: 'Traditional TV/computer screens.'
+  - class: '.embed-iso216'
+    description: 'A-standard paper sizes.'
+  - class: '.embed-3by2'
+    description: 'Classic 35 mm film & most digital photos, landscape.'
+  - class: '.embed-2by3'
+    description: 'Classic 35 mm film & most digital photos, portrait.'
+  - class: '.embed-golden'
+    description: 'The Golden Ratio.'
+  - class: '.embed-16by9'
+    description: 'HDTV.'
+  - class: '.embed-185by100'
+    description: 'Common widescreen cinema.'
+  - class: '.embed-24by10'
+    description: 'Widescreen cinema: 2.4:1.'
+  - class: '.embed-3by1'
+    description: 'Panorama photos.'
+  - class: '.embed-4by1'
+    description: 'Polyvision.'
+  - class: '.embed-5by1'
+    description: 'Really, really wide…'
+
+lists:
+  - class: '.list-group'
+    description: |
+      The `.list-group` class that will remove bullets and padding from lists, so semantically they can be lists but no visually.
+
+      When added to a `<dl>` tag, there is a little responsiveness to how the `<dt>` and `<dd>` tags flow.
+  - class: '.list-group-inline'
+    description: |
+      The `.list-group-inline` class that will force the `<li>` tags onto the same line.
+
+      When added to the `<dl>` tag, the `<dt>` and `<dd>` tags will sit on the same line if there is enough space.
+
+media_objects:
+  - class: '.media'
+    description: 'A wrapper class to surround image & text groups, especially if the images is to be beside the text.'
+  - class: '.media-img'
+    description: 'A class for adding to the image, or surrounding `<div>`, within the media object.'
+  - class: '.media-body'
+    description: 'A class to add to the text, or surrounding `<div>`, within the media object.'
+  - class: '.media-img-reversed'
+    description: 'Instead of floating the image left it will float: right'
+  - class: '.media-img-stacked'
+    description: 'Will disable floating and have the image above the text instead.'
+
+skip_links:
+  - class: '.skip-links'
+    description: 'Adds all the CSS necessary for creating basic skip links.'
+
+hidden:
+  - class: '.hidden'
+    description: 'Makes sure the hidden attribute works in all browsers and provides a .hidden class.'
+  - class: '.visually-hidden'
+    description: 'A class that will hide something from the visual screen but still allow it to be accessible via tools.'
+  - class: '.focusable'
+    description: 'To be added to the .visually-hidden class to allow the keyboard to access the element.'
+  - class: '.invisible'
+    description: 'A class that will hide an element on the screen, but its space will still be there.'
+  - class: '.crop'
+    description: 'These classes that will chop/crop overflowing elements off—essentially just overflow: hidden'
+  - class: '.truncate'
+    description: 'A class that will chop single lines of text off and add an ellipsis at the end.'
+  - class: '.scrollable'
+    description: 'A class that make an element horizontally scrollable, good for simple responsive tables.'
+
+positioning:
+  - class: '.clearfix'
+    description: 'A class that can be used on floating wrappers to trigger a clear fix.'
+  - classes:
+      - '.left'
+      - '.right'
+    description: 'Will float the element to the left or the right.'
+  - classes:
+      - '.inline'
+      - '.inline-block'
+      - '.ib'
+      - '.block'
+    description: 'Classes to control the display property between inline, inline-block, and block.'
+  - classes:
+      - '.valign-top'
+      - '.valign-middle'
+      - '.valign-bottom'
+    description: 'These classes allow you to control the vertical-align property on inline and inline-block elements or within tables.'
+  - classes:
+      - '.fixed'
+      - '.relative'
+      - '.absolute'
+      - '.static'
+    description: 'Classes to control the position property of an element.'
+  - classes:
+      - '.zindex-1'
+      - '.zindex-2'
+      - '.zindex-3'
+      - '.zindex-1000'
+    description: 'Classes to control three basic z-index states on an element.'
+  - classes:
+      - '.pin-left-top'
+      - '.pin-right-top'
+      - '.pin-left-bottom'
+      - '.pin-right-bottom'
+      - '.pin-center-top'
+      - '.pin-center-bottom'
+      - '.pin-left-center'
+      - '.pin-right-center'
+      - '.pin-center'
+    description: |
+      A series of classes for moving a position: absolute element to different common locations.
+
+      The `.pin-*` classes will automatically add position: absolute so adding the class .absolute also isn’t necessary.
+
+      Simplified versions are available: `.pin-lt`, `.pin-rt`, `pin-lb`, `.pin-rb`, `.pin-ct`, `.pin-cb`, `.pin-lc`, `.pin-rc`, `.pin-c`
+  - classes:
+      - '.width-quarter'
+      - '.width-half'
+      - '.width-full'
+    description: |
+      A series of classes for setting common widths.
+
+      Simplified versions are available: `.w-1-4`, `.w-1-2`, `.w-1`
+  - classes:
+      - '.height-quarter'
+      - '.height-half'
+      - '.height-full'
+    description: |
+      A series of classes for setting common heights—usually only useful the context of `position: absolute`.
+
+      Simplified versions are available: `.h-1-4`, `.h-1-2`, `.h-1`
+  - classes:
+      - '.height-win-quarter'
+      - '.height-win-half'
+      - '.height-win-full'
+    description: |
+      A series of classes for setting elements to have a minimum height compared to the window size.
+
+      Simplified versions are available: `.h-w-1-4`, `.h-w-1-2`, `.h-w-1`
+  - class: '.center-flow'
+    description: 'Centres inline, inline-block & text elements—essentially just adds text-align: center'
+  - class: '.center-block'
+    description: 'Centres block-level elements, but they need widths—essentially adds: margin-left: auto; margin-right: auto'
+  - classes:
+      - '.center-content'
+      - '.center-content-vertical'
+    description: 'Centres all the contents of a box within, both vertically & horizontally centered.'
+  - class: '.center-content-horizontal'
+    description: 'Centres all the contents of a box within, both vertically & horizontally centered.'
+
+buttons:
+  - class: '.btn'
+    description: 'A very basic button style for prototyping websites.'
+  - class: '.btn-light'
+    description: 'An alternative button style for prototyping websites.'
+  - class: '.btn-ghost'
+    description: 'A third button style for prototyping websites.'
+  - class: '.link-box'
+    description: 'For adding to `<a>` tags to remove their underlines and make them block.'
+
+forms:
+  - class: '.label-block'
+    description: 'A class to force a `<label>` onto its own line.'
+  - class: '.label-inline'
+    description: 'A class to force a `<label>` onto the same line as other inputs.'
+  - class: '.hide-custom-input'
+    description: 'This class can be added to a checkbox or radio button `<input>` or `<label>` to hide the custom control.'
+
+print:
+  - class: '.no-print'
+    description: 'Will hide the element when a user prints out the website.'
+  - class: '.no-print-href'
+    description: 'Will stop the href printing out beside a link when printed.'
+  - class: '.print-only'
+    description: 'Will hide an element by default but then display it when the website is printed.'
+  - class: '.force-print'
+    description: 'Will attempt to force something to be printed even if there’s JavaScript or some other CSS that tries to hide it.'
+  - class: '.page-break-before'
+    description: 'Will force a page-break before this content when printed.'
+  - class: '.page-break-after'
+    description: 'Will force a page-break after this content when printed.'
+  - class: '.no-page-break-inside'
+    description: 'Will attempt to prevent the content from being broken over multiple pages when printed.'

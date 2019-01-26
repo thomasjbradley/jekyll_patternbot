@@ -188,7 +188,11 @@
                   <svg><use xlink:href="#icon-copy"></use></svg>
                 </i>
               </button>
-              <code><pre id="{{include.pattern.name}}-{{pattern_name}}-code-sample-copy-chunk">{{pattern_name | pattern_code:include.pattern.name, pattern_data | escape}}</pre></code>
+              {% if pattern_data._code_sample %}
+                <code><pre id="{{include.pattern.name}}-{{pattern_name}}-code-sample-copy-chunk">{{pattern_data._code_sample | escape}}</pre></code>
+              {% else %}
+                <code><pre id="{{include.pattern.name}}-{{pattern_name}}-code-sample-copy-chunk">{{pattern_name | pattern_code:include.pattern.name, pattern_data | escape}}</pre></code>
+              {% endif %}
               {% if pattern_data.fields %}
                 <div class="pad-t-1-2">
                   <hr class="pattern-code-sep push-1-2">

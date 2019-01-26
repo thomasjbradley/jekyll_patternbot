@@ -4,10 +4,10 @@ module JekyllPatternbot
     def remove_unless_embed
       begin PatternbotData.dig(:css, :modulifier, :settings)
         unless PatternbotData[:css][:modulifier][:settings].kind_of?(Array) and PatternbotData[:css][:modulifier][:settings].include? 'embed'
-          PatternbotData[:patterns][:internal]['modules'][:config]['patterns'].delete 'embed'
+          PatternbotData[:patterns][:internal]['modules'][:config]['patterns'].delete 'images-embed'
         end
       rescue
-        PatternbotData[:patterns][:internal]['modules'][:config]['patterns'].delete 'embed'
+        PatternbotData[:patterns][:internal]['modules'][:config]['patterns'].delete 'images-embed'
       end
     end
 
@@ -21,20 +21,20 @@ module JekyllPatternbot
       end
     end
 
-    def remove_unless_list_group
+    def remove_unless_skip_links
       begin PatternbotData.dig(:css, :modulifier, :settings)
-        unless PatternbotData[:css][:modulifier][:settings].kind_of?(Array) and PatternbotData[:css][:modulifier][:settings].include? 'list-group'
-          PatternbotData[:patterns][:internal]['modules'][:config]['patterns'].delete 'list-group'
+        unless PatternbotData[:css][:modulifier][:settings].kind_of?(Array) and PatternbotData[:css][:modulifier][:settings].include? 'accessibility'
+          PatternbotData[:patterns][:internal]['modules'][:config]['patterns'].delete 'skip-links'
         end
       rescue
-        PatternbotData[:patterns][:internal]['modules'][:config]['patterns'].delete 'list-group'
+        PatternbotData[:patterns][:internal]['modules'][:config]['patterns'].delete 'skip-links'
       end
     end
 
     def process
       remove_unless_embed
       remove_unless_media_objects
-      remove_unless_list_group
+      remove_unless_skip_links
     end
 
   end

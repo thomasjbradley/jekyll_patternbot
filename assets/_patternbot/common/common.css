@@ -81,6 +81,11 @@ code {
   border-color: transparent;
 }
 
+.patternbot-max-length-short {
+  margin: 0 auto;
+  max-width: 24em;
+}
+
 .patternbot-pad-box {
   background-color: var(--color-patternbot-interface-accent, --color-primary, rgba(var(--color-patternbot-interface), var(--color-patternbot-interface), var(--color-patternbot-interface)));
 }
