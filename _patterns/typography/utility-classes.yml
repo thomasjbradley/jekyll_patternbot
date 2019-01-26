@@ -7,11 +7,12 @@
   description: 'Text alignment classes.'
 - classes:
     - '.bold'
-    - '.italic'
     - '.not-bold'
+  description: 'Font weight classes. There’s also `.normal` as a variation to `.not-bold`'
+- classes:
+    - '.italic'
     - '.not-italic'
-    - '.normal'
-  description: 'Font style and weight classes.'
+  description: 'Font style classes.'
 - classes:
     - '.text-upper'
     - '.text-lower'

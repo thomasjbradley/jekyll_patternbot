@@ -2,6 +2,7 @@ _layout: "patternbot_pattern_internal"
 _user_typografier: true
 _extra_css:
   - 'typography/typography.min.css'
+  - 'utilities/utilities.min.css'
 
 title: "Typography"
 description: |
