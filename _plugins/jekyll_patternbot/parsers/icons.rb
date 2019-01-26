@@ -15,6 +15,13 @@ module JekyllPatternbot
       matches.flatten
     end
 
+    def classes
+      internal_source = File.expand_path "../../../_patterns/icons/icon-classes.yml", __dir__
+      return [] unless File.file? internal_source
+      icon_classes = YAML.load_file internal_source
+      icon_classes
+    end
+
     def info
       for file in @icon_files
         data = File.read filepath file[:filename]

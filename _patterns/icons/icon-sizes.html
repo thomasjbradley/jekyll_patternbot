@@ -1,0 +1,10 @@
+{% if page._PatternbotData.css.typografier contains 'url' %}
+  <h2 class="patternbot-font-primary patternbot-color-body giga normal">Pixel-based icons sizes</h2>
+  {% include patternbot_pattern_class_list.html classes=page._PatternbotData.icons.classes.sizes %}
+{% endif %}
+
+{% if page._PatternbotData.css.typografier contains 'url' %}
+  <hr class="patternbot-hr patternbot-hr-always-visible">
+  <h2 class="patternbot-font-primary patternbot-color-body giga normal">Typography-based icons sizes</h2>
+  {% include patternbot_pattern_class_list.html classes=page._PatternbotData.icons.classes.type_sizes %}
+{% endif %}

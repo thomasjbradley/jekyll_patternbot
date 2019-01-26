@@ -5,7 +5,10 @@ module JekyllPatternbot
     :css => {},
     :js => {},
     :logos => {},
-    :icons => [],
+    :icons => {
+      :spritesheets => [],
+      :classes => [],
+    },
     :layouts => [],
     :patterns => {},
     :pages => [],
@@ -34,9 +37,11 @@ module JekyllPatternbot
     icon_files = IconsFinder.new(Config['patternbot']['icons'])
     if icon_files.exists?
       icons = IconsParser.new(Config['patternbot']['icons'], icon_files.info)
-      PatternbotData[:icons] = icons.info
+      PatternbotData[:icons][:spritesheets] = icons.info
+      PatternbotData[:icons][:classes] = icons.classes
     else
-      PatternbotData[:icons] = []
+      PatternbotData[:icons][:spritesheets] = []
+      PatternbotData[:icons][:classes] = []
     end
 
     if File.exists? File.expand_path(Config['patternbot']['css']['main'], Config['patternbot']['css']['source'])

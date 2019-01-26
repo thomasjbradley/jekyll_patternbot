@@ -1,4 +1,4 @@
-{% for spritesheet in page._PatternbotData.icons %}
+{% for spritesheet in page._PatternbotData.icons.spritesheets %}
   {% assign spritesheet_has_bg = spritesheet.name | has_pattern_background_color: 'icons' %}
   <ul class="patternbot-icon-display patternbot-list-group list-group-inline {% if spritesheet_has_bg %}patternbot-icon-display-has-bg{% endif %}">
     {% for icon in spritesheet.icons %}

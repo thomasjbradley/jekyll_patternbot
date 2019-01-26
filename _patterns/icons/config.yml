@@ -1,13 +1,31 @@
 _layout: "patternbot_pattern_internal"
 _extra_css:
   - 'icons/icons.min.css'
+  - 'utilities/utilities.min.css'
 
 title: "Icons"
 description: |
-  The sprite sheet contains the following icons for use in the website. Combine the icons with [Modulifier](https://modulifier.web-dev.tools) & [Typografier](https://typografier.web-dev.tools) classes for lots of variability. [See the documentation for all available classes.](https://learn-the-web.algonquindesign.ca/topics/modulifier-cheat-sheet/)
+  The sprite sheet contains the following icons for use in the website. Combine the icons with [Modulifier](https://modulifier.web-dev.tools) & [Typografier](https://typografier.web-dev.tools) classes for lots of variability.
 
 patterns:
   icons:
+    _popout_button: false
+    _code: false
+    _resizable: false
+  icons-with-labels:
+    title: "Icons with Labels"
+    description: |
+      Sample code for using SVG icon spritesheets mixed with a text label, using the below classes.
+    width: 320
+  icon-classes:
+    description: |
+      Classes that can be used on elements & combined to make nicely aligned icons and labels.
+    _popout_button: false
+    _code: false
+    _resizable: false
+  icon-sizes:
+    description: |
+      Icons sizes available from [Modulifier](https://modulifier.web-dev.tools) & [Typografier](https://typografier.web-dev.tools).
     _popout_button: false
     _code: false
     _resizable: false

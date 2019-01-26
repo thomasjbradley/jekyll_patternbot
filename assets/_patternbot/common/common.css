@@ -71,6 +71,11 @@ code {
   display: none;
 }
 
+.patternbot-hr.patternbot-hr-always-visible,
+.patternbot-hr.patternbot-hr-always-visible:last-of-type:not(:first-child) {
+  display: block;
+}
+
 .patternbot-code-invisible {
   background-color: transparent;
   border-color: transparent;
