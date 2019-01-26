@@ -1,6 +1,13 @@
 # Direct copy from: https://learn-the-web.algonquindesign.ca/topics/typografier-cheat-sheet/
 
 - classes:
+    - '.island-2'
+    - '.island'
+    - '.island-1-2'
+    - '.island-1-4'
+    - '.island-1-8'
+  description: 'Add padding around all four sides of the box using divisions of the line-height for measurement.'
+- classes:
     - '.text-left'
     - '.text-right'
     - '.text-center'
