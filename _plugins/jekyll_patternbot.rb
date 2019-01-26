@@ -40,6 +40,7 @@ module JekyllPatternbot
 
   require 'jekyll_patternbot/processors/brand'
   require 'jekyll_patternbot/processors/modules'
+  require 'jekyll_patternbot/processors/icons'
   require 'jekyll_patternbot/processors/utilities'
 
   require 'jekyll_patternbot/hooks/pattern_lib'

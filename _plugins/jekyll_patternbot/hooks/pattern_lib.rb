@@ -70,6 +70,7 @@ module JekyllPatternbot
 
     brand_processor = BrandProcessor.new.process
     modules_processor = ModulesProcessor.new.process
+    icons_processor = IconsProcessor.new.process
     utilities_processor = UtilitiesProcessor.new.process
 
     # File.open('/Users/thomasjbradley/Desktop/patternbot.json', 'w') do |f|
