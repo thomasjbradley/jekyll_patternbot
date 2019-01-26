@@ -6,6 +6,10 @@ module JekyllPatternbot
   class << self; attr_accessor :PatternbotData; end
 
   Jekyll::Hooks.register :site, :after_init do |site|
+    unless site.config['patternbot'].is_a?(Hash)
+      site.config['patternbot'] = {}
+    end
+
     Config.deep_merge! site.config
     Config['patternbot'][:version] = JekyllPatternbot::VERSION
 
