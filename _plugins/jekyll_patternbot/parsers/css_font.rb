@@ -70,7 +70,7 @@ module JekyllPatternbot
     end
 
     def self.parse_font_file(font_url)
-      if font_url
+      if font_url and not font_url.strip.empty?
         parser = CssParser::Parser.new
         parser.load_uri!(font_url)
         font_face_rulesets = parser.find_by_selector('@font-face').map { |rules| CssParser::RuleSet.new(nil, rules) }
@@ -111,9 +111,7 @@ module JekyllPatternbot
     end
 
     def self.parse(font_url, data)
-      unless font_url
-        return self.parse_fonts data
-      else
+      if font_url and not font_url.strip.empty?
         unless PatternbotCache.key?(font_url)
           PatternbotCache[font_url] = self.parse_font_file(font_url)
           PatternbotLogger.warn("Patternbot downloaded CSS for fonts from the remote URL: #{font_url}")
@@ -121,6 +119,8 @@ module JekyllPatternbot
           PatternbotLogger.info("Patternbot used a cached version of the font CSS originally located at: #{font_url}")
         end
         return self.parse_fonts data, PatternbotCache[font_url]
+      else
+        return self.parse_fonts data
       end
     end
 
