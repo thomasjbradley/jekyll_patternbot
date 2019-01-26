@@ -63,6 +63,7 @@ module JekyllPatternbot
       weights['normal'][:css_name] = font[:css_name]
       weights['normal'][:has_normal] = true
       weights['normal'][:has_italic] = true
+      weights['bold'][:weight] = 'bold'
       weights['bold'][:css_name] = font[:css_name]
       weights['bold'][:has_normal] = true
       weights
