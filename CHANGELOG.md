@@ -5,13 +5,22 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## [Unreleased]
+## [1.1.0] — 2019-01-26
+
+### Added
+
+- Added class lists for all the Web Dev Tool systems: Gridifier, Typografier & Modulifier.
+- Added icons sizes lists for the icons & a code sample of using icons.
+- Added the ability specify a code sample form within `config.yml` instead of outputting the pattern include.
 
 ### Fixed
 
 - Fix the class names for some of the vertical spacing classes: they didn’t match real Typografier class names.
 - Fixed a bug when `<h2>` tags were targetted, the font family in the font display changed incorrectly.
 - A pluralization typo in the ModulesProcessor caused a few modules to not display.
+- Bold fonts weren’t showing the the typefaces section when there was no `font_url` or it was a browser-safe font.
+- Added missing space above `<hr>` that separates the different typefaces.
+- Added a cleaner error message when `theme: jekyll_patternbot` wasn’t specified inside the user’s `_config.yml` file.
 
 ---
 
