@@ -6,7 +6,11 @@ module JekyllPatternbot
   class << self; attr_accessor :PatternbotData; end
 
   Jekyll::Hooks.register :site, :after_init do |site|
-    unless site.config['patternbot'].is_a?(Hash)
+    unless site.config.key? 'theme' and site.config['theme'] == 'jekyll_patternbot'
+      raise 'Specify “theme: jekyll_patternbot” inside your Jekyll `_config.yml` file.'
+    end
+
+    unless site.config.key? 'patternbot' and site.config['patternbot'].is_a?(Hash)
       site.config['patternbot'] = {}
     end
 
