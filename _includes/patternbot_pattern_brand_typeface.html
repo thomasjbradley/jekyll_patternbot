@@ -1,4 +1,4 @@
-<section style="font-family:var({{include.font.var}});">
+<section style="font-family:var({{include.font.var}});" {% if include.show_hr %}class="pad-t"{% endif %}>
   {% if include.show_hr %}<hr class="patternbot-hr">{% endif %}
 
   <ul class="patternbot-code-details patternbot-list-group list-group-inline micro push-1-2 pad-t">
