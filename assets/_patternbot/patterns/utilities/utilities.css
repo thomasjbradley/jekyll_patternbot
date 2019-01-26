@@ -7,6 +7,16 @@
   border-color: rgba(var(--color-patternbot-interface), var(--color-patternbot-interface), var(--color-patternbot-interface), .2);
 }
 
+.patternbot-utilities-table p {
+  margin: 0;
+}
+
+.patternbot-utilities-table code,
+.patternbot-utilities-table pre {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 @media only screen and (min-width: 65em) {
 
   .pattern-utilities-scrollable {

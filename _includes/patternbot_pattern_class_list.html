@@ -19,7 +19,7 @@
                 <code class="ib valign-middle">{{util.class | escape}}</code>
               {% endif %}
             </th>
-            <td class="valign-middle" scope="col" colspan="18"><span class="ib valign-middle">{{util.description | escape}}</span></td>
+            <td class="valign-middle" scope="col" colspan="18"><span class="ib valign-middle">{{util.description | markdownify}}</span></td>
           </tr>
         {% endfor %}
       </tbody>

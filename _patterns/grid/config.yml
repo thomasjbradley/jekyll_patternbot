@@ -2,6 +2,7 @@ _layout: "patternbot_pattern_internal"
 _user_gridifier: true
 _extra_css:
   - 'grid/grid.min.css'
+  - 'utilities/utilities.min.css'
 
 title: "Grid"
 description: |
@@ -13,6 +14,8 @@ patterns:
     _resizable: false
     _code: false
   utility-classes:
+    description: |
+      Mix & match classes for grids and units to make any responsive layout necessary for templates.
     _popout_button: false
     _resizable: false
     _code: false
