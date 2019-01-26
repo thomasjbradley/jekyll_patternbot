@@ -1,7 +1,7 @@
 module JekyllPatternbot
   class BrandProcessor
 
-    def remove_colors
+    def remove_unless_colors
       begin PatternbotData.dig(:css, :theme, :colors, :primary)
         unless PatternbotData[:css][:theme][:colors][:primary].length > 0
           PatternbotData[:patterns][:internal]['brand'][:config]['patterns'].delete 'colors'
@@ -11,7 +11,7 @@ module JekyllPatternbot
       end
     end
 
-    def remove_typefaces
+    def remove_unless_typefaces
       begin PatternbotData.dig(:css, :theme, :fonts, :primary)
         unless PatternbotData.dig(:css, :theme, :fonts, :primary)
           PatternbotData[:patterns][:internal]['brand'][:config]['patterns'].delete 'typefaces'
@@ -21,9 +21,9 @@ module JekyllPatternbot
       end
     end
 
-    def process()
-      remove_colors
-      remove_typefaces
+    def process
+      remove_unless_colors
+      remove_unless_typefaces
     end
 
   end
