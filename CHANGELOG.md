@@ -5,6 +5,14 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## [1.1.1] — 2019-01-28
+
+### Fixed
+
+- The `font_url` was not being loaded into user patterns.
+
+---
+
 ## [1.1.0] — 2019-01-26
 
 ### Added

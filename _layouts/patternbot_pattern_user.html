@@ -7,6 +7,9 @@
   {% if page._PatternbotData.css.main %}
     <link href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.css.source}}/{{page._PatternbotConfig.patternbot.css.main}}?v={{site.time | date:'%s'}}" rel="stylesheet">
   {% endif %}
+  {% if page._PatternbotConfig.patternbot.font_url %}
+    <link href="{{page._PatternbotConfig.patternbot.font_url}}" rel="stylesheet">
+  {% endif %}
   {% if page._subpattern_data.background %}
     <style>
       html {
