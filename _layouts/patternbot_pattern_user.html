@@ -29,7 +29,7 @@
   {% include patternbot_pattern_copy_script.html %}
 
   {% if page._PatternbotData.js.main %}
-    <link href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.js.source}}/{{page._PatternbotConfig.patternbot.js.main}}?v={{site.time | date:'%s'}}" rel="stylesheet">
+    <script src="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.js.source}}/{{page._PatternbotConfig.patternbot.js.main}}?v={{site.time | date:'%s'}}"></script>
   {% endif %}
 
 </body>

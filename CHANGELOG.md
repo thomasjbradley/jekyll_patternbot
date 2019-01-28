@@ -5,6 +5,14 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## [1.1.2] — 2019-01-28
+
+## Fixed
+
+- User JS files were included using a `<link>` tag instead of a script tag.
+
+---
+
 ## [1.1.1] — 2019-01-28
 
 ### Fixed
