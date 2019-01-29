@@ -12,6 +12,11 @@
   list-style-type: none;
 }
 
+.patternbot-grid-display > li::before {
+  content: none;
+  display: none;
+}
+
 .patternbot-grid-display-inner {
   border: 2px solid var(--color-patternbot-interface-accent, --color-secondary, rgba(var(--color-patternbot-interface), var(--color-patternbot-interface), var(--color-patternbot-interface), .1));
 }
