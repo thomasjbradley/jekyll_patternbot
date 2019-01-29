@@ -7,7 +7,11 @@ module JekyllPatternbot
 
     def self.normalize_filename(filename)
       return filename unless filename
-      if Config['permalink'].match? /pretty/ or not Config['permalink'].match? /\:output_ext/
+      output_ext = false
+      if Config['permalink'].match? /\:output_ext/ or Config['permalink'].match? /^(date|ordinal|none)$/
+        output_ext = true
+      end
+      unless output_ext
         if filename.match? /^index/
           if filename.match? /\.html/
             return filename
@@ -18,7 +22,7 @@ module JekyllPatternbot
           return "#{filename.sub(/\.html/, '')}/index.html"
         end
       end
-      unless filename.match? /\.html/
+      unless filename.match? /\.html$/
         return "#{filename}.html"
       end
       filename
