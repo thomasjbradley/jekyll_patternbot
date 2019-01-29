@@ -4,32 +4,32 @@
   <meta charset="utf-8">
   <title>{{page.title}}</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  {% if page._pattern_data.config._user_modulifier %}
+  {%- if page._pattern_data.config._user_modulifier -%}
     <link href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.css.source}}/{{page._PatternbotConfig.patternbot.css.modulifier}}?v={{site.time | date:'%s'}}" rel="stylesheet">
-  {% else %}
+  {%- else -%}
     <link href="{{site.baseurl}}/assets/_patternbot/common/modulifier.min.css?v={{page._PatternbotConfig.patternbot.version}}" rel="stylesheet">
-  {% endif %}
-  {% if page._pattern_data.config._user_gridifier %}
+  {%- endif -%}
+  {%- if page._pattern_data.config._user_gridifier -%}
     <link href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.css.source}}/{{page._PatternbotConfig.patternbot.css.gridifier}}?v={{site.time | date:'%s'}}" rel="stylesheet">
-  {% else %}
+  {%- else -%}
     <link href="{{site.baseurl}}/assets/_patternbot/common/gridifier.min.css?v={{page._PatternbotConfig.patternbot.version}}" rel="stylesheet">
-  {% endif %}
-  {% if page._pattern_data.config._user_typografier %}
+  {%- endif -%}
+  {%- if page._pattern_data.config._user_typografier -%}
     <link href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.css.source}}/{{page._PatternbotConfig.patternbot.css.typografier}}?v={{site.time | date:'%s'}}" rel="stylesheet">
-  {% else %}
+  {%- else -%}
     <link href="{{site.baseurl}}/assets/_patternbot/common/typografier.min.css?v={{page._PatternbotConfig.patternbot.version}}" rel="stylesheet">
-  {% endif %}
-  {% unless page._PatternbotData.css.theme == empty %}
+  {%- endif -%}
+  {%- unless page._PatternbotData.css.theme == empty -%}
     <link href="{{site.baseurl}}/{{page._PatternbotConfig.patternbot.css.source}}/{{page._PatternbotConfig.patternbot.css.theme}}?v={{site.time | date:'%s'}}" rel="stylesheet">
-  {% endunless %}
+  {%- endunless -%}
   <link href="{{site.baseurl}}/assets/_patternbot/common/common.min.css?v={{page._PatternbotConfig.patternbot.version}}" rel="stylesheet">
-  {% for css in page._pattern_data.config._extra_css %}
+  {%- for css in page._pattern_data.config._extra_css -%}
     <link href="{{site.baseurl}}/assets/_patternbot/patterns/{{css}}?v={{page._PatternbotConfig.patternbot.version}}" rel="stylesheet">
-  {% endfor %}
+  {%- endfor -%}
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" rel="stylesheet">
   <style>
-    {% assign has_bg = page._subpattern | has_pattern_background_color: page._pattern %}
-    {% if has_bg %}
+    {%- assign has_bg = page._subpattern | has_pattern_background_color: page._pattern -%}
+    {%- if has_bg -%}
       :root {
         --color-patternbot-interface: {{page._subpattern | get_pattern_interface_color: page._pattern | as_rgb_digit}};
         --color-patternbot-interface-opposite: {{page._subpattern | get_pattern_interface_color_opposite: page._pattern | as_rgb_digit}};
@@ -39,56 +39,56 @@
       html {
         color: {{page._subpattern | get_pattern_interface_color: page._pattern}};
       }
-    {% else %}
+    {%- else -%}
       :root {
         --color-patternbot-interface: {{page._PatternbotConfig.patternbot.colors.background | get_interface_color | as_rgb_digit}};
         --color-patternbot-interface-opposite: {{page._PatternbotConfig.patternbot.colors.background | get_interface_color_opposite | as_rgb_digit}};
         --color-patternbot-interface-background: {{page._PatternbotConfig.patternbot.colors.background | as_hex}};
-        {% if page._PatternbotConfig.patternbot.colors.accent %}
+        {%- if page._PatternbotConfig.patternbot.colors.accent -%}
           --color-patternbot-interface-accent: {{page._PatternbotConfig.patternbot.colors.accent | as_hex}};
-        {% else %}
-          {% if page._PatternbotData.css.theme.colors.primary %}
+        {%- else -%}
+          {%- if page._PatternbotData.css.theme.colors.primary -%}
             --color-patternbot-interface-accent: {{page._PatternbotData.css.theme.colors.primary[0].hex}};
-          {% else %}
+          {%- else -%}
             --color-patternbot-interface-accent: {{page._PatternbotConfig.patternbot.colors.background | get_interface_color | as_hex}};
-          {% endif %}
-        {% endif %}
+          {%- endif -%}
+        {%- endif -%}
       }
       html {
         color: {{page._PatternbotConfig.patternbot.colors.background | get_interface_color}};
       }
-    {% endif %}
-    {% if page._PatternbotData.css.theme.fonts.primary.css_name %}
+    {%- endif -%}
+    {%- if page._PatternbotData.css.theme.fonts.primary.css_name -%}
       :root {
         --font-patternbot-primary: {{page._PatternbotData.css.theme.fonts.primary.css_name}}, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
       }
       html {
         font-family: {{page._PatternbotData.css.theme.fonts.primary.css_name}}, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
       }
-    {% endif %}
-    {% if page._PatternbotData.css.theme.fonts.secondary.css_name %}
+    {%- endif -%}
+    {%- if page._PatternbotData.css.theme.fonts.secondary.css_name -%}
       :root {
         --font-patternbot-secondary: {{page._PatternbotData.css.theme.fonts.secondary.css_name}}, var(--font-patternbot-primary), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
       }
-    {% endif %}
+    {%- endif -%}
   </style>
 
 
-  {% if page._PatternbotConfig.patternbot.font_url %}
+  {%- if page._PatternbotConfig.patternbot.font_url -%}
     <link href="{{page._PatternbotConfig.patternbot.font_url}}" rel="stylesheet">
-  {% endif %}
+  {%- endif -%}
 </head>
-<body>
+<body{% if page._subpattern_data.padding %} style="padding: {{page._subpattern_data.padding}};"{% endif %}>
 
-  {% include patternbot_icons.html %}
+  {%- include patternbot_icons.html -%}
 
-  <div id="patternbot-pattern-include">
+  <div id="patternbot-pattern-include"{% if page._subpattern_data.width %} style="max-width: {{page._subpattern_data.width}}; margin: 0 auto;"{% endif %}>
     {{content}}
   </div>
 
   <script src="{{site.baseurl}}/assets/_patternbot/vendor/iframe-resizer-content-window.min.js?v={{page._PatternbotConfig.patternbot.version}}"></script>
   <script src="{{site.baseurl}}/assets/_patternbot/vendor/clipboard.min.js?v={{page._PatternbotConfig.patternbot.version}}"></script>
-  {% include patternbot_pattern_copy_script.html %}
+  {%- include patternbot_pattern_copy_script.html -%}
 
 </body>
 </html>

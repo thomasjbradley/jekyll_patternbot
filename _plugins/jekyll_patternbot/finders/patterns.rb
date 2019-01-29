@@ -33,13 +33,25 @@ module JekyllPatternbot
       files
     end
 
+    def normalize_config(config)
+      if config.key? 'patterns'
+        for key, pattern in config['patterns']
+          # puts pattern.inspect
+          if pattern.is_a? Hash and pattern.key? 'width' and pattern['width'].is_a? Numeric
+            pattern['width'] = pattern['width'].to_s + 'px'
+          end
+        end
+      end
+      config
+    end
+
     def pattern_config(patternpath)
       config_data = user_config(patternpath)
       files_config = {
         'patterns' => html_files(patternpath)
       }
       config_data.deep_merge! files_config
-      config_data
+      normalize_config config_data
     end
 
     def patterns_info(source, patterns_names)

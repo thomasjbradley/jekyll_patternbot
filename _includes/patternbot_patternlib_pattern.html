@@ -160,9 +160,9 @@
 
       <div class="pattern-examples pad-t-1-2 pad-b-1-2">
         <div class="gutter{% if pattern_data._resizable != false %}-2{% endif %} pad-t-1-2 pad-b-1-2">
-          <div class="resizeable-pattern relative" style="{% if pattern_data.width %}width:{{pattern_data.width}}px{% endif %}">
+          <div class="resizeable-pattern relative">
             <i class="icon i-32 patternbot-iframe-loading-gears absolute pin-c"><svg><use xlink:href="#patternbot-iframe-loading-gears"></use></svg></i>
-            <iframe data-src="/{{page._PatternbotConfig.patternbot.destination}}/patterns/{{include.pattern.name}}/{{pattern_name | normalize_filename}}" scrolling="no" data-inject-css="{% if pattern_data.padding %}body { padding:{{pattern_data.padding}}; }{% endif %}" {% if pattern_data.height %}data-min-height="{{pattern_data.height}}"{% endif %}></iframe>
+            <iframe data-src="/{{page._PatternbotConfig.patternbot.destination}}/patterns/{{include.pattern.name}}/{{pattern_name | normalize_filename}}" scrolling="no" {% if pattern_data.height %}data-min-height="{{pattern_data.height}}"{% endif %}></iframe>
             {% if pattern_data._resizable != false %}
               <div class="resizeable-pattern-length">
                 <div class="resize-handle resize-handle-left">
