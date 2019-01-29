@@ -5,9 +5,35 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## [1.2.0] — 2019-01-28
+
+### Added
+
+- Added a comment denoting where user’s pattern code start & ends.
+- Add the ability to label a tertiary colour & typeface.
+
+### Changed
+
+- Removed some CSS injection via JavaScript and just wrote it right into the layouts.
+- The pattern `width` property is now a `max-width` inside the pattern itself: makes for better media query testing.
+- Cleaned up the whitespace in pattern output files.
+- Patterns & sample pages are now listed in alphabetical order in the navigation.
+
+### Fixed
+
+- Fixed a bug where list bullets were being displayed because of user CSS.
+- Fixed a bug where internal patterns relied on specific Modulifier features, but user modules didn’t include the feature.
+- Made the filename output more reliable with different permalink settings.
+
+### Removed
+
+- Removed the “Show all” button. It was useful previously but I found lots of students don’t really use it properly and it’s a poor user experience.
+
+---
+
 ## [1.1.2] — 2019-01-28
 
-## Fixed
+### Fixed
 
 - User JS files were included using a `<link>` tag instead of a script tag.
 
