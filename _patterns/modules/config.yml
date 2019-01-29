@@ -1,5 +1,4 @@
 _layout: "patternbot_pattern_internal"
-_user_modulifier: true
 _extra_css:
   - 'modules/modules.min.css'
   - 'utilities/utilities.min.css'
