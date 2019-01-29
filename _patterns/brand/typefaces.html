@@ -11,6 +11,11 @@
     {% include patternbot_pattern_brand_typeface.html title="Secondary" key="secondary" font=page._PatternbotData.css.theme.fonts.secondary preposition="the" show_hr=show_hr %}
   {% endif %}
 
+  {% if page._PatternbotData.css.theme.fonts.tertiary %}
+    {% assign show_hr = true %}
+    {% include patternbot_pattern_brand_typeface.html title="Tertiary" key="tertiary" font=page._PatternbotData.css.theme.fonts.tertiary preposition="the" show_hr=show_hr %}
+  {% endif %}
+
   {% for font in page._PatternbotData.css.theme.fonts.accent %}
     {% assign show_hr = true %}
     {% include patternbot_pattern_brand_typeface.html title="Accent" key="accent" font=font desc=page._PatternbotConfig.patternbot.fonts.accent preposition="an" show_hr=show_hr %}

@@ -5,6 +5,7 @@ module JekyllPatternbot
       {
         :primary => false,
         :secondary => false,
+        :tertiary => false,
         :accent => [],
       }
     end
@@ -104,7 +105,8 @@ module JekyllPatternbot
         if self.is_font? dec
           fonts[:primary] = self.parse_font(dec, val, available_weights) if dec.match(/^\-\-font\-primary/)
           fonts[:secondary] = self.parse_font(dec, val, available_weights) if dec.match(/^\-\-font\-secondary/)
-          fonts[:accent].push self.parse_font(dec, val, available_weights) unless dec.match(/^\-\-font\-(primary|secondary)/)
+          fonts[:tertiary] = self.parse_font(dec, val, available_weights) if dec.match(/^\-\-font\-tertiary/)
+          fonts[:accent].push self.parse_font(dec, val, available_weights) unless dec.match(/^\-\-font\-(primary|secondary|tertiary)/)
         end
       end
       fonts
