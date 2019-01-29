@@ -11,6 +11,7 @@ module JekyllPatternbot
     },
     :layouts => [],
     :patterns => {},
+    :patterns_order => [],
     :pages => [],
   }
 
@@ -67,7 +68,11 @@ module JekyllPatternbot
 
     pages = SamplePagesFinder.new
     PatternbotData[:pages] = pages.info
+    if PatternbotData[:pages].is_a? Array
+      PatternbotData[:pages].sort_by!{ |p| p.downcase }
+    end
 
+    PatternbotData[:patterns_order] = PatternsOrderProcessor.new.process
     brand_processor = BrandProcessor.new.process
     modules_processor = ModulesProcessor.new.process
     icons_processor = IconsProcessor.new.process

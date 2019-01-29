@@ -168,20 +168,18 @@
               </a>
             </li>
           {% endunless %}
-          {% for pattern in page._PatternbotData.patterns.user %}
-            {% assign pattern_data = pattern[1] %}
-            {% unless pattern.config.hide_nav %}
-              <li role="presentation">
-                <a class="gutter pad-t-1-4 pad-b-1-4 block" role="tab" aria-controls="{{pattern_data.name}}" href="#{{pattern_data.name}}">
-                  <div class="relative">
-                    <span>{% if pattern_data.config.title %}{{pattern_data.config.title}}{% else %}{{pattern[0] | as_title}}{% endif %}</span>
-                    <i class="icon i-18 absolute pin-cr">
-                      <svg><use xlink:href="#icon-active"></use></svg>
-                    </i>
-                  </div>
-                </a>
-              </li>
-            {% endunless %}
+          {% for pattern_name in page._PatternbotData.patterns_order %}
+            {% assign pattern_data = page._PatternbotData.patterns.user[pattern_name] %}
+            <li role="presentation">
+              <a class="gutter pad-t-1-4 pad-b-1-4 block" role="tab" aria-controls="{{pattern_data.name}}" href="#{{pattern_data.name}}">
+                <div class="relative">
+                  <span>{% if pattern_data.config.title %}{{pattern_data.config.title}}{% else %}{{pattern_name | as_title}}{% endif %}</span>
+                  <i class="icon i-18 absolute pin-cr">
+                    <svg><use xlink:href="#icon-active"></use></svg>
+                  </i>
+                </div>
+              </a>
+            </li>
           {% endfor %}
         </ul>
       </nav>

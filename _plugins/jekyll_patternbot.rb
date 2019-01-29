@@ -38,6 +38,7 @@ module JekyllPatternbot
   require 'jekyll_patternbot/finders/patterns'
   require 'jekyll_patternbot/finders/sample_pages'
 
+  require 'jekyll_patternbot/processors/patterns_order'
   require 'jekyll_patternbot/processors/brand'
   require 'jekyll_patternbot/processors/modules'
   require 'jekyll_patternbot/processors/icons'
