@@ -50,12 +50,7 @@
   'use strict';
 
   var tablist = document.querySelectorAll('[role="tablist"] a');
-  var showAllBtn = document.getElementById('patternbot-nav-show-all');
   var possibleInitialTab;
-
-  var areAllPatternsShowing = function () {
-    return (showAllBtn.getAttribute('aria-pressed') == 'true');
-  }
 
   var loadAllVisibleIframes = function () {
     var visibleIframes = document.querySelectorAll('[role="tabpanel"]:not([hidden]) iframe');
@@ -115,64 +110,24 @@
     if (firstATag) switchTabs(firstATag);
   };
 
-  var showAllTabs = function () {
-    var allTabs = document.querySelectorAll('[role="tabpanel"]');
-    var allLinks = document.querySelectorAll('[role="tab"]');
-
-    if (!allTabs) return;
-
-    [].forEach.call(allTabs, function (tab) {
-      tab.removeAttribute('hidden');
-      tab.setAttribute('aria-hidden', false);
-    });
-
-    [].forEach.call(allLinks, function (link) {
-      link.setAttribute('aria-selected', false);
-    });
-
-    loadAllVisibleIframes();
-  };
-
-  if (!tablist || !showAllBtn) return;
+  if (!tablist) return;
 
   [].forEach.call(tablist, function (link) {
     link.addEventListener('click', function (e) {
-      if (areAllPatternsShowing()) return true;
-
       switchTabs(link);
     });
   });
 
-  showAllBtn.addEventListener('click', function (e) {
-    if (areAllPatternsShowing()) {
-      this.setAttribute('aria-pressed', false);
-      localStorage.setItem('show-all-patterns', false);
-      document.body.classList.remove('patternbot-showing-all-patterns');
-      switchToFirstTab();
-    } else {
-      this.setAttribute('aria-pressed', true);
-      localStorage.setItem('show-all-patterns', true);
-      document.body.classList.add('patternbot-showing-all-patterns');
-      showAllTabs();
-    }
-  });
+  if (window.location.hash) {
+    possibleInitialTab = document.querySelector('[role="tab"][href="' + window.location.hash.split(/\-\-/)[0] + '"]');
 
-  if (localStorage.getItem('show-all-patterns') == 'true') {
-    showAllBtn.setAttribute('aria-pressed', true);
-    document.body.classList.add('patternbot-showing-all-patterns');
-    showAllTabs();
+    if (possibleInitialTab) {
+      switchTabs(possibleInitialTab);
+    } else {
+      switchToFirstTab();
+    }
   } else {
-    if (window.location.hash) {
-      possibleInitialTab = document.querySelector('[role="tab"][href="' + window.location.hash.split(/\-\-/)[0] + '"]');
-
-      if (possibleInitialTab) {
-        switchTabs(possibleInitialTab);
-      } else {
-        switchToFirstTab();
-      }
-    } else {
-      switchToFirstTab();
-    }
+    switchToFirstTab();
   }
 }());
 
