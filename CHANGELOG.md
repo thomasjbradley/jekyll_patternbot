@@ -5,6 +5,14 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## [1.3.0] — 2019-01-29
+
+### Added
+
+- Added a quaternary level of colours, per user suggestion, for helping with colour-matched groupings.
+
+---
+
 ## [1.2.0] — 2019-01-28
 
 ### Added

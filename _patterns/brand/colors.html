@@ -16,6 +16,11 @@
     {% include patternbot_pattern_brand_color_swatches.html style="small" title="Tertiary" key="tertiary" colors=page._PatternbotData.css.theme.colors.tertiary show_hr=show_hr %}
   {% endunless %}
 
+  {% unless page._PatternbotData.css.theme.colors.quaternary == empty %}
+    {% assign show_hr = true %}
+    {% include patternbot_pattern_brand_color_swatches.html style="small" title="Quaternary" key="quaternary" colors=page._PatternbotData.css.theme.colors.quaternary show_hr=show_hr %}
+  {% endunless %}
+
   {% unless page._PatternbotData.css.theme.colors.accent == empty %}
     {% assign show_hr = true %}
     {% include patternbot_pattern_brand_color_swatches.html style="small" title="Accent" key="accent" colors=page._PatternbotData.css.theme.colors.accent show_hr=show_hr %}

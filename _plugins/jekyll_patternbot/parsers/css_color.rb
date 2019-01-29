@@ -6,6 +6,7 @@ module JekyllPatternbot
         :primary => [],
         :secondary => [],
         :tertiary => [],
+        :quaternary => [],
         :neutral => [],
         :accent => [],
         :raw => {},
@@ -44,8 +45,9 @@ module JekyllPatternbot
           colors[:primary].push(self.parse_color(dec, val)) if dec.match(/\-\-color\-primary/)
           colors[:secondary].push(self.parse_color(dec, val)) if dec.match(/\-\-color\-secondary/)
           colors[:tertiary].push(self.parse_color(dec, val)) if dec.match(/\-\-color\-tertiary/)
+          colors[:quaternary].push(self.parse_color(dec, val)) if dec.match(/\-\-color\-quaternary/)
           colors[:neutral].push(self.parse_color(dec, val)) if dec.match(/\-\-color\-neutral/)
-          colors[:accent].push(self.parse_color(dec, val)) unless dec.match(/\-\-color\-(primary|secondary|tertiary|neutral)/)
+          colors[:accent].push(self.parse_color(dec, val)) unless dec.match(/\-\-color\-(primary|secondary|tertiary|quaternary|neutral)/)
           colors[:raw][dec] = val
         end
       end
