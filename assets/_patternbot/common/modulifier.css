@@ -1,7 +1,7 @@
 /*
  * Modulifier || Code released under the UNLICENSE
  * Code under other copyrights & licenses listed below.
- * https://modulifier.web-dev.tools/#responsive;images;list-group;icons;hidden;positioning
+ * https://modulifier.web-dev.tools/#responsive;images;list-group;embed;media-object;icons;hidden;positioning;nice-lists;forms;buttons;accessibility;print
  */
 
 @-moz-viewport { width: device-width; scale: 1; }
@@ -143,6 +143,91 @@ svg.img-flex {
 .list-group--inline > dd {
   float: left;
   min-width: 12em;
+}
+
+.embed {
+  margin-left: 0;
+  margin-right: 0;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.embed-1by1, .embed--1by1 {
+  padding-top: 100%; /* Square */
+}
+
+.embed-4by3, .embed--4by3 {
+  padding-top: 75%; /* Traditional TV/computer screens */
+}
+
+.embed-iso216, .embed--iso216 {
+  padding-top: 70.92%; /* A-standard paper sizes */
+}
+
+.embed-3by2, .embed--3by2 {
+  padding-top: 66.6%; /* Classic 35 mm film & most digital photos, landscape */
+}
+
+.embed-2by3, .embed--2by3 {
+  padding-top: 150%; /* Classic 35 mm film & most digital photos, portrait */
+}
+
+.embed-golden, .embed--golden {
+  padding-top: 61.8%; /* The Golden Ratio */
+}
+
+.embed-16by9, .embed--16by9 {
+  padding-top: 56.25%; /* HD TV */
+}
+
+.embed-185by100, .embed--185by100 {
+  padding-top: 54.05%; /* Common widescreen cinema */
+}
+
+.embed-24by10, .embed--24by10 {
+  padding-top: 41.667%; /* Widescreen cinema: 2.4:1 */
+}
+
+.embed-3by1, .embed--3by1 {
+  padding-top: 33.3333%; /* Panorama photos */
+}
+
+.embed-4by1, .embed--4by1 {
+  padding-top: 25%; /* Polyvision */
+}
+
+.embed-5by1, .embed--5by1 {
+  padding-top: 20%; /* Really wide... */
+}
+
+.embed-item, .embed__item {
+  min-height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.media {
+  overflow: hidden;
+}
+
+.media-img, .media__img {
+  float: left;
+}
+
+.media-img-reversed, .media__img--reversed {
+  float: right;
+}
+
+.media-img-stacked, .media__img--stacked {
+  float: none;
+}
+
+.media-body, .media__body {
+  overflow: hidden;
+  min-width: 12em; /* Slightly less than 200px, responsiveness built in */
 }
 
 .icon {
@@ -536,4 +621,681 @@ svg.img-flex {
 .height-win-full, .h-w-1 {
   height: 100vh;
   max-height: 46em;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul > li::before {
+  content: "·";
+  float: left;
+  margin-left: -1.6em;
+  width: 1.3em;
+  text-align: right;
+}
+
+ol {
+  counter-reset: ol-simple-numbers;
+  list-style-type: none;
+}
+
+ol > li::before {
+  float: left;
+  margin-left: -1.6em;
+  width: 1.3em;
+  counter-increment: ol-simple-numbers;
+  content: counter(ol-simple-numbers);
+  text-align: right;
+}
+
+.list-group > li::before,
+.list-group-inline > li::before,
+.list-group--inline > li::before {
+  content: none;
+}
+
+/* stylelint-disable no-descending-specificity */
+
+/*
+ * (c) Nicolas Gallagher and Jonathan Neal of Normalize.css || MIT License
+ *     https://necolas.github.io/normalize.css/
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+[type="checkbox"],
+[type="radio"] {
+  opacity: 0;
+  position: absolute;
+  height: 1px;
+  width: 1px;
+}
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+fieldset {
+  padding-left: 0;
+  padding-right: 0;
+
+  border: 0;
+  border-top: 2px solid #666;
+}
+
+legend {
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0 .3em 0 0;
+  white-space: normal;
+
+  border: 0;
+
+  font-weight: bold;
+}
+
+optgroup {
+  font-weight: bold;
+}
+
+::-webkit-input-placeholder {
+  color: inherit;
+  opacity: .54;
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+/* End Normalize.css code */
+
+label,
+.label-block {
+  display: block;
+  cursor: pointer;
+}
+
+[type="checkbox"] + label,
+[type="radio"] + label,
+.label-inline {
+  display: inline-block;
+}
+
+input:not([type]),
+[type="text"],
+[type="number"],
+[type="search"],
+[type="url"],
+[type="email"],
+[type="password"],
+[type="tel"],
+[type="datetime-local"],
+[type="month"],
+[type="week"],
+[type="date"],
+[type="time"],
+[type="range"],
+select,
+textarea {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input,
+textarea {
+  display: block;
+  width: 100%;
+
+  background-color: #fff;
+  border: 2px solid #666;
+  border-radius: 0;
+}
+
+label {
+  vertical-align: middle;
+}
+
+textarea {
+  max-width: 100%;
+  min-height: 4em;
+  overflow: auto;
+}
+
+[type="color"] {
+  display: inline-block;
+  width: 2em;
+}
+
+select {
+  display: block;
+  width: 100%;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256' viewBox='0 0 256 256'%3E%3Cpath fill='none' stroke='%23000' stroke-miterlimit='10' stroke-width='70' d='M36.3 82.1l91.9 91.8 91.5-91.8'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: calc(100% - .4em) center;
+  background-size: 18px auto;
+  background-color: #fff;
+  border: 2px solid #666;
+  border-radius: 0;
+}
+
+[type="checkbox"] + label::before {
+  content: " ";
+  display: inline-block;
+  height: 1.8em;
+  margin-right: .3em;
+  position: relative;
+  vertical-align: middle;
+  top: -.1em;
+  width: 1.8em;
+
+  background-color: #fff;
+  background-size: cover;
+  border: 2px solid #666;
+
+  line-height: inherit;
+}
+
+[type="checkbox"]:checked + label::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256' viewBox='0 0 256 256'%3E%3Cpath fill='none' stroke='%23000' stroke-miterlimit='10' stroke-width='50' d='M49.9 130.1l50.8 50.7L206.1 75.2'/%3E%3C/svg%3E");
+}
+
+[type="checkbox"]:focus + label::before {
+  outline: 3px solid #000;
+  z-index: 1000;
+}
+
+[type="radio"] + label::before {
+  content: " ";
+  display: inline-block;
+  height: 1.8em;
+  margin-right: .3em;
+  position: relative;
+  vertical-align: middle;
+  top: -.1em;
+  width: 1.8em;
+
+  background-color: #fff;
+  background-size: cover;
+  border: 2px solid #666;
+  border-radius: 50%;
+
+  line-height: inherit;
+}
+
+[type="radio"]:checked + label::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256' viewBox='0 0 256 256'%3E%3Ccircle cx='128' cy='128' r='70.4'/%3E%3C/svg%3E");
+}
+
+[type="radio"]:focus + label::before,
+[type="radio"] + label:focus::before {
+  box-shadow: 0 0 0 3px #000;
+  z-index: 1000;
+}
+
+[type="range"] {
+  border: 0;
+  background-color: #fff;
+}
+
+[type="range"]::-webkit-slider-runnable-track {
+  height: 6px;
+
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #ccc;
+  border: 0;
+  border-radius: 3px;
+}
+
+[type="range"]:active::-webkit-slider-runnable-track {
+  background-color: #ccc;
+}
+
+[type="range"]::-moz-range-track {
+  height: 6px;
+
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #ccc;
+  border: 0;
+  border-radius: 3px;
+}
+
+[type="range"]:active::-moz-range-track {
+  background-color: #ccc;
+}
+
+[type="range"]::-ms-track {
+  height: 6px;
+
+  -ms-appearance: none;
+  appearance: none;
+  background-color: #ccc;
+  border: 0;
+  border-radius: 3px;
+}
+
+[type="range"]:active::-ms-track {
+  background-color: #ccc;
+}
+
+[type="range"]::-webkit-slider-thumb {
+  margin-top: -4px;
+  height: 16px;
+  width: 16px;
+
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #000;
+  border: none;
+  border-radius: 50%;
+}
+
+[type="range"]:hover::-webkit-slider-thumb {
+  background-color: #000;
+}
+
+[type="range"]:active::-webkit-slider-thumb {
+  background-color: #000;
+}
+
+[type="range"]::-moz-range-thumb {
+  margin-top: -4px;
+  height: 16px;
+  width: 16px;
+
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #000;
+  border: none;
+  border-radius: 50%;
+}
+
+[type="range"]:hover::-moz-range-thumb {
+  background-color: #000;
+}
+
+[type="range"]:active::-moz-range-thumb {
+  background-color: #000;
+}
+
+[type="range"]::-ms-thumb {
+  margin-top: -4px;
+  height: 16px;
+  width: 16px;
+
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #000;
+  border: none;
+  border-radius: 50%;
+}
+
+[type="range"]:hover::-ms-thumb {
+  background-color: #000;
+}
+
+[type="range"]:active::-ms-thumb {
+  background-color: #000;
+}
+
+[type="checkbox"].hide-custom-input + label::before,
+[type="checkbox"] + .hide-custom-input::before,
+[type="radio"].hide-custom-input + label::before,
+[type="radio"] + .hide-custom-input::before {
+  content: none;
+  display: none;
+}
+
+/* stylelint-enable */
+
+.link-box {
+  display: block;
+  text-decoration: none;
+}
+
+/* stylelint-disable no-descending-specificity */
+
+button,
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  margin: 0;
+  overflow: visible;
+  padding: .375em .75em .42em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #333;
+  border-radius: 4px;
+  border: 3px solid #333;
+  color: #fff;
+  font: inherit;
+  text-decoration: none;
+  text-transform: none;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/* stylelint-enable */
+
+button:focus,
+button:hover,
+.btn:focus,
+.btn:hover {
+  background-color: #000;
+  border-color: #000;
+  color: #fff;
+}
+
+button[disabled] {
+  cursor: default;
+}
+
+.btn-light, .btn--light {
+  background-color: #e2e2e2;
+  border-color: #e2e2e2;
+  color: #000;
+}
+
+.btn-light:focus,
+.btn-light:hover,
+.btn--light:focus,
+.btn--light:hover {
+  background-color: #666;
+  border-color: #666;
+  color: #fff;
+}
+
+.btn-ghost,
+.btn--ghost {
+  background-color: transparent;
+  border-color: #333;
+  color: #000;
+}
+
+.btn-ghost:focus,
+.btn-ghost:hover,
+.btn--ghost:focus,
+.btn--ghost:hover {
+  background-color: #e2e2e2;
+  border-color: #000;
+  color: #000;
+}
+
+.btn-link {
+  display: inline;
+  padding: 0;
+  background-color: transparent;
+  border-radius: 0;
+  border: 0;
+  color: inherit;
+}
+
+.btn-link:focus,
+.btn-link:hover {
+  background-color: transparent;
+  color: inherit;
+}
+
+a:hover, a:active {
+  outline: none;
+}
+
+a:focus,
+[tabindex="0"]:focus,
+details:focus,
+summary:focus,
+input:focus,
+textarea:focus,
+button:focus,
+select:focus {
+  outline: 3px solid #000;
+  outline-offset: 0;
+}
+
+a:focus, [tabindex="0"]:focus {
+  outline-offset: 3px;
+}
+
+.skip-links {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.skip-links > li::before {
+  content: none; /* Remove the bullets if nice lists is selected */
+}
+
+.skip-links a,
+.skip-links button {
+  padding: .5em .75em;
+  position: absolute;
+  top: -10em;
+  z-index: 10000; /* To make sure they're always on top */
+  background-color: #000;
+  border: 0;
+  color: #fff;
+  font-size: 1.125rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.skip-links a:focus,
+.skip-links button:focus {
+  outline-offset: 3px;
+  top: 0;
+}
+
+[aria-busy="true"] {
+  cursor: progress;
+}
+
+[aria-controls] {
+  cursor: pointer;
+}
+
+[aria-disabled] {
+  cursor: default;
+}
+
+.print-only {
+  display: none;
+  visibility: hidden;
+}
+
+.page-break-before {
+  page-break-before: always;
+}
+
+.page-break-after {
+  page-break-after: always;
+}
+
+.no-page-break-inside {
+  page-break-inside: avoid;
+}
+
+@media print {
+
+  /* stylelint-disable declaration-no-important */
+
+  .no-print {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  .print-only,
+  .force-print {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  /* stylelint-enable */
+
+  .visually-hidden.force-print {
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    padding: 0;
+    position: static;
+    width: auto;
+    border: 0;
+    clip: initial;
+    clip-path: none;
+  }
+
+  /*
+   * (c) Fabien Sa || MIT License
+   *     http://bafs.github.io/Gutenberg/
+   */
+
+  table,
+  blockquote,
+  pre,
+  code,
+  figure,
+  li,
+  hr,
+  ul,
+  ol,
+  a,
+  tr {
+    page-break-inside: avoid;
+  }
+
+  h1, h2, h3, h4, h5, h6, p, a {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+
+  h1 + p,
+  h2 + p,
+  h3 + p,
+  h4 + p,
+  h5 + p,
+  h6 + p {
+    page-break-before: avoid;
+  }
+
+  img {
+    page-break-after: auto;
+    page-break-before: auto;
+    page-break-inside: avoid;
+  }
+
+  /* stylelint-disable declaration-no-important */
+
+  pre {
+    white-space: pre-wrap !important;
+    word-wrap: break-word;
+  }
+
+  /* stylelint-enable */
+
+  /* End Gutenberg code */
+
+  /*
+   * (c) HTML5 Boilerplate || MIT License
+   *     https://html5boilerplate.com/
+   */
+
+  /* stylelint-disable declaration-no-important */
+
+  *, *::before, *::after, *::first-letter, *::first-line {
+    background: none transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* stylelint-enable */
+
+  a, a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after,
+  a.no-print-href::after,
+  a.href-no-print::after {
+    content: "";
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  /* End HTML5 Boilerplate code */
+
 }
