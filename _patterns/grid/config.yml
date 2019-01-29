@@ -10,10 +10,12 @@ description: |
 
 patterns:
   grid-sizes:
+    title: "Grid sizes"
     _popout_button: false
     _resizable: false
     _code: false
   utility-classes:
+    title: "Utility classes"
     description: |
       Mix & match classes for grids and units to make any responsive layout necessary for templates.
     _popout_button: false

@@ -13,7 +13,7 @@ patterns:
     _code: false
     _resizable: false
   icons-with-labels:
-    title: "Icons with Labels"
+    title: "Icons with labels"
     description: |
       Sample code for using SVG icon spritesheets mixed with a text label, using the below classes.
     width: 320
@@ -25,12 +25,14 @@ patterns:
         <span class="icon-label">Icon label</span>
       </a>
   icon-classes:
+    title: "Icon classes"
     description: |
       Classes that can be used on elements & combined to make nicely aligned icons and labels.
     _popout_button: false
     _resizable: false
     _code: false
   icon-sizes:
+    title: "Icon sizes"
     description: |
       Icons sizes available from [Modulifier](https://modulifier.web-dev.tools) & [Typografier](https://typografier.web-dev.tools).
     _popout_button: false

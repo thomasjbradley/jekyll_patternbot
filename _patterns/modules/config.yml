@@ -34,6 +34,7 @@ patterns:
         </div>
       </div>
   skip-links:
+    title: "Skip links"
     description: |
       A helpful accessibility feature that should be included immediately within the `<body>` tag on the top of most pages.
     _popout_button: false
@@ -45,6 +46,7 @@ patterns:
         <li><a href="#pause">Pause all animations</a></li>
       </ul>
   utility-classes:
+    title: "Utility classes"
     description: |
       All the different utility classes available from within [Modulifier](++modulifier-settings-url++).
     _popout_button: false

@@ -55,6 +55,7 @@ patterns:
     title: "Typesetting"
     _code: false
   utility-classes:
+    title: "Utility classes"
     _popout_button: false
     _resizable: false
     _code: false
