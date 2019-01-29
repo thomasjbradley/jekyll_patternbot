@@ -18,6 +18,11 @@ html {
 .patternbot-list-group {
   background-color: transparent;
   text-align: left;
+  list-style-type: none;
+}
+
+.patternbot-list-group > li {
+  list-style-type: none;
 }
 
 .patternbot-list-group > li::before {

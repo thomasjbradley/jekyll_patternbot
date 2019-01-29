@@ -9,6 +9,7 @@
 
 .patternbot-grid-display > li {
   border: 2px solid var(--color-patternbot-interface-background);
+  list-style-type: none;
 }
 
 .patternbot-grid-display-inner {
