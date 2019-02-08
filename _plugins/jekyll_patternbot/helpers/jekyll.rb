@@ -29,7 +29,11 @@ module JekyllPatternbot
             end
           end
           if field.key? 'example'
-            liquid_fields.push "#{field['name']}=\"#{field['example']}\""
+            quotes = ''
+            if field['example'].is_a? String
+              quotes = '"'
+            end
+            liquid_fields.push "#{field['name']}=#{quotes}#{field['example']}#{quotes}"
           end
         end
       end

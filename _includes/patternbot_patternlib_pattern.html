@@ -233,7 +233,8 @@
                                   <code class="pattern-code-field">{{class | escape}}</code>
                                 {% endfor %}
                               {% else %}
-                                {% if field.example %}<span>"{{field.example | escape}}"</span>{% endif %}
+                                {% capture is_string %}{{field.type | downcase | strip}}{% endcapture %}
+                                {% if field.example %}<span>{% if is_string and is_string contains 'string' %}"{% endif %}{{field.example | escape}}{% if is_string and is_string contains 'string' %}"{% endif %}</span>{% endif %}
                               {% endif %}
                             {% endif %}
                           </td>
