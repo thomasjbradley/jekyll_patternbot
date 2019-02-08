@@ -13,6 +13,7 @@
       --color-patternbot-interface: {{page._PatternbotConfig.patternbot.colors.background | get_interface_color | as_rgb_digit}};
       --color-patternbot-interface-opposite: {{page._PatternbotConfig.patternbot.colors.background | get_interface_color_opposite | as_rgb_digit}};
       --color-patternbot-interface-background: {{page._PatternbotConfig.patternbot.colors.background | as_hex}};
+
       {% if page._PatternbotConfig.patternbot.colors.accent %}
         --color-patternbot-interface-accent: {{page._PatternbotConfig.patternbot.colors.accent | as_hex}};
       {% else %}
@@ -22,9 +23,23 @@
           --color-patternbot-interface-accent: {{page._PatternbotConfig.patternbot.colors.background | get_interface_color | as_hex}};
         {% endif %}
       {% endif %}
+
+      {% if page._PatternbotConfig.patternbot.colors.sidebar %}
+        --color-patternbot-interface-sidebar: {{page._PatternbotConfig.patternbot.colors.sidebar | get_interface_color | as_rgb_digit}};
+        --color-patternbot-interface-sidebar-opposite: {{page._PatternbotConfig.patternbot.colors.sidebar | get_interface_color_opposite | as_rgb_digit}};
+        --color-patternbot-interface-sidebar-background: {{page._PatternbotConfig.patternbot.colors.sidebar | as_hex}};
+        --color-patternbot-interface-sidebar-accent: {{page._PatternbotConfig.patternbot.colors.sidebar | get_interface_color | as_hex}};
+      {% else %}
+        --color-patternbot-interface-sidebar: {{page._PatternbotConfig.patternbot.colors.background | get_interface_color | as_rgb_digit}};
+        --color-patternbot-interface-sidebar-opposite: {{page._PatternbotConfig.patternbot.colors.background | get_interface_color_opposite | as_rgb_digit}};
+        --color-patternbot-interface-sidebar-background: {{page._PatternbotConfig.patternbot.colors.background | as_hex}};
+        --color-patternbot-interface-sidebar-accent: var(--color-patternbot-interface-accent);
+      {% endif %}
+
       {% if page._PatternbotData.css.theme.fonts.primary.css_name %}
         --font-patternbot-primary: {{page._PatternbotData.css.theme.fonts.primary.css_name}}, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
       {% endif %}
+
       {% if page._PatternbotData.css.theme.fonts.secondary.css_name %}
         --font-patternbot-secondary: {{page._PatternbotData.css.theme.fonts.secondary.css_name}}, var(--font-patternbot-primary), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
       {% endif %}
@@ -35,10 +50,6 @@
         font-family: {{page._PatternbotData.css.theme.fonts.primary.css_name}}, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
       }
     {% endif %}
-
-    body {
-      background-color: var(--color-patternbot-interface-background);
-    }
   </style>
   {% if page._PatternbotConfig.patternbot.font_url %}
     <link href="{{page._PatternbotConfig.patternbot.font_url}}" rel="stylesheet">
