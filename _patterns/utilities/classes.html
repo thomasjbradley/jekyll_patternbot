@@ -1,1 +1,13 @@
-{% include patternbot_pattern_class_list.html classes=page._PatternbotData.css.theme.utilities %}
+{% assign num_cats = page._PatternbotData.css.theme.utilities | size %}
+{% for category in page._PatternbotData.css.theme.utilities %}
+  {% if category[1] != empty %}
+    {% if num_cats > 1 %}
+      <h2 class="patternbot-font-primary patternbot-color-body giga normal push-1-4">{{category[0] | as_title}}</h2>
+    {% endif %}
+    {% assign cat_data = category[1] %}
+    {% include patternbot_pattern_class_list.html classes=cat_data %}
+    {% unless forloop.last %}
+      <hr class="patternbot-hr patternbot-hr-always-visible">
+    {% endunless %}
+  {% endif %}
+{% endfor %}

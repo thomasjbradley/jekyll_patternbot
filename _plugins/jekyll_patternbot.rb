@@ -23,6 +23,7 @@ module JekyllPatternbot
   require 'jekyll_patternbot/parsers/modulifier'
   require 'jekyll_patternbot/parsers/gridifier'
   require 'jekyll_patternbot/parsers/typografier'
+  require 'jekyll_patternbot/parsers/css_comment_tag'
   require 'jekyll_patternbot/parsers/css_color'
   require 'jekyll_patternbot/parsers/css_font'
   require 'jekyll_patternbot/parsers/css_utility'

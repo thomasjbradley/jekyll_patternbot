@@ -1,29 +1,42 @@
+{% assign has_one = false %}
+
 {% if page._PatternbotData.css.modulifier.settings contains 'list-group' %}
-  <h2 class="patternbot-font-primary patternbot-color-body giga normal">List utility classes</h2>
+  <h2 class="patternbot-font-primary patternbot-color-body giga normal push-1-4">List utility classes</h2>
   {% include patternbot_pattern_class_list.html classes=page._PatternbotData.css.modulifier.utility_classes.lists %}
+  {% assign has_one = true %}
 {% endif %}
 
 {% if page._PatternbotData.css.modulifier.settings contains 'buttons' %}
-  <h2 class="patternbot-font-primary patternbot-color-body giga normal">Basic button classes</h2>
+  {% if has_one %}<hr class="patternbot-hr patternbot-hr-always-visible">{% endif %}
+  <h2 class="patternbot-font-primary patternbot-color-body giga normal push-1-4">Basic button classes</h2>
   {% include patternbot_pattern_class_list.html classes=page._PatternbotData.css.modulifier.utility_classes.buttons %}
+  {% assign has_one = true %}
 {% endif %}
 
 {% if page._PatternbotData.css.modulifier.settings contains 'hidden' %}
-  <h2 class="patternbot-font-primary patternbot-color-body giga normal">Utility classes for hiding</h2>
+  {% if has_one %}<hr class="patternbot-hr patternbot-hr-always-visible">{% endif %}
+  <h2 class="patternbot-font-primary patternbot-color-body giga normal push-1-4">Utility classes for hiding</h2>
   {% include patternbot_pattern_class_list.html classes=page._PatternbotData.css.modulifier.utility_classes.hidden %}
+  {% assign has_one = true %}
 {% endif %}
 
 {% if page._PatternbotData.css.modulifier.settings contains 'positioning' %}
-  <h2 class="patternbot-font-primary patternbot-color-body giga normal">Positioning utility classes</h2>
+  {% if has_one %}<hr class="patternbot-hr patternbot-hr-always-visible">{% endif %}
+  <h2 class="patternbot-font-primary patternbot-color-body giga normal push-1-4">Positioning utility classes</h2>
   {% include patternbot_pattern_class_list.html classes=page._PatternbotData.css.modulifier.utility_classes.positioning %}
+  {% assign has_one = true %}
 {% endif %}
 
 {% if page._PatternbotData.css.modulifier.settings contains 'forms' %}
-  <h2 class="patternbot-font-primary patternbot-color-body giga normal">Form utility classes</h2>
+  {% if has_one %}<hr class="patternbot-hr patternbot-hr-always-visible">{% endif %}
+  <h2 class="patternbot-font-primary patternbot-color-body giga normal push-1-4">Form utility classes</h2>
   {% include patternbot_pattern_class_list.html classes=page._PatternbotData.css.modulifier.utility_classes.forms %}
+  {% assign has_one = true %}
 {% endif %}
 
 {% if page._PatternbotData.css.modulifier.settings contains 'print' %}
-  <h2 class="patternbot-font-primary patternbot-color-body giga normal">Print utility classes</h2>
+  {% if has_one %}<hr class="patternbot-hr patternbot-hr-always-visible">{% endif %}
+  <h2 class="patternbot-font-primary patternbot-color-body giga normal push-1-4">Print utility classes</h2>
   {% include patternbot_pattern_class_list.html classes=page._PatternbotData.css.modulifier.utility_classes.print %}
+  {% assign has_one = true %}
 {% endif %}

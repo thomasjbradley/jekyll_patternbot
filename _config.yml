@@ -13,6 +13,7 @@ patternbot:
     main: "main.css"
     utility_tag: "@utility"
     var_tag: "@var"
+    category_tag: "+"
   icons:
     source: "images"
     filenames:

@@ -1,20 +1,13 @@
-<div class="patternbot-font-primary text-left milli">
-  <div class="pattern-utilities-scrollable scrollable">
-    <table class="patternbot-utilities-table">
-      <thead>
-        <tr>
-          <th scope="col" colspan="6">Name</th>
-          <th scope="col" colspan="18">Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for util in page._PatternbotData.css.theme.vars %}
-          <tr>
-            <th class="valign-middle" scope="row" colspan="6"><code class="ib valign-middle">{{util.name | escape}}</code></th>
-            <td class="valign-middle" scope="col" colspan="18"><span class="ib valign-middle">{{util.description | escape}}</span></td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
-</div>
+{% assign num_cats = page._PatternbotData.css.theme.vars | size %}
+{% for category in page._PatternbotData.css.theme.vars %}
+  {% if category[1] != empty %}
+    {% if num_cats > 1 %}
+      <h2 class="patternbot-font-primary patternbot-color-body giga normal push-1-4">{{category[0] | as_title}}</h2>
+    {% endif %}
+    {% assign cat_data = category[1] %}
+    {% include patternbot_pattern_class_list.html classes=cat_data first_heading="Name" %}
+    {% unless forloop.last %}
+      <hr class="patternbot-hr patternbot-hr-always-visible">
+    {% endunless %}
+  {% endif %}
+{% endfor %}

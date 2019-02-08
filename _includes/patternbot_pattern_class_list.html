@@ -3,7 +3,7 @@
     <table class="patternbot-utilities-table">
       <thead>
         <tr>
-          <th scope="col" colspan="6">Class</th>
+          <th scope="col" colspan="6">{% if include.first_heading %}{{include.first_heading}}{% else %}Class{% endif %}</th>
           <th scope="col" colspan="18">Description</th>
         </tr>
       </thead>
@@ -17,7 +17,7 @@
                     <li><code class="ib valign-middle">{{class | escape}}</code></li>
                   {% endfor %}
                 {% else %}
-                  <li><code class="ib valign-middle">{{util.class | escape}}</code></li>
+                  <li><code class="ib valign-middle">{% if util.name %}{{util.name | escape}}{% else %}{{util.class | escape}}{% endif %}</code></li>
                 {% endif %}
               </ul>
             </th>
