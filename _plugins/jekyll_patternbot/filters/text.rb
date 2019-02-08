@@ -2,7 +2,7 @@ module JekyllPatternbot
   module TextFilters
 
     def as_title(s)
-      PatternHelper.slug_to_words(s).unicode_titlecase
+      PatternHelper.slug_to_words(s).capitalize
     end
 
     def has_pattern_rationale(id, *namespaces)

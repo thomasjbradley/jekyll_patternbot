@@ -31,7 +31,7 @@ module JekyllPatternbot
       parsed_color = ColorHelper::color val
       color = self.color.clone
       color[:name] = dec
-      color[:name_pretty] = PatternHelper.slug_to_words(dec.sub(/\-\-color\-/, '')).unicode_titlecase
+      color[:name_pretty] = PatternHelper.slug_to_words(dec.sub(/\-\-color\-/, '')).capitalize
       color[:raw] = val
       color[:hex] = parsed_color.hex.downcase
       color[:rgba] = "rgba(#{parsed_color.rgb.join(', ')}, 1)"

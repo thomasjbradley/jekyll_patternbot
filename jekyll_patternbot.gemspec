@@ -25,7 +25,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'colorator', '~> 1'
   spec.add_runtime_dependency 'babosa', '~> 1'
   spec.add_runtime_dependency 'deep_merge', '~> 1'
-  spec.add_runtime_dependency 'unicode_titlecase', '~> 0.0'
   spec.add_runtime_dependency 'css_parser', '~> 1'
   spec.add_runtime_dependency 'color_contrast_calc', '~> 0.5'
   spec.add_runtime_dependency 'indifference', '~> 0.0'

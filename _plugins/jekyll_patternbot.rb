@@ -5,7 +5,6 @@ require 'babosa'
 require 'deep_merge'
 require 'yaml'
 require 'json'
-require 'unicode_titlecase'
 require 'css_parser'
 require 'color_contrast_calc'
 
