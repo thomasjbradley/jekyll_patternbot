@@ -38,6 +38,7 @@ module JekyllPatternbot
       font_weight_digits = font_weight.gsub /[^\d]/, ''
       return 'normal' if font_weight_digits == '400'
       return 'bold' if font_weight_digits == '700'
+      return font_weight_digits
     end
 
     def self.rule_sets_to_weights(rulesets)
