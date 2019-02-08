@@ -5,6 +5,20 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## [1.4.0] — 2019-02-08
+
+### Added
+
+- The sidebar/navigation colour can now be customized separately from the main background colour.
+- Add the ability to categorize `@utility` & `@var` in CSS comments using the plus syntax: `+category`
+
+### Fixed
+
+- Fixed a bug where non-standard font-weights weren’t showing properly in the typeface list.
+- Fixed a bug where non-string type values in examples were getting quoted in the include, causing them to not be passed as the correct data type.
+
+---
+
 ## [1.3.0] — 2019-01-29
 
 ### Added
