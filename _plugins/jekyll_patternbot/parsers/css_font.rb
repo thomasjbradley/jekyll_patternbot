@@ -74,7 +74,7 @@ module JekyllPatternbot
     def self.parse_font_file(font_url)
       if font_url and not font_url.strip.empty?
         parser = CssParser::Parser.new
-        parser.load_string! File.read(font_url)
+        parser.load_uri!(font_url)
         font_face_rulesets = parser.find_by_selector('@font-face').map { |rules| CssParser::RuleSet.new(nil, rules) }
         return nil unless font_face_rulesets
         return self.rule_sets_to_weights font_face_rulesets

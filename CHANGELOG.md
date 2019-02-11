@@ -5,6 +5,14 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+##[1.4.2] — 2019-02-11
+
+### Fixed
+
+- Reverted a bad change in the code when fixing the UTF-8 problem.
+
+---
+
 ## [1.4.1] — 2019-02-11
 
 ### Fixed
