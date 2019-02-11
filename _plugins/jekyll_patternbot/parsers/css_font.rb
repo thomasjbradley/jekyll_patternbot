@@ -45,7 +45,7 @@ module JekyllPatternbot
       weights = {}
       rulesets.each do |ruleset|
         font_family = ruleset.get_value('font-family').gsub(/['";]/, '')
-        font_family_slug = font_family.to_slug.normalize.to_s
+        font_family_slug = font_family.force_encoding("utf-8").to_slug.normalize.to_s
         weights[font_family_slug] = {} unless weights.key? font_family_slug
         font_weight = self.normalize_font_weight ruleset.get_value 'font-weight'
         weights[font_family_slug][font_weight] = self.font_weight.clone unless weights[font_family_slug].key? font_weight
@@ -74,7 +74,7 @@ module JekyllPatternbot
     def self.parse_font_file(font_url)
       if font_url and not font_url.strip.empty?
         parser = CssParser::Parser.new
-        parser.load_uri!(font_url)
+        parser.load_string! File.read(font_url)
         font_face_rulesets = parser.find_by_selector('@font-face').map { |rules| CssParser::RuleSet.new(nil, rules) }
         return nil unless font_face_rulesets
         return self.rule_sets_to_weights font_face_rulesets
@@ -85,7 +85,7 @@ module JekyllPatternbot
 
     def self.parse_font(dec, val, available_weights)
       font_family = val.match(/[^\,\;]*/)[0].gsub(/['"]/, '')
-      font_family_slug = font_family.to_slug.normalize.to_s
+      font_family_slug = font_family.force_encoding("utf-8").to_slug.normalize.to_s
       font = self.font.clone
       font[:name] = font_family_slug
       font[:name_pretty] = font_family
