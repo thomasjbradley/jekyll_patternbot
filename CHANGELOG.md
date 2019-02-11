@@ -5,6 +5,14 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## [1.4.1] — 2019-02-11
+
+### Fixed
+
+- Fixed a very unusual bug when creating slugs: it wasn’t interpreting them as UTF-8.
+
+---
+
 ## [1.4.0] — 2019-02-08
 
 ### Added
