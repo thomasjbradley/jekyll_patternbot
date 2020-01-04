@@ -57,11 +57,8 @@ module JekyllPatternbot
       PatternbotData[:js][:main] = false
     end
 
-    layouts = LayoutsFinder.new
-    PatternbotData[:layouts] = layouts.info
-
-    includes = IncludesFinder.new
-    PatternbotData[:includes] = includes.info
+    PatternbotData[:layouts] = LayoutsFinder.new.info
+    PatternbotData[:includes] = IncludesFinder.new.info
 
     pattern_files = PatternsFinder.new
     PatternbotData[:patterns] = {
