@@ -84,6 +84,12 @@ module JekyllPatternbot
     end
 
     def self.parse_font(dec, val, available_weights)
+      if not val.is_a? String
+        err_msg = "There’s a syntax error in the #{dec.strip} declaration of the css/theme.css file."
+        err_logger = PatternbotConsoleLogger.new
+        err_logger.fatal err_msg
+        raise err_msg
+      end
       font_family = val.match(/[^\,\;]*/)[0].gsub(/['"]/, '')
       font_family_slug = font_family.force_encoding("utf-8").to_slug.normalize.to_s
       font = self.font.clone
