@@ -12,6 +12,10 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 - The Patternbot configuration options automatically reloaded when saved.
 - Show errors in the console when YAML cannot properly load.
 
+### Fixed
+
+- Absorb the error when the `fields` attribute in pattern configs isn’t an array.
+
 ---
 
 ## [1.4.2] — 2019-02-11

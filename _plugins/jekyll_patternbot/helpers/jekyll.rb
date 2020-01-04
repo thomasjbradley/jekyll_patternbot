@@ -7,10 +7,12 @@ module JekyllPatternbot
 
     def self._pattern_assign_tags(fields)
       assign_tags = []
-      for field in fields
-        unless field['required'] == false
-          if field.key? 'data'
-            assign_tags.push "{% assign #{self._pattern_data_source_var_name(field)}=#{field['data']['source']} %}"
+      if fields.is_a? Array
+        for field in fields
+          unless field['required'] == false
+            if field.key? 'data'
+              assign_tags.push "{% assign #{self._pattern_data_source_var_name(field)}=#{field['data']['source']} %}"
+            end
           end
         end
       end
@@ -19,21 +21,23 @@ module JekyllPatternbot
 
     def self._pattern_include_fields(fields, datasource=false)
       liquid_fields = []
-      for field in fields
-        unless field['required'] == false
-          if field.key? 'data'
-            if datasource
-              liquid_fields.push "#{field['name']}=#{self._pattern_data_source_var_name(field)}"
-            else
-              liquid_fields.push "#{field['name']}=#{field['data']['type']}"
+      if fields.is_a? Array
+        for field in fields
+          unless field['required'] == false
+            if field.key? 'data'
+              if datasource
+                liquid_fields.push "#{field['name']}=#{self._pattern_data_source_var_name(field)}"
+              else
+                liquid_fields.push "#{field['name']}=#{field['data']['type']}"
+              end
             end
-          end
-          if field.key? 'example'
-            quotes = ''
-            if field['example'].is_a? String
-              quotes = '"'
+            if field.key? 'example'
+              quotes = ''
+              if field['example'].is_a? String
+                quotes = '"'
+              end
+              liquid_fields.push "#{field['name']}=#{quotes}#{field['example']}#{quotes}"
             end
-            liquid_fields.push "#{field['name']}=#{quotes}#{field['example']}#{quotes}"
           end
         end
       end
