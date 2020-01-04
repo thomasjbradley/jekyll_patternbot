@@ -11,7 +11,7 @@
         {% for layout in page._PatternbotData.layouts %}
           <tr>
             <th class="valign-middle" scope="row" colspan="6"><code class="ib valign-middle">{{layout.name | escape}}</code></th>
-            <td class="valign-middle" scope="col" colspan="18"><span class="ib valign-middle">{{layout.description | default: '—' | escape}}</span></td>
+            <td class="valign-middle" scope="col" colspan="18"><span class="ib valign-middle">{{layout.description | default: '—' | markdownify}}</span></td>
           </tr>
         {% endfor %}
       </tbody>
