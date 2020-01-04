@@ -1,21 +1,23 @@
 module JekyllPatternbot
   PatternbotLogger = PatternbotConsoleLogger.new
   PatternbotCache = {}
-  PatternbotData = {
-    :css => {},
-    :js => {},
-    :logos => {},
-    :icons => {
-      :spritesheets => [],
-      :classes => [],
-    },
-    :layouts => [],
-    :patterns => {},
-    :patterns_order => [],
-    :pages => [],
-  }
+  PatternbotData = {}
 
   Jekyll::Hooks.register :site, :post_read do |site|
+    PatternbotData[:css] = {}
+    PatternbotData[:js] = {}
+    PatternbotData[:logos] = {}
+    PatternbotData[:icons] = {
+      :spritesheets => [],
+      :classes => [],
+    }
+    PatternbotData[:layouts] = []
+    PatternbotData[:patterns] = {}
+    PatternbotData[:patterns_order] = []
+    PatternbotData[:pages] = []
+
+    ConfigChangeParser.new.parse site
+
     # File.open('/Users/thomasjbradley/Desktop/patternbot-config.json', 'w') do |f|
     #   f.write(JSON.pretty_generate(Config))
     # end

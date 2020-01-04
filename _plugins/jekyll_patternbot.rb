@@ -20,6 +20,7 @@ module JekyllPatternbot
   require 'jekyll_patternbot/helpers/jekyll'
   require 'jekyll_patternbot/helpers/pattern'
 
+  require 'jekyll_patternbot/parsers/config'
   require 'jekyll_patternbot/parsers/web_dev_tool'
   require 'jekyll_patternbot/parsers/modulifier'
   require 'jekyll_patternbot/parsers/gridifier'
