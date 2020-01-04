@@ -1,5 +1,6 @@
 module JekyllPatternbot
   Config = YAML.load_file File.expand_path('../../_config.yml', __dir__)
+  ConfigListener = nil
   class << self; attr_accessor :PatternbotLogger; end
   class << self; attr_accessor :PatternbotCache; end
   class << self; attr_accessor :PatternbotLocale; end
@@ -23,5 +24,17 @@ module JekyllPatternbot
     else
       PatternbotLocale = YAML.load_file File.expand_path("../../_data/locales/en-ca.yml", __dir__)
     end
+
+    # Does this leave a running process when Jekyll shuts down?
+    ConfigListener = Listen.to(site.source, only: /\_config\.yml/) do |modified, added, removed|
+      new_config = YAML.load_file File.expand_path(site.source + '/_config.yml')
+      if new_config.key? 'patternbot'
+        Config['patternbot'].deep_merge! new_config['patternbot']
+        if site
+          site.process
+        end
+      end
+    end
+    ConfigListener.start
   end
 end

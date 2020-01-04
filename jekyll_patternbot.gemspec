@@ -22,6 +22,7 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '~> 2'
 
   spec.add_runtime_dependency 'jekyll', '~> 3.8'
+  spec.add_runtime_dependency 'listen', '~> 3.0'
   spec.add_runtime_dependency 'unicode', '~> 0.4'
   spec.add_runtime_dependency 'colorator', '~> 1'
   spec.add_runtime_dependency 'babosa', '~> 1'
