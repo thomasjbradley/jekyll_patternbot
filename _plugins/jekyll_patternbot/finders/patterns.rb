@@ -13,7 +13,9 @@ module JekyllPatternbot
       return {} unless File.file? config_path
       begin
         config_data = YAML.load_file config_path
-      rescue
+      rescue Exception => err
+        log = PatternbotConsoleLogger.new
+        log.fatal(err.message)
         return {}
       end
       if config_data.nil? or config_data == false

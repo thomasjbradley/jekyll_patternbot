@@ -10,6 +10,7 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 
 - The Patternbot configuration options automatically reloaded when saved.
+- Show errors in the console when YAML cannot properly load.
 
 ---
 

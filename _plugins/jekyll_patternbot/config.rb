@@ -27,11 +27,17 @@ module JekyllPatternbot
 
     # Does this leave a running process when Jekyll shuts down?
     ConfigListener = Listen.to(site.source, only: /\_config\.yml/) do |modified, added, removed|
-      new_config = YAML.load_file File.expand_path(site.source + '/_config.yml')
-      if new_config.key? 'patternbot'
-        Config['patternbot'].deep_merge! new_config['patternbot']
-        if site
-          site.process
+      begin
+        new_config = YAML.load_file File.expand_path(site.source + '/_config.yml')
+      rescue Exception => err
+        log = PatternbotConsoleLogger.new
+        log.fatal(err.message)
+      else
+        if new_config.key? 'patternbot'
+          Config['patternbot'].deep_merge! new_config['patternbot']
+          if site
+            site.process
+          end
         end
       end
     end
