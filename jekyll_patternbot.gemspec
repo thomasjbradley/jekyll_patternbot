@@ -21,8 +21,8 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '~> 2'
 
-  spec.add_runtime_dependency 'jekyll', '~> 3.8'
-  spec.add_runtime_dependency 'listen', '~> 3.0'
+  spec.add_runtime_dependency 'jekyll', '>= 3.8', '< 5'
+  spec.add_runtime_dependency 'listen', '~> 3'
   spec.add_runtime_dependency 'unicode', '~> 0.4'
   spec.add_runtime_dependency 'colorator', '~> 1'
   spec.add_runtime_dependency 'babosa', '~> 1'
@@ -31,6 +31,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'color_contrast_calc', '~> 0.5'
   spec.add_runtime_dependency 'indifference', '~> 0.0'
 
-  spec.add_development_dependency 'bundler', '~> 1.17'
-  spec.add_development_dependency 'rake', '~> 10.0'
+  spec.add_development_dependency 'bundler', '>= 1.17', '< 3'
+  spec.add_development_dependency 'rake', '>= 10'
 end
