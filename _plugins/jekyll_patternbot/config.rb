@@ -1,10 +1,11 @@
 module JekyllPatternbot
   Config = YAML.load_file File.expand_path('../../_config.yml', __dir__)
-  ConfigListener = nil
   class << self; attr_accessor :PatternbotLogger; end
   class << self; attr_accessor :PatternbotCache; end
   class << self; attr_accessor :PatternbotLocale; end
   class << self; attr_accessor :PatternbotData; end
+
+  @@config_listener = nil
 
   Jekyll::Hooks.register :site, :after_init do |site|
     unless site.config.key? 'theme' and site.config['theme'] == 'jekyll_patternbot'
@@ -26,7 +27,13 @@ module JekyllPatternbot
     end
 
     # Does this leave a running process when Jekyll shuts down?
-    ConfigListener = Listen.to(site.source, only: /\_config\.yml/) do |modified, added, removed|
+    begin
+      @@config_listener.stop
+    rescue
+      @@config_listener = nil
+    end
+    @@config_listener = nil
+    @@config_listener = Listen.to(site.source, only: /\_config\.yml/) do |modified, added, removed|
       begin
         new_config = YAML.load_file File.expand_path(site.source + '/_config.yml')
       rescue Exception => err
@@ -41,6 +48,6 @@ module JekyllPatternbot
         end
       end
     end
-    ConfigListener.start
+    @@config_listener.start
   end
 end
