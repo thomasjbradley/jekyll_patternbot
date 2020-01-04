@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'listen'
 require 'open-uri'
 require 'babosa'
 require 'deep_merge'

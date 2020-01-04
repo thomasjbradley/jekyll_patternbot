@@ -5,7 +5,15 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-##[1.4.2] — 2019-02-11
+## [1.5.0] — 2020-01-04
+
+### Added
+
+- The Patternbot configuration options automatically reloaded when saved.
+
+---
+
+## [1.4.2] — 2019-02-11
 
 ### Fixed
 
