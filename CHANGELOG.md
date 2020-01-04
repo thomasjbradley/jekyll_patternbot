@@ -5,6 +5,14 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## [1.5.1] — 2020-01-04
+
+### Fixed
+
+- Fixed a constant initialization error.
+
+---
+
 ## [1.5.0] — 2020-01-04
 
 ### Added
