@@ -11,6 +11,10 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 
 - The Patternbot configuration options automatically reloaded when saved.
 - Show errors in the console when YAML cannot properly load.
+- Raise an exception when the `name` entry of a field is missing or blank.
+- Raise an exception when there’s a common syntax error in the font variables.
+- Allow code blocks within layout documentation.
+- Added the ability to describe includes within the `_config.yml` file.
 
 ### Fixed
 
