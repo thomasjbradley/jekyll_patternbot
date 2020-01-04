@@ -167,6 +167,18 @@
               </a>
             </li>
           {% endunless %}
+          {% unless page._PatternbotData.includes == empty %}
+            <li role="presentation">
+              <a class="gutter pad-t-1-4 pad-b-1-4 block" role="tab" aria-controls="includes" href="#includes">
+                <div class="relative">
+                  <span>Includes</span>
+                  <i class="icon i-18 absolute pin-cr">
+                    <svg><use xlink:href="#icon-active"></use></svg>
+                  </i>
+                </div>
+              </a>
+            </li>
+          {% endunless %}
           {% unless page._PatternbotData.icons.spritesheets == empty %}
             <li role="presentation">
               <a class="gutter pad-t-1-4 pad-b-1-4 block" role="tab" aria-controls="icons" href="#icons">

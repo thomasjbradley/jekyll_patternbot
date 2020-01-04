@@ -60,6 +60,9 @@ module JekyllPatternbot
     layouts = LayoutsFinder.new
     PatternbotData[:layouts] = layouts.info
 
+    includes = IncludesFinder.new
+    PatternbotData[:includes] = includes.info
+
     pattern_files = PatternsFinder.new
     PatternbotData[:patterns] = {
       :internal => pattern_files.internal_patterns_info,

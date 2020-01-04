@@ -1,0 +1,20 @@
+<div class="patternbot-font-primary text-left milli">
+  <div class="pattern-utilities-scrollable scrollable">
+    <table class="patternbot-utilities-table">
+      <thead>
+        <tr>
+          <th scope="col" colspan="6">Include</th>
+          <th scope="col" colspan="18">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for include in page._PatternbotData.includes %}
+          <tr>
+            <th class="valign-middle" scope="row" colspan="6"><code class="ib valign-middle">{{include.name | escape}}</code></th>
+            <td class="valign-middle" scope="col" colspan="18"><span class="ib valign-middle">{{include.description | default: '—' | markdownify}}</span></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
