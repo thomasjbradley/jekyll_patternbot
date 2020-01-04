@@ -23,6 +23,12 @@ module JekyllPatternbot
       liquid_fields = []
       if fields.is_a? Array
         for field in fields
+          if not field.key? 'name' or field['name'] == ''
+            err_msg = 'A pattern field, inside a pattern’s config.yml file, is missing a name.'
+            err_logger = PatternbotConsoleLogger.new
+            err_logger.fatal err_msg
+            raise err_msg
+          end
           unless field['required'] == false
             if field.key? 'data'
               if datasource
