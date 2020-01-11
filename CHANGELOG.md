@@ -5,6 +5,14 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## [1.6.2] — 2020-01-11
+
+### Changed
+
+- Added a bunch of ignored directories for the `_config.yml` listener to help improve performance.
+
+---
+
 ## [1.6.1] — 2020-01-04
 
 ### Fixed

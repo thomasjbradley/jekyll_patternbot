@@ -26,9 +26,29 @@ module JekyllPatternbot
       PatternbotLocale = YAML.load_file File.expand_path("../../_data/locales/en-ca.yml", __dir__)
     end
 
+    listener_ignore_dirs = [
+      /^\.jekyll\-metadata/,
+      %r!#{Config['patternbot']['source']}!,
+      %r!#{Config['patternbot']['destination']}!,
+      %r!#{Config['patternbot']['css']['source']}!,
+      %r!#{Config['patternbot']['icons']['source']}!,
+      %r!#{Config['patternbot']['logos']['source']}!,
+      %r!#{Config['patternbot']['sample_pages']['source']}!,
+      %r!#{Config['patternbot']['js']['source']}!,
+    ]
+    dirs_to_ignore = ['destination', 'plugins_dir', 'layouts_dir', 'data_dir', 'includes_dir',]
+    dirs_to_ignore.each do |opt|
+      new_path = Config[opt].sub Config['source'] + '/', ''
+      listener_ignore_dirs += [%r!#{new_path}!]
+    end
+    site.collections.each do |key, col|
+      new_path = col.relative_directory.sub Config['source'] + '/', ''
+      listener_ignore_dirs += [%r!#{new_path}!]
+    end
+
     # Does this leave a running process when Jekyll shuts down?
     unless @@config_listener
-      @@config_listener = Listen.to(site.source, only: /\_config\.yml/) do |modified, added, removed|
+      @@config_listener = Listen.to(site.source, ignore: listener_ignore_dirs, only: /^\_config\.yml/) do |modified, added, removed|
         if site
           site.process
         end
