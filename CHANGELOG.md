@@ -5,6 +5,14 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## [1.6.3]
+
+### Changed
+
+- Add `.jekyll-cache` to the `_config.yml` live reloading ignored paths list.
+
+---
+
 ## [1.6.2] — 2020-01-11
 
 ### Changed

@@ -28,6 +28,7 @@ module JekyllPatternbot
 
     listener_ignore_dirs = [
       /^\.jekyll\-metadata/,
+      /^\.jekyll\-cache/,
       %r!#{Config['patternbot']['source']}!,
       %r!#{Config['patternbot']['destination']}!,
       %r!#{Config['patternbot']['css']['source']}!,
