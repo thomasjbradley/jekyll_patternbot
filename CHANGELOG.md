@@ -5,7 +5,15 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## [1.6.3]
+## [1.6.4] — 2020-01-20
+
+### Fixed
+
+- Allow accent colours & fonts to show when there isn’t a primary.
+
+---
+
+## [1.6.3] — 2020-01-20
 
 ### Changed
 

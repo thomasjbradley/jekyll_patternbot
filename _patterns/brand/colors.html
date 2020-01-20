@@ -22,7 +22,9 @@
   {% endunless %}
 
   {% unless page._PatternbotData.css.theme.colors.accent == empty %}
-    {% assign show_hr = true %}
+    {% unless page._PatternbotData.css.theme.colors.primary == empty %}
+      {% assign show_hr = true %}
+    {% endunless %}
     {% include patternbot_pattern_brand_color_swatches.html style="small" title="Accent" key="accent" colors=page._PatternbotData.css.theme.colors.accent show_hr=show_hr %}
   {% endunless %}
 

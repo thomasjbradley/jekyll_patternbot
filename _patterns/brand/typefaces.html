@@ -17,7 +17,9 @@
   {% endif %}
 
   {% for font in page._PatternbotData.css.theme.fonts.accent %}
-    {% assign show_hr = true %}
+    {% if page._PatternbotData.css.theme.fonts.primary %}
+      {% assign show_hr = true %}
+    {% endif %}
     {% include patternbot_pattern_brand_typeface.html title="Accent" key="accent" font=font desc=page._PatternbotConfig.patternbot.fonts.accent preposition="an" show_hr=show_hr %}
   {% endfor %}
 </div>
