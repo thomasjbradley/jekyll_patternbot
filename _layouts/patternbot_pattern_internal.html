@@ -38,6 +38,7 @@
       }
       html, body {
         color: {{page._subpattern | get_pattern_interface_color: page._pattern}};
+        background-color: {{page._subpattern | get_pattern_background_color: page._pattern | as_hex}};
       }
     {%- else -%}
       :root {
