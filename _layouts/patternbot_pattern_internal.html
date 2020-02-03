@@ -36,7 +36,7 @@
         --color-patternbot-interface-background: {{page._subpattern | get_pattern_background_color: page._pattern | as_hex}};
         --color-patternbot-interface-accent: {{page._subpattern | get_pattern_interface_color: page._pattern | as_hex}};
       }
-      html {
+      html, body {
         color: {{page._subpattern | get_pattern_interface_color: page._pattern}};
       }
     {%- else -%}
@@ -54,7 +54,7 @@
           {%- endif -%}
         {%- endif -%}
       }
-      html {
+      html, body {
         color: {{page._PatternbotConfig.patternbot.colors.background | get_interface_color}};
       }
     {%- endif -%}
@@ -62,7 +62,7 @@
       :root {
         --font-patternbot-primary: {{page._PatternbotData.css.theme.fonts.primary.css_name}}, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
       }
-      html {
+      html, body {
         font-family: {{page._PatternbotData.css.theme.fonts.primary.css_name}}, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
       }
     {%- endif -%}
