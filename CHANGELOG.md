@@ -5,6 +5,15 @@ Jekyll Patternbot adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
+## [1.6.5] — 2020-02-03
+
+### Fixed
+
+- When a background colour is applied to an internal pattern, it now overwrites the `html` `background-color` specified in the user CSS.
+- Force the background colour & font onto both `body` & `html` for more reliability.
+
+---
+
 ## [1.6.4] — 2020-01-20
 
 ### Fixed
